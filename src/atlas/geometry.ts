@@ -66,7 +66,7 @@ export function colorFor(data: AtlasData, id: string): string {
 }
 export function formatValue(value: number | null, label = ''): string {
   if (value === null) return 'No observation';
-  return new Intl.NumberFormat('en-CH', { maximumFractionDigits: Math.abs(value) >= 1000 ? 0 : 2 }).format(value) + (label === 'Percent' ? '%' : label ? ` ${label}` : '');
+  return new Intl.NumberFormat('en-CH', { maximumFractionDigits: label.startsWith('CHF per ') ? 4 : Math.abs(value) >= 1000 ? 0 : 2 }).format(value) + (label === 'Percent' ? '%' : label ? ` ${label}` : '');
 }
 export function formatTick(value: number): string {
   return Math.abs(value) >= 10_000 ? new Intl.NumberFormat('en-CH', { notation: 'compact', maximumFractionDigits: 1 }).format(value) : formatValue(value);

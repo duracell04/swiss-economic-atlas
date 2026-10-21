@@ -1,5 +1,9 @@
 # Contributing sources and observations
 
+### Annual exchange rates
+
+Use `--importer ecb-fx-annual` for the exact ECB annual CHF/EUR CSV; `bbk-dem-annual` for the original Bundesbank daily DEM-per-100-CHF file (the importer converts daily quotes before averaging); and `snb-effective-annual` for the selected SNB overall nominal/CPI-based real annual indices. Federal Reserve CHF/USD uses the existing `audited-extract` workflow with the checksum-pinned ZIP/XML recipe `data/extractions/chf-usd-annual.json`. See the [exchange-rate audit](source-audit/exchange-rates.md) for URLs, rights, identity checks, dates and full reproduction. Never invert an annual average to approximate the requested opposite quotation or publish partial-year values as full-year means.
+
 All updates are prepared manually and reviewed through pull requests. No scheduled data acquisition is enabled.
 
 ## Apply the governing scope

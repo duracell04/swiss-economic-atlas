@@ -2,6 +2,86 @@
   "schema_version": "2.0.0",
   "sources": [
     {
+      "id": "ecb-chf-eur-annual",
+      "publisher": "European Central Bank",
+      "title": "ECB annual CHF per euro reference rate",
+      "landing_url": "https://data.ecb.europa.eu/data/datasets/EXR/EXR.A.CHF.EUR.SP00.A",
+      "data_url": "https://data-api.ecb.europa.eu/service/data/EXR/A.CHF.EUR.SP00.A?startPeriod=1999&endPeriod=2025&format=csvdata",
+      "source_identifier": "EXR.A.CHF.EUR.SP00.A",
+      "audit_status": "verified",
+      "definition": "Published annual average of ECB reference exchange rates in Swiss francs per euro; not an endpoint or an inverse quotation.",
+      "coverage": "1999–2025, 27 complete annual observations",
+      "revision_practice": "Retained API vintage retrieved 21 October 2026; later source revisions require a new immutable snapshot. Per-observation release dates are not supplied.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "ECB copyright: free use with attribution and accurate reproduction",
+        "evidence_url": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+        "reviewed_on": "2026-10-21",
+        "attribution": "European Central Bank, EXR.A.CHF.EUR.SP00.A, retrieved 21 October 2026.",
+        "conditions": "Cite the ECB, reproduce accurately and identify modifications. These are the ECB-published annual averages, not the restricted SNB/Bloomberg BFIX quotes. No endorsement implied."
+      }
+    },
+    {
+      "id": "fed-chf-usd-annual",
+      "publisher": "Board of Governors of the Federal Reserve System (US)",
+      "title": "Federal Reserve G.5A annual CHF per US dollar",
+      "landing_url": "https://www.federalreserve.gov/releases/g5a/current/",
+      "data_url": "https://www.federalreserve.gov/releases/h10/data/FRB_h10_xml.zip",
+      "source_identifier": "H10/H10/RXI_N.A.SZ",
+      "audit_status": "verified",
+      "definition": "Published annual average of daily noon buying rates in New York for cable transfers: Swiss francs per US dollar.",
+      "coverage": "1971–2025, 55 complete annual observations",
+      "revision_practice": "H.10 XML release prepared 19 October 2026; retained original ZIP and checksum-verified extraction. Historical data may be revised. Per-year initial publication dates are not inferred from the release date.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "Public domain — citation requested",
+        "evidence_url": "https://www.federalreserve.gov/disclaimer.htm",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Board of Governors of the Federal Reserve System (US), G.5A / H10/H10/RXI_N.A.SZ, retrieved 21 October 2026.",
+        "conditions": "Board website information is public domain unless otherwise indicated; cite the Board. The release identifies the Federal Reserve Bank of New York's market-participant survey, not a third-party proprietary benchmark. No Federal Reserve logos or endorsement."
+      }
+    },
+    {
+      "id": "bbk-historical-dem",
+      "publisher": "Deutsche Bundesbank",
+      "title": "Historical official Frankfurt fixing: DEM per 100 CHF",
+      "landing_url": "https://statistiken.bundesbank.de/statistiken-en/search/W133/W154",
+      "data_url": "https://api.statistiken.bundesbank.de/rest/data/BBEX3/D.CHF.DEM.AA.AC.000?format=csv",
+      "source_identifier": "BBEX3.D.CHF.DEM.AA.AC.000",
+      "audit_status": "verified",
+      "definition": "Bundesbank historical Frankfurt middle quotation in DEM per 100 CHF. Atlas converts each valid daily fixing to CHF per DEM (100 divided by the original quote), then takes its calendar-year arithmetic average.",
+      "coverage": "Original daily file begins 21 December 1949 and ends 30 December 1998; 49 complete atlas annual means for 1950–1998.",
+      "revision_practice": "Source metadata dated 20 September 2023; retrieved 21 October 2026. Preserve the 1953 change from conversion/agreement rates to official Frankfurt quotations. Weekends, holidays and documented exchange closures stay missing.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "Bundesbank statistics — free reuse with source attribution",
+        "evidence_url": "https://www.bundesbank.de/en/homepage/user-information/terms-of-use-regarding-the-reuse-of-escb-statistics-621188",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Source: Deutsche Bundesbank, BBEX3.D.CHF.DEM.AA.AC.000, retrieved 21 October 2026; daily conversion and annual averaging by the Swiss Economic Atlas.",
+        "conditions": "Preserve the original statistical observations and metadata with source attribution. The original official Frankfurt series has no external-source field; the alternative Swiss-bank/newspaper-sourced CA series is not used. The published CHF-per-DEM annual view is explicitly an atlas calculation, not an unmodified Bundesbank annual series. No endorsement implied."
+      }
+    },
+    {
+      "id": "snb-effective-annual",
+      "publisher": "Swiss National Bank",
+      "title": "Annual nominal and CPI-based real effective CHF indices, overall",
+      "landing_url": "https://data.snb.ch/en/topics/ziredev/cube/devwkieffia",
+      "data_url": "https://data.snb.ch/api/cube/devwkieffia/data/csv/en?dimSel=D0(N,K),D1(G),D2(I)&fromDate=1973&toDate=2025",
+      "source_identifier": "devwkieffia / N,K / G / I",
+      "audit_status": "verified",
+      "definition": "SNB-published yearly averages of its nominal and CPI-deflated real effective overall Swiss franc exchange-rate indices, 2000=100. Chained Törnqvist indices with IMF-method competition weights based on goods and services trade, including third-market effects.",
+      "coverage": "1973–2025; 53 annual observations for each index",
+      "revision_practice": "Publication of 7 October 2026. Weights and price inputs can be revised. The modern methodology backcasts to 1973; the country pool expands from 15 trading partners through 1999 to a threshold-based pool of 54 from 2000. Do not splice the discontinued 2001-method export index.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "SNB non-commercial use with attribution",
+        "evidence_url": "https://www.snb.ch/en/srv/disclaimer_copyright",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Swiss National Bank, devwkieffia, nominal and CPI-based real effective overall indices, publication 7 October 2026; retrieved 21 October 2026.",
+        "conditions": "Non-commercial use compatible with the data's purpose, source reference and no implication of affiliation with SNB. The cube identifies SNB as the source for its calculated effective indices. This is not a permission to redistribute the separate Bloomberg BFIX bilateral quotes, nor a commercial-use licence."
+      }
+    },
+    {
       "id": "fso",
       "publisher": "Federal Statistical Office",
       "title": "Output, population, consumer prices and ILO unemployment",
@@ -803,6 +883,170 @@
     }
   ],
   "series": [
+    {
+      "id": "chf-eur-annual",
+      "title": "CHF/EUR exchange rate — annual mean",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "Swiss francs per euro, using the ECB's published annual average of reference rates. A decrease means a stronger franc against the euro.",
+      "unit": {
+        "code": "currency",
+        "label": "CHF per EUR",
+        "dimension": "CHF per EUR",
+        "scale": 1
+      },
+      "measurement": "level",
+      "price_basis": "nominal",
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss franc against the euro",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "ECB-published calendar-year average of daily reference rates; original precision retained. Not year-end, not an average of rounded monthly means.",
+      "source_ids": [
+        "ecb-chf-eur-annual"
+      ],
+      "source_identifier": "EXR.A.CHF.EUR.SP00.A",
+      "breaks": [
+        {
+          "period": "1999",
+          "description": "Euro introduced on 1 January 1999. No pre-1999 synthetic euro observations; historical DEM is a separate series."
+        }
+      ],
+      "usage_notes": "Lower CHF per EUR = franc appreciation. ECB reference rates are informational and differ in fixing convention from SNB quotes. Coverage 1999–2025; no partial 2026 annual mean. Reference rates are not transaction prices."
+    },
+    {
+      "id": "chf-usd-annual",
+      "title": "CHF/USD exchange rate — annual mean",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "Swiss francs per US dollar, using the Federal Reserve's published G.5A annual average of New York noon buying rates. A decrease means a stronger franc against the dollar.",
+      "unit": {
+        "code": "currency",
+        "label": "CHF per USD",
+        "dimension": "CHF per USD",
+        "scale": 1
+      },
+      "measurement": "level",
+      "price_basis": "nominal",
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss franc against the US dollar",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "Federal Reserve-published arithmetic average of daily noon buying rates for cable transfers in New York; not a 31 December spot rate even though the XML labels each annual period YYYY-12-31.",
+      "source_ids": [
+        "fed-chf-usd-annual"
+      ],
+      "source_identifier": "H10/H10/RXI_N.A.SZ",
+      "breaks": [
+        {
+          "period": "1971",
+          "description": "Retained Federal Reserve series starts in 1971. No backfill from another fixing or monetary regime."
+        }
+      ],
+      "usage_notes": "Lower CHF per USD = franc appreciation. New York noon buying rates differ from ECB/Frankfurt/SNB fixings. Coverage 1971–2025; no partial 2026 annual mean."
+    },
+    {
+      "id": "chf-dem-annual",
+      "title": "CHF/DEM historical exchange rate — annual mean",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "Swiss francs per Deutsche Mark: atlas arithmetic average of daily 100/x, where x is the Bundesbank's official historical Frankfurt quotation in DEM per 100 CHF. A decrease means a stronger franc against the mark.",
+      "unit": {
+        "code": "currency",
+        "label": "CHF per DEM",
+        "dimension": "CHF per DEM",
+        "scale": 1
+      },
+      "measurement": "level",
+      "price_basis": "nominal",
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss franc against the Deutsche Mark, historical German fixing",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "For each valid daily fixing x in DEM per 100 CHF, calculate 100/x CHF per DEM, then take the unweighted mean of available fixings in a complete calendar year (all 12 months, at least 200 valid fixings). Omit weekends, holidays and closures without filling. Round only the final mean to 15 significant digits. Omit incomplete 1949.",
+      "source_ids": [
+        "bbk-historical-dem"
+      ],
+      "source_identifier": "BBEX3.D.CHF.DEM.AA.AC.000 / mean(100/x)",
+      "breaks": [
+        {
+          "period": "1953",
+          "description": "Until 3 May: Bank deutscher Länder conversion rates; 4 May–25 July: agreement-based CHF rates; from 27 July: official Frankfurt quotation. The annual 1953 mean spans these conventions."
+        },
+        {
+          "period": "1998",
+          "description": "Final pre-euro calendar year. Series ends here and is not converted into a synthetic euro history."
+        }
+      ],
+      "usage_notes": "Lower CHF per DEM = franc appreciation. Atlas-calculated annual mean, not an inverse of the Bundesbank annual mean (inversion and averaging do not commute). Historical coverage 1950–1998, distinct from EUR. Frankfurt fixing differs from the other bilateral series."
+    },
+    {
+      "id": "chf-neer-annual",
+      "title": "CHF nominal effective exchange rate — annual mean",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "SNB nominal effective overall CHF exchange-rate index, 2000=100. Higher values mean nominal franc appreciation against the weighted trading-partner currency basket.",
+      "unit": {
+        "code": "index",
+        "label": "Index, 2000 = 100",
+        "dimension": "CHF effective index 2000=100",
+        "scale": 1
+      },
+      "measurement": "level",
+      "price_basis": "nominal",
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss franc against the SNB overall trading-partner basket",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "SNB-published yearly average, devwkieffia N/G/I, 2000=100. IMF-method competition weights, two-year averages updated annually; chained Törnqvist index. No atlas rebasing or monthly approximation.",
+      "source_ids": [
+        "snb-effective-annual"
+      ],
+      "source_identifier": "devwkieffia/N/G/I",
+      "breaks": [
+        {
+          "period": "2000",
+          "description": "1973–1999: 15 trading partners; from 2000: partners exceeding 0.2% of Swiss foreign trade selected from a 54-country pool. Retains the SNB's published backcast under the modern methodology."
+        }
+      ],
+      "usage_notes": "Higher index = nominal franc appreciation, opposite to CHF per foreign currency. Index level is not a percentage overvaluation. Nominal and real indices have distinct price bases and axes. Coverage 1973–2025; source terms permit non-commercial use."
+    },
+    {
+      "id": "chf-reer-annual",
+      "title": "CHF real effective exchange rate — annual mean",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "SNB CPI-based real effective overall CHF exchange-rate index, 2000=100, adjusting the nominal index for consumer-price developments in Switzerland and trading partners. Higher values mean real franc appreciation.",
+      "unit": {
+        "code": "index",
+        "label": "Index, 2000 = 100",
+        "dimension": "CHF effective index 2000=100",
+        "scale": 1
+      },
+      "measurement": "level",
+      "price_basis": "real",
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss franc against the SNB overall trading-partner basket",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "SNB-published yearly average, devwkieffia K/G/I, 2000=100; CPI deflation. IMF-method competition weights, two-year averages updated annually; chained Törnqvist index. Not the PPI-based variant or the euro-area-only index.",
+      "source_ids": [
+        "snb-effective-annual"
+      ],
+      "source_identifier": "devwkieffia/K/G/I",
+      "breaks": [
+        {
+          "period": "2000",
+          "description": "1973–1999: 15 trading partners; from 2000: partners exceeding 0.2% of Swiss foreign trade selected from a 54-country pool. Retains the SNB's published backcast under the modern methodology."
+        }
+      ],
+      "usage_notes": "Higher index = real franc appreciation. CPI-based price competitiveness is not an equilibrium valuation estimate; 100 does not mean fair value. Keep separate from the nominal effective index and bilateral CHF quotes. Coverage 1973–2025; source terms permit non-commercial use."
+    },
     {
       "id": "real-gdp-per-capita",
       "title": "Real GDP per capita",
@@ -1976,6 +2220,38 @@
       "sha256": "bbeca1289c6c95dab58f8d69b1f4d2a847b2d63150acc31f62cf131882743ba0",
       "file": "data/raw/snb-seco-registered-unemployment-2026-10-12-bbeca1289c6c95da.csv",
       "source_url": "https://data.snb.ch/api/cube/amarbma/data/csv/en?dimSel=D0(T1)&fromDate=1948-01&toDate=2026-09"
+    },
+    {
+      "id": "ecb-chf-eur-annual-2026-10-21-003e3c8066304ca9",
+      "source_id": "ecb-chf-eur-annual",
+      "retrieved_on": "2026-10-21",
+      "sha256": "003e3c8066304ca9704d9121a97acc5ddeb0077f8f9e50612f5d3d561a70cc40",
+      "file": "data/raw/ecb-chf-eur-annual-2026-10-21-003e3c8066304ca9.csv",
+      "source_url": "https://data-api.ecb.europa.eu/service/data/EXR/A.CHF.EUR.SP00.A?startPeriod=1999&endPeriod=2025&format=csvdata"
+    },
+    {
+      "id": "fed-chf-usd-annual-2026-10-21-1da900a1cdf2c287",
+      "source_id": "fed-chf-usd-annual",
+      "retrieved_on": "2026-10-21",
+      "sha256": "1da900a1cdf2c287fca981234fcadb2b376006fbc9c61fdb572b168f0b2d9b20",
+      "file": "data/raw/fed-chf-usd-annual-2026-10-21-1da900a1cdf2c287.csv",
+      "source_url": "https://www.federalreserve.gov/releases/h10/data/FRB_h10_xml.zip"
+    },
+    {
+      "id": "snb-effective-annual-2026-10-21-0508e0eb07dcbfd3",
+      "source_id": "snb-effective-annual",
+      "retrieved_on": "2026-10-21",
+      "sha256": "0508e0eb07dcbfd3cdddfc5db8ad18f113cf1c7f935a8bc76829cd5ff01e3f3d",
+      "file": "data/raw/snb-effective-annual-2026-10-21-0508e0eb07dcbfd3.csv",
+      "source_url": "https://data.snb.ch/api/cube/devwkieffia/data/csv/en?dimSel=D0(N,K),D1(G),D2(I)&fromDate=1973&toDate=2025"
+    },
+    {
+      "id": "bbk-historical-dem-2026-10-21-7114597252758ed3",
+      "source_id": "bbk-historical-dem",
+      "retrieved_on": "2026-10-21",
+      "sha256": "7114597252758ed338d31bb4e7bed8a56bd501a199a692fdc4f6e114e7c1aebb",
+      "file": "data/raw/bbk-historical-dem-2026-10-21-7114597252758ed3.csv",
+      "source_url": "https://api.statistiken.bundesbank.de/rest/data/BBEX3/D.CHF.DEM.AA.AC.000?format=csv"
     }
   ]
 }

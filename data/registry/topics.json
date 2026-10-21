@@ -55,7 +55,7 @@
       "id": "external",
       "title": "The franc and international integration",
       "description": "Exchange rates, foreign trade, current-account flows and external positions.",
-      "series_ids": []
+      "series_ids": ["chf-eur-annual", "chf-usd-annual", "chf-dem-annual", "chf-neer-annual", "chf-reer-annual"]
     },
     {
       "id": "credit-housing",

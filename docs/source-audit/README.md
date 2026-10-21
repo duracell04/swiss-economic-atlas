@@ -1,5 +1,7 @@
 # Source audit
 
+Completed annual exchange-rate audit: [CHF/EUR, CHF/USD, historical CHF/DEM and SNB nominal/CPI-based real effective CHF indices](exchange-rates.md), including source-specific reuse evidence and reproducible annual methods.
+
 Completed exact dataset audits: [Confederation yields](yields.md) and [general government gross debt / GDP](debt.md). Broad publisher starting points below remain candidates unless a separate exact record has been verified.
 
 These are candidate source starting points, not verified datasets or redistribution grants:

@@ -1,0 +1,11 @@
+{
+  "format": "frb-zip-xml",
+  "original_file": "data/extractions/originals/fed-h10-2026-10-19.zip",
+  "original_sha256": "8f370f9c57b73e1c0b68a2ee72ddecd3abaffb21fa627fcfd4f8a3612798c6a8",
+  "original_url": "https://www.federalreserve.gov/releases/h10/data/FRB_h10_xml.zip",
+  "series_name": "RXI_N.A.SZ",
+  "attributes": {"CURRENCY":"CHF","FREQ":"203","FX":"CHF","UNIT":"Currency:_Per_USD","UNIT_MULT":"1"},
+  "key": "H10/H10/RXI_N.A.SZ",
+  "last_complete_year": 2025,
+  "expected_count": 55
+}

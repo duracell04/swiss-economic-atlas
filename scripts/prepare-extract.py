@@ -46,6 +46,24 @@ if spec['format']=='xlsx':
    for i in range(spec['first_row'],spec['last_row']+1):
     period=cells.get(spec['period_column']+str(i));value=cells.get(spec['value_column']+str(i))
     if period is not None and value is not None:rows.append([period,spec['key'],value])
+elif spec['format']=='frb-zip-xml':
+ with zipfile.ZipFile(Path(sys.argv[2])) as z:
+  document=E.fromstring(z.read('H10_data.xml'))
+ ns={'kf':'http://www.federalreserve.gov/structure/compact/H10_H10','frb':'http://www.federalreserve.gov/structure/compact/common'}
+ matches=[s for s in document.findall('.//kf:Series',ns) if s.get('SERIES_NAME')==spec['series_name']]
+ if len(matches)!=1:raise ValueError('Federal Reserve series must be unique')
+ series=matches[0]
+ for key,value in spec['attributes'].items():
+  if series.get(key)!=value:raise ValueError('Federal Reserve series identity mismatch: '+key)
+ seen=set()
+ for observation in series.findall('frb:Obs',ns):
+  period=observation.get('TIME_PERIOD');value=observation.get('OBS_VALUE')
+  if not period or not period.endswith('-12-31') or observation.get('OBS_STATUS')!='A':raise ValueError('Unexpected Federal Reserve annual observation')
+  year=period[:4]
+  if year in seen:raise ValueError('Duplicate Federal Reserve year')
+  seen.add(year)
+  if int(year)<=spec['last_complete_year']:rows.append([year,spec['key'],value])
+ if len(rows)!=spec['expected_count']:raise ValueError('Unexpected Federal Reserve coverage')
 elif spec['format']=='checked-table-csv':
  source=list(csv.DictReader(data.decode('utf8').splitlines()))
  if list(source[0])!=spec['columns']:raise ValueError('Checked table column identity mismatch')

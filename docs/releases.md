@@ -1,5 +1,13 @@
 # Release notes
 
+## 2026-10-21 — Five verified annual exchange-rate charts
+
+- Added CHF/EUR (ECB, 1999–2025), CHF/USD (Federal Reserve G.5A, 1971–2025), and historical CHF/DEM (Bundesbank daily Frankfurt fixings converted before annual averaging, 1950–1998).
+- Added SNB-published annual nominal and CPI-based real effective overall indices for 1973–2025, 2000=100. Preserved the 2000 partner-pool change and modern-method backcast.
+- Added direction/quotation notes beside charts, information and methodology pages, exact source/reuse audits, immutable raw snapshots and a reproducible checksum-pinned Federal Reserve ZIP extraction. No restricted SNB/Bloomberg bilateral quotes are published.
+- Published 237 additional annual observations in five datasets. No incomplete 1949 mark year, synthetic pre-1999 euro, post-1998 mark or partial 2026 annual observation.
+- Moved the two completed exchange-rate families into the verified foundation. The remaining P1 sequence begins with productivity and hours; the five previous source/licensing candidates remain unresolved.
+
 ## 2026-10-21 — Governing scope and remaining-data roadmap
 
 - Adopted the history of Swiss prosperity as the governing scope, documented in `docs/scope.md`, with a validated editorial registry of ten modules and 47 indicator families.

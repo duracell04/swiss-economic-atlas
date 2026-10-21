@@ -32,7 +32,8 @@ test('candidate definitions and planned views cannot claim published family cove
   const published = new Set(data.observations.filter(row => row.value !== null && data.registry.series.find(series => series.id === row.series_id)?.verification === 'verified').map(row => row.series_id));
   const families = scope.modules.flatMap(module => module.families);
   assert.equal(familyAvailability(families.find(family => family.id === 'equity-returns')!, published), 'Planned');
-  assert.equal(familyAvailability(families.find(family => family.id === 'bilateral-fx')!, published), 'Planned');
+  assert.equal(familyAvailability(families.find(family => family.id === 'bilateral-fx')!, published), 'Available');
+  assert.equal(familyAvailability(families.find(family => family.id === 'effective-fx')!, published), 'Available');
   assert.equal(familyAvailability(families.find(family => family.id === 'government-yields')!, published), 'Partial');
   assert.equal(familyAvailability(families.find(family => family.id === 'unemployment')!, published), 'Available');
   const future = structuredClone(families.find(family => family.id === 'unemployment')!);

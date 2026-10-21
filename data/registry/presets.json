@@ -280,6 +280,11 @@
     }
   ],
   "styles": {
+    "chf-eur-annual": "#2563eb",
+    "chf-usd-annual": "#047857",
+    "chf-dem-annual": "#8b2f2f",
+    "chf-neer-annual": "#b45309",
+    "chf-reer-annual": "#111111",
     "real-gdp": "#111111",
     "real-gdp-per-capita": "#8b2f2f",
     "population": "#667085",

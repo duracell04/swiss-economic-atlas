@@ -55,8 +55,8 @@
       "title": "The franc and international integration",
       "question": "How do foreign demand, capital flows and monetary conditions shape Switzerland?",
       "families": [
-        {"id":"bilateral-fx","title":"CHF bilateral exchange rates","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual means in CHF per unit of foreign currency; year-end views remain distinct.","next_step":"Start with CHF/EUR, CHF/USD and CHF/DEM before 1999; do not invent a pre-1999 euro history."},
-        {"id":"effective-fx","title":"Nominal and real effective exchange rates","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual mean indices with explicit weighting, deflator and base year.","next_step":"Audit the SNB index definitions and changes in trading-partner weights."},
+        {"id":"bilateral-fx","title":"CHF bilateral exchange rates","priority":"foundation","series_ids":["chf-eur-annual","chf-usd-annual","chf-dem-annual"],"planned":false,"annual_view":"Annual means in CHF per foreign currency: EUR 1999–2025, USD 1971–2025 and historical DEM 1950–1998. Lower values mean franc appreciation; fixing conventions differ.","next_step":"Maintain the verified ECB, Federal Reserve and Bundesbank sources. Preserve CHF/DEM before 1999 as a separate history, not a synthetic pre-1999 euro."},
+        {"id":"effective-fx","title":"Nominal and real effective exchange rates","priority":"foundation","series_ids":["chf-neer-annual","chf-reer-annual"],"planned":false,"annual_view":"SNB-published annual mean overall indices, 1973–2025; 2000=100, real index CPI-based. Higher values mean appreciation. The country pool changes in 2000.","next_step":"Maintain the SNB methodology, weight/price-input revision notes and non-commercial attribution conditions. No partial 2026 annual values."},
         {"id":"foreign-trade","title":"Exports, imports and trade balance","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual trade flows and balances; compatible GDP shares where appropriate.","next_step":"Specify customs goods coverage and gold/valuables treatment; keep national-accounts goods and services distinct."},
         {"id":"current-account","title":"Current-account balance","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual balance-of-payments flows and a matching nominal-GDP ratio.","next_step":"Audit SNB balance-of-payments revisions and explain the difference from the goods trade balance."},
         {"id":"international-position","title":"International investment position","priority":"later","series_ids":[],"planned":true,"annual_view":"Year-end foreign assets and liabilities, with valuation and coverage notes.","next_step":"Add after external flows; distinguish the net position from transaction-driven capital flows."}
@@ -122,7 +122,6 @@
     }
   ],
   "acquisition_order": [
-    {"title":"The franc and foreign conditions","family_ids":["bilateral-fx","effective-fx"],"why":"Establish the missing exchange-rate context for monetary policy, foreign demand and safe-haven episodes."},
     {"title":"Productivity and labour input","family_ids":["hourly-productivity","hours-worked"],"why":"Distinguish output gains from more hours worked and gains in output per hour."},
     {"title":"Wages and household purchasing power","family_ids":["real-wages","disposable-income"],"why":"Connect national prosperity with the material circumstances of households."},
     {"title":"Housing and its financing","family_ids":["mortgage-rates","residential-prices","private-credit","mortgage-lending"],"why":"Connect borrowing costs and credit exposures with property prices and household burdens."},

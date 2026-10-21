@@ -3,6 +3,7 @@ import { available, availableYearRange, definition, emptyState, panelYears, vali
 import { colorFor, formatValue, pointsFor } from './geometry.ts';
 import { drawChart, drawCursor } from './renderer.ts';
 import { unemploymentMethod, unemploymentComparison } from '../lib/unemployment.ts';
+import { exchangeRateNote } from '../lib/exchange-rates.ts';
 
 const element = <T extends HTMLElement = HTMLElement>(id: string): T => document.getElementById(id) as T;
 const make = <K extends keyof HTMLElementTagNameMap>(tag: K, className = '', text = ''): HTMLElementTagNameMap[K] => {
@@ -84,9 +85,12 @@ async function boot(): Promise<void> {
       content.append(make('p', '', labour.definition), make('p', '', unemploymentComparison));
       content.append(methodologyLink());
     }
+    const fx = exchangeRateNote(id);
+    if (fx) content.append(make('p','',fx));
     const dl = make('dl');
     const fields = [['Unit', s.unit.label], ['Measurement', s.measurement], ['Price basis', s.price_basis.replaceAll('_', ' ')], ['Frequency', s.frequency], ['Coverage', s.institutional_coverage], ['Aggregation', s.aggregation], ['Historical breaks', s.breaks.map(b => `${b.period}: ${b.description}`).join('; ') || 'No breaks recorded; candidate definitions remain subject to audit.'], ['Usage', s.usage_notes]];
     if (labour) fields.unshift(['Source', labour.source], ['Method', labour.method], ['Available periods', coverage(id)]);
+    if (fx) fields.unshift(['Available periods', coverage(id)]);
     for (const [label, value] of fields) dl.append(make('dt', '', label), make('dd', '', value));
     content.append(dl);
     for (const source of data.registry.sources.filter(source => s.source_ids.includes(source.id))) {
@@ -230,6 +234,14 @@ async function boot(): Promise<void> {
       section.append(legend);
       const unit=make('p','axis-note',`${[...new Set(panel.series_ids.map(id=>definition(data,id).unit.label))].join(' / ')} · annual observations`);
       section.append(unit);
+      const fxNotes = [...new Set(panel.series_ids.map(exchangeRateNote).filter((note): note is string => Boolean(note)))];
+      if (fxNotes.length) {
+        const notes = make('div','exchange-rate-methods');
+        for (const note of fxNotes) notes.append(make('p','',note));
+        const link = make('a','','Exchange-rate sources and annual methods →');
+        link.href = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/methodology/#exchange-rates`;
+        notes.append(link); section.append(notes);
+      }
       const labourNotes = make('div', 'unemployment-methods');
       for (const id of panel.series_ids) {
         const labour = unemploymentMethod(id);
