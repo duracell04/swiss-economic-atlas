@@ -10,7 +10,7 @@
       "families": [
         {"id":"output-levels","title":"GDP levels and growth","priority":"foundation","series_ids":["nominal-gdp","real-gdp","real-gdp-growth"],"planned":false,"annual_view":"Annual nominal and real output, with published growth and reconstruction breaks.","next_step":"Maintain the verified GDP foundation; quarterly episode analysis is a later extension."},
         {"id":"output-per-capita","title":"Real GDP per capita","priority":"foundation","series_ids":["real-gdp-per-capita"],"planned":false,"annual_view":"Real GDP divided by the documented population denominator.","next_step":"Retain the explicit year-end population convention and inherited national-accounts breaks."},
-        {"id":"hourly-productivity","title":"Output per hour worked","priority":"next","series_ids":[],"planned":true,"annual_view":"Published annual real output per hour, with a compatible hours denominator.","next_step":"Audit FSO productivity and total-hours inputs; publish their actual start dates."},
+        {"id":"hourly-productivity","title":"Output per hour worked","priority":"foundation","series_ids":["hourly-labour-productivity"],"planned":false,"annual_view":"FSO-published annual real output per actual hour worked, index 1991=100; 1991–2025, with compatible WPS hours and source revision flags.","next_step":"Maintain matched output/hours vintages, 2023–2025 revised flags and the documented pre-2010 hours harmonisation. Do not substitute nominal productivity or per-worker output."},
         {"id":"investment-share","title":"Investment relative to GDP","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual investment flows divided by compatible nominal GDP.","next_step":"Select business and construction investment with matching accounting coverage."}
       ]
     },
@@ -22,7 +22,7 @@
         {"id":"population","title":"Population","priority":"foundation","series_ids":["population"],"planned":false,"annual_view":"Published year-end permanent resident population.","next_step":"Maintain population definitions and census/register transitions."},
         {"id":"migration","title":"Net migration and cross-border workers","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual migration flows; separately defined annual worker stocks or means.","next_step":"Audit migration balance and cross-border employment without merging residence concepts."},
         {"id":"employment-participation","title":"Employment and labour-force participation","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual employment, employment rates and participation with explicit age bases.","next_step":"Distinguish people, jobs and full-time equivalents; preserve survey breaks."},
-        {"id":"hours-worked","title":"Total hours worked","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual total actual hours worked, compatible with productivity.","next_step":"Acquire alongside hourly productivity so output can be decomposed into hours and productivity."},
+        {"id":"hours-worked","title":"Total hours worked","priority":"foundation","series_ids":["total-hours-worked"],"planned":false,"annual_view":"FSO WPS annual total actual hours worked in millions; 1991–2025. Reconciled to the hourly-productivity denominator, including harmonised pre-2010 history.","next_step":"Maintain the source workbook, matching WPS index and revision lineage. Preserve total-hours units and do not splice unadjusted WV history or replace totals with hours per person/job."},
         {"id":"unemployment","title":"Registered and ILO unemployment","priority":"foundation","series_ids":["registered-unemployment","registered-unemployment-annual","ilo-unemployment","ilo-unemployment-annual"],"planned":false,"annual_view":"Complete-year SECO means and separately published BFS / ILO annual estimates.","next_step":"Maintain both definitions; extend historical coverage only with verified annual evidence."},
         {"id":"demography","title":"Age structure and dependency ratios","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual population shares and dependency ratios with explicit age thresholds.","next_step":"Connect demographic change with labour supply and social-insurance financing."}
       ]
@@ -122,7 +122,6 @@
     }
   ],
   "acquisition_order": [
-    {"title":"Productivity and labour input","family_ids":["hourly-productivity","hours-worked"],"why":"Distinguish output gains from more hours worked and gains in output per hour."},
     {"title":"Wages and household purchasing power","family_ids":["real-wages","disposable-income"],"why":"Connect national prosperity with the material circumstances of households."},
     {"title":"Housing and its financing","family_ids":["mortgage-rates","residential-prices","private-credit","mortgage-lending"],"why":"Connect borrowing costs and credit exposures with property prices and household burdens."},
     {"title":"Trade and the current account","family_ids":["foreign-trade","current-account"],"why":"Connect domestic activity and the franc with foreign demand and external balances."},

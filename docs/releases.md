@@ -1,5 +1,13 @@
 # Release notes
 
+## 2026-10-21 — Hourly labour productivity and compatible total hours
+
+- Added 35 annual FSO real hourly-productivity observations (published index 1991=100) and 35 compatible total actual-hours observations (million hours), both 1991–2025.
+- Used the matched 28 August 2026 WPS tables. Verified every hours total against the productivity denominator's index and every productivity value against its source GDP/hours identity. The current-price workbook supplies only the physical hours column, not nominal productivity.
+- Preserved the FSO's pre-2010 harmonisation after the 2021 Work Volume Statistics revision without introducing an artificial 2010 gap. Retained 2023–2025 R flags as revised, with both source snapshots in hours lineage.
+- Added source definitions beside charts, index/unit explanations, OPEN-BY source attribution, original workbook and metadata evidence, reproducible extraction and tests. No invented pre-1991 or partial-year 2026 observations.
+- The atlas now publishes 33 datasets. Productivity/hours move into the maintained foundation; real wages and household income lead the remaining P1 roadmap.
+
 ## 2026-10-21 — Five verified annual exchange-rate charts
 
 - Added CHF/EUR (ECB, 1999–2025), CHF/USD (Federal Reserve G.5A, 1971–2025), and historical CHF/DEM (Bundesbank daily Frankfurt fixings converted before annual averaging, 1950–1998).

@@ -1,0 +1,231 @@
+{
+  "ids" : {
+    "uuid" : "c3648779-beb3-4994-8a80-92e6cc65ab9f",
+    "damId" : 36731757,
+    "contentId" : 1006433,
+    "languageCopyId" : 36731741,
+    "gnp" : "2026-0598"
+  },
+  "bfs" : {
+    "embargo" : "2026-08-28T06:30:00Z",
+    "lifecycle" : {
+      "id" : 900300,
+      "level" : 0,
+      "code" : "CURRENT",
+      "name" : "Diffundiert/aktuell"
+    },
+    "lifecycleGroup" : "CURRENT",
+    "provisional" : false,
+    "articleModel" : {
+      "id" : 900030,
+      "level" : 1,
+      "code" : "TABL",
+      "name" : "TM10 Tabelle Datei"
+    },
+    "articleModelGroup" : {
+      "id" : 900029,
+      "level" : 0,
+      "code" : "AMG_TABLE",
+      "name" : "Daten - Tabelle"
+    }
+  },
+  "description" : {
+    "titles" : {
+      "main" : "Labor productivity by actual hours worked at current prices"
+    },
+    "categorization" : {
+      "collection" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "code" : "STAT_GEN",
+        "name" : "Allgemeine Statistik"
+      }, {
+        "id" : 900014,
+        "level" : 0,
+        "code" : "TAB_JE",
+        "name" : "Tab JE"
+      } ],
+      "prodima" : [ {
+        "id" : 900075,
+        "level" : 0,
+        "code" : "04",
+        "name" : "Volkswirtschaft"
+      }, {
+        "id" : 900931,
+        "level" : 1,
+        "code" : "04.07",
+        "name" : "Produktivität"
+      } ],
+      "inquiry" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Synthesestatistik"
+      }, {
+        "id" : 365,
+        "level" : 1,
+        "code" : "WPS",
+        "abbrev" : "WPS",
+        "name" : "Wachstums- und Produktivitätsstatistik"
+      } ],
+      "spatialdivision" : [ {
+        "id" : 900091,
+        "level" : 0,
+        "code" : "p_suis",
+        "name" : "Schweiz"
+      }, {
+        "id" : 900001,
+        "level" : 1,
+        "code" : "suis",
+        "name" : "Schweiz"
+      } ],
+      "classification" : [ ],
+      "institution" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Bundesamt für Statistik"
+      }, {
+        "id" : 900065,
+        "level" : 1,
+        "code" : "BFS",
+        "abbrev" : "BFS",
+        "name" : "Bundesamt für Statistik"
+      } ],
+      "publisher" : [ ],
+      "tags" : [ ],
+      "dataSource" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Bundesamt für Statistik"
+      }, {
+        "id" : 900065,
+        "level" : 1,
+        "code" : "BFS",
+        "abbrev" : "BFS",
+        "name" : "Bundesamt für Statistik"
+      } ],
+      "copyrights" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Bundesamt für Statistik"
+      }, {
+        "id" : 900065,
+        "level" : 1,
+        "code" : "BFS",
+        "abbrev" : "BFS",
+        "name" : "Bundesamt für Statistik"
+      } ],
+      "termsOfUse" : [ {
+        "id" : 900004,
+        "level" : 0,
+        "code" : "OPEN-BY",
+        "abbrev" : "Freie Nutzung - Quellenangabe ist Pflicht",
+        "name" : "Open use - Must provide the source"
+      } ],
+      "serie" : [ ],
+      "periodicity" : [ {
+        "id" : 910000,
+        "level" : 0,
+        "code" : "ANNUAL",
+        "name" : "Jährlich"
+      } ]
+    },
+    "bibliography" : {
+      "period" : "1991-2025"
+    },
+    "language" : "EN",
+    "highlight" : false,
+    "discontinued" : false,
+    "downloadable" : true
+  },
+  "shop" : {
+    "orderNr" : "je-e-04.07.04.01",
+    "stock" : false
+  },
+  "seo" : {
+    "metaKeywords" : [ ]
+  },
+  "links" : [ {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757",
+    "rel" : "self"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757/bibtex",
+    "rel" : "bibtex"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757/ris",
+    "rel" : "ris"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757/thumbnail",
+    "rel" : "thumbnail"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757/master",
+    "rel" : "master",
+    "format" : "xlsx",
+    "size" : 19001
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731765",
+    "rel" : "alternate",
+    "hreflang" : "it",
+    "text" : "IT"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731753",
+    "rel" : "alternate",
+    "hreflang" : "fr",
+    "text" : "FR"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731759",
+    "rel" : "alternate",
+    "hreflang" : "de",
+    "text" : "DE"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/packages/2026-0598",
+    "rel" : "related-gnp",
+    "text" : "Arbeitsproduktivität im Jahr 2025"
+  }, {
+    "href" : "/bfs/de/home/statistiken/volkswirtschaft/erhebungen/wps.html",
+    "rel" : "related-factsheet-inquiry",
+    "text" : "Wachstums- und Produktivitätsstatistik"
+  }, {
+    "href" : "/bfs/de/home/statistiken/volkswirtschaft.html",
+    "rel" : "related-theme-entrypage",
+    "text" : "Volkswirtschaft"
+  } ],
+  "_embedded" : {
+    "labels" : {
+      "asset.bfs.embargo" : "Veröffentlicht am",
+      "asset.bfs.lastupdated" : "Letzte Aktualisierung",
+      "asset.bfs.model.name" : "Typ",
+      "asset.bfs.originalembargo" : "Ursprüngliches Publikationsdatum",
+      "asset.bfs.provisional" : "Datenstand",
+      "asset.bfs.status" : "Status",
+      "asset.content.format" : "Format",
+      "asset.content.href" : "Anhang",
+      "asset.description.abstractShort" : "Zusammenfassung",
+      "asset.description.bibliography.author" : "Autor(en)",
+      "asset.description.bibliography.copyright" : "Copyright",
+      "asset.description.bibliography.doi" : "Persistenter Link",
+      "asset.description.bibliography.info" : "Bibliographische Angaben",
+      "asset.description.bibliography.pages" : "Seiten",
+      "asset.description.bibliography.period" : "Dargestellter Zeitraum",
+      "asset.description.bibliography.source" : "Quelle(n)",
+      "asset.description.bibliography.termsofuse" : "Nutzungsbedingungen",
+      "asset.description.categorization.classification" : "Nomenklatur(en)",
+      "asset.description.categorization.geography" : "Raumgliederung",
+      "asset.description.categorization.inquiry" : "Erhebung, Statistik",
+      "asset.description.categorization.institution" : "Herausgeber",
+      "asset.description.categorization.keyword" : "Schlagworte",
+      "asset.description.categorization.periodicity" : "Periodizität",
+      "asset.description.categorization.prodima" : "Thema",
+      "asset.description.categorization.publisher" : "Verlag",
+      "asset.description.categorization.serie" : "Reihe",
+      "asset.description.categorization.tags" : "Tags",
+      "asset.description.language" : "Sprache",
+      "asset.descriptions.title.main" : "Titel",
+      "asset.shop.ordernr" : "BFS-Nummer",
+      "asset.shop.price" : "Preis",
+      "link.rel.appendix" : "Zusätzliche Daten",
+      "links.rel.mostrecentissue" : "Aktuellste Ausgabe",
+      "links.rel.otherlanguages" : "Weitere Sprachen",
+      "links.rel.relateddocuments" : "Verwandte Dokumente"
+    }
+  }
+}

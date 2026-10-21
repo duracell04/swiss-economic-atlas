@@ -1,5 +1,9 @@
 # Contributing sources and observations
 
+### Productivity and actual hours
+
+Use `--importer fso-productivity` with the original FSO `ts-x-04.07.01.01` CSV for `hourly-labour-productivity`. Reproduce `total-hours-worked` from the checksum-pinned workbook using `scripts/prepare-extract.py` and `data/extractions/total-hours-worked.json`, then import with `--importer fso-productivity-hours`. Import the companion productivity CSV first: the total-hours records explicitly retain its immutable snapshot for revision flags and compatible-denominator evidence. New vintages require review of both tables and the paired snapshot constant. See the [source audit](source-audit/productivity-hours.md). Do not mix WPS harmonised pre-2010 hours with unadjusted WV totals, select the nominal-productivity column, or infer provisional status from a year alone.
+
 ### Annual exchange rates
 
 Use `--importer ecb-fx-annual` for the exact ECB annual CHF/EUR CSV; `bbk-dem-annual` for the original Bundesbank daily DEM-per-100-CHF file (the importer converts daily quotes before averaging); and `snb-effective-annual` for the selected SNB overall nominal/CPI-based real annual indices. Federal Reserve CHF/USD uses the existing `audited-extract` workflow with the checksum-pinned ZIP/XML recipe `data/extractions/chf-usd-annual.json`. See the [exchange-rate audit](source-audit/exchange-rates.md) for URLs, rights, identity checks, dates and full reproduction. Never invert an annual average to approximate the requested opposite quotation or publish partial-year values as full-year means.

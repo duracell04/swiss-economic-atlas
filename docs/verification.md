@@ -1,5 +1,11 @@
 # Interactive atlas verification
 
+## Hourly productivity and compatible hours — 21 October 2026
+
+Added two matched FSO WPS annual series for 1991–2025, preserving native numeric precision and source-revised 2023–2025 flags. All 35 GDP/hours/productivity identities and all 35 absolute-hours/index identities reconcile within `1e-10` index points. Tests reproduce the checked hours extraction byte-for-byte from the original workbook, verify immutable source and OPEN-BY evidence hashes, reject incompatible or malformed inputs, and retain both snapshots in hours lineage. Source-harmonised pre-2010 hours remain continuous; there is no artificial 2010 gap or full-year 2026 observation.
+
+All 84 unit/data/calculation tests and 38 desktop/mobile browser tests passed. Astro and tooling TypeScript reported no diagnostics. Production contains 33 published datasets and 11,264 permitted observations, with 44 static pages and 930 checked internal links. The isolated demonstration build remains outside production. Desktop and phone visual checks confirm separate index/physical-hours axes, source notes, revision squares, coverage, catalogue/download links, saved layouts and the updated scope roadmap without page overflow or browser errors.
+
 ## Broad government gross debt addition — 7 October 2026
 
 `npm run check`, the isolated demo build and all 14 desktop/mobile browser cases passed. Production has 255 data points in four datasets, 31 pages and 446 checked internal links. Source-specific checks reproduce the historical percent conversion and submitted rounding, compare the two-decimal modern transcription against official IMF readings, preserve provenance and reject inclusion of JST's earlier central-government history.

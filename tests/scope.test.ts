@@ -34,6 +34,8 @@ test('candidate definitions and planned views cannot claim published family cove
   assert.equal(familyAvailability(families.find(family => family.id === 'equity-returns')!, published), 'Planned');
   assert.equal(familyAvailability(families.find(family => family.id === 'bilateral-fx')!, published), 'Available');
   assert.equal(familyAvailability(families.find(family => family.id === 'effective-fx')!, published), 'Available');
+  assert.equal(familyAvailability(families.find(family => family.id === 'hourly-productivity')!, published), 'Available');
+  assert.equal(familyAvailability(families.find(family => family.id === 'hours-worked')!, published), 'Available');
   assert.equal(familyAvailability(families.find(family => family.id === 'government-yields')!, published), 'Partial');
   assert.equal(familyAvailability(families.find(family => family.id === 'unemployment')!, published), 'Available');
   const future = structuredClone(families.find(family => family.id === 'unemployment')!);

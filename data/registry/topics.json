@@ -9,7 +9,9 @@
         "real-gdp-per-capita",
         "real-gdp",
         "real-gdp-growth",
-        "nominal-gdp"
+        "nominal-gdp",
+        "hourly-labour-productivity",
+        "total-hours-worked"
       ]
     },
     {
@@ -21,7 +23,8 @@
         "registered-unemployment",
         "ilo-unemployment",
         "ilo-unemployment-annual",
-        "registered-unemployment-annual"
+        "registered-unemployment-annual",
+        "total-hours-worked"
       ]
     },
     {

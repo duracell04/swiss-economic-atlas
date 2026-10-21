@@ -11,8 +11,8 @@ test('scope roadmap links priorities to planned families and preserves catalogue
   await page.getByRole('link',{name:'Our scope: the history of Swiss prosperity →',exact:true}).click();
   await expect(page).toHaveURL(productionURL+'scope/');
   await expect(page.locator('.scope-module')).toHaveCount(10);
-  await expect(page.locator('.scope-summary')).toContainText('31');
-  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(5);
+  await expect(page.locator('.scope-summary')).toContainText('33');
+  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(4);
   await page.getByRole('link',{name:'CHF bilateral exchange rates',exact:true}).click();
   await expect(page.locator('#module-external')).toHaveAttribute('open','');
   const family=page.locator('#family-bilateral-fx');await expect(family).toBeVisible();
@@ -90,6 +90,48 @@ test('five annual FX charts preserve quotations, separate axes, historical gaps 
   await expect(page).toHaveURL(/methodology\/#exchange-rates$/);await expect(page.locator('#exchange-rates')).toContainText('All five charts show complete calendar years only');
   await page.goto(`${productionURL}series/chf-dem-annual/`);await expect(page.locator('main')).toContainText('1950–1998');
   await expect(page.getByRole('link',{name:'CSV ↓',exact:true})).toHaveAttribute('href',/chf-dem-annual.csv$/);
+  expect(errors).toEqual([]);
+});
+test('annual productivity and total hours preserve matched definitions, distinct axes and revised source observations',async({page},testInfo)=>{
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  const productivity='Hourly labour productivity — real output per hour',hours='Total actual hours worked — FSO (BFS)';
+  await page.goto(productionURL);await expect(page.locator('#atlas')).toHaveAttribute('data-ready','true');
+  await page.getByRole('button',{name:'Reset',exact:true}).click();
+  await add(page,productivity);await add(page,hours);
+  for(const index of [0,1]){
+    await expect(panel(page,index).getByRole('button',{name:/Change years for/})).toHaveText('1991–2025');
+    await expect(panel(page,index).locator('.labour-input-methods')).toContainText('pre-2010 hours were harmonised');
+    await expect(panel(page,index).locator('.labour-input-methods')).toContainText('2023–2025 are source-revised');
+    await expect(panel(page,index).locator('[data-status-marker="revised"]')).toHaveCount(3);
+    await expect(panel(page,index).locator('[data-statistical-break]')).toHaveCount(0);
+  }
+  await panel(page,0).locator('svg').focus();await panel(page,0).locator('svg').press('End');
+  const productivityRow=page.locator('#readout .readout-row').filter({hasText:productivity}),hoursRow=page.locator('#readout .readout-row').filter({hasText:hours});
+  await expect(productivityRow).toContainText('149.4 Index, 1991 = 100');await expect(productivityRow).toContainText('observed · revised');
+  await expect(hoursRow).toContainText('Million hours');await expect(hoursRow).toContainText('observed · revised');
+  await panel(page,0).locator('svg').press('Home');await expect(productivityRow).toContainText('100 Index, 1991 = 100');
+  await expect(hoursRow).toContainText('observed · final');await panel(page,0).locator('svg').press('Escape');
+  await page.getByRole('button',{name:`Information about ${hours}`,exact:true}).click();
+  await expect(page.locator('#info-content')).toContainText('1991–2025');await expect(page.locator('#info-content')).toContainText('Federal Statistical Office');
+  await expect(page.locator('#info-content')).toContainText('not hours per person or job');await page.getByRole('button',{name:'Close indicator information'}).click();
+  await panel(page,1).getByRole('button',{name:/Remove Total actual hours worked/}).click();
+  await add(page,hours,(await panel(page,0).getAttribute('data-panel'))!);
+  await expect(panel(page,0).locator('[data-unit-axis]')).toHaveCount(2);
+  await expect(panel(page,0).locator('[data-unit-axis][aria-label="Index, 1991 = 100 (real)"]')).toHaveCount(1);
+  await expect(panel(page,0).locator('[data-unit-axis][aria-label="Million hours"]')).toHaveCount(1);
+  await expect(panel(page,0).locator('[data-status-marker="revised"]')).toHaveCount(6);
+  await page.reload();await expect(page.locator('.chart-panel')).toHaveCount(1);await expect(panel(page,0).locator('[data-unit-axis]')).toHaveCount(2);
+  const dimensions=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:innerWidth}));expect(dimensions.scroll).toBeLessThanOrEqual(dimensions.width);
+  await page.screenshot({path:`.cache/evidence-productivity-hours-${testInfo.project.name}.png`,fullPage:true});
+  await panel(page,0).getByRole('link',{name:'Productivity and hours: definitions and sources →',exact:true}).click();
+  await expect(page).toHaveURL(/methodology\/#productivity-hours$/);await expect(page.locator('#productivity-hours')).toContainText('OPEN-BY');
+  for(const id of ['hourly-labour-productivity','total-hours-worked']){
+    await page.goto(`${productionURL}series/${id}/`);await expect(page.locator('main')).toContainText('1991–2025');
+    await expect(page.locator('main')).toContainText('No artificial 2010 gap');await expect(page.getByRole('link',{name:'CSV ↓',exact:true})).toHaveAttribute('href',new RegExp(`${id}.csv$`));
+  }
+  await page.goto(`${productionURL}scope/#family-hourly-productivity`);await expect(page.locator('#family-hourly-productivity')).toContainText('Available');
+  await page.goto(`${productionURL}scope/#family-hours-worked`);await expect(page.locator('#family-hours-worked')).toContainText('Available');
+  await expect(page.locator('#priorities .scope-priorities>li').first()).toContainText('wages');
   expect(errors).toEqual([]);
 });
 test('empty workspace keeps a next-indicator card and independent chart years',async({page},testInfo)=>{

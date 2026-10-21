@@ -9,6 +9,7 @@ import { fsoGdpImporter, fsoRealGrowthImporter } from './lib/fso-gdp.ts';
 import { ffaMainImporter } from './lib/ffa-main.ts';
 import { snbJoblessRateImporter } from './lib/snb-labour.ts';
 import { ecbFxImporter, snbEffectiveImporter, bbkDemImporter } from './lib/exchange-rates.ts';
+import { fsoProductivityImporter, fsoHoursImporter } from './lib/fso-productivity.ts';
 import { validate, load, validateMetadata, exportPublic, atomicWrite, json } from './lib/store.ts';
 import { derive } from './lib/transforms.ts';
 import { readObservations, writeObservations } from './lib/csv.ts';
@@ -33,7 +34,7 @@ try {
       break;
     }
     case 'import': {
-      const importer = [canonicalCsvImporter, fsoGdpImporter, fsoRealGrowthImporter, fsoPopulationImporter, auditedExtractImporter, ffaMainImporter, snbJoblessRateImporter, ecbFxImporter, snbEffectiveImporter, bbkDemImporter].find(item => item.name === (values.importer ?? 'canonical-csv'));
+      const importer = [canonicalCsvImporter, fsoGdpImporter, fsoRealGrowthImporter, fsoPopulationImporter, auditedExtractImporter, ffaMainImporter, snbJoblessRateImporter, ecbFxImporter, snbEffectiveImporter, bbkDemImporter, fsoProductivityImporter, fsoHoursImporter].find(item => item.name === (values.importer ?? 'canonical-csv'));
       if (!importer) throw new Error('Unknown importer. Select a registered importer from docs/contributing.md.');
       const id = await importLocal({ root, file: path.resolve(required('file')), seriesId: required('series'), sourceId: required('source'), retrievedOn: required('retrieved-on'), replace: values.replace, importer });
       console.log(`Imported immutable snapshot ${id}. Review registry and canonical changes before publication.`);

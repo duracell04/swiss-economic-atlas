@@ -1,0 +1,21 @@
+{
+  "format":"xlsx",
+  "original_file":"data/extractions/originals/fso-productivity-hours-2026.xlsx",
+  "original_sha256":"f7b0a5e7f6941432b8a04be4dd2d60775a5ea828deb5c0325035a0cd5eae000d",
+  "original_url":"https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757/master",
+  "sheet":"T 04.07.04.01",
+  "layout":"vertical",
+  "first_row":5,"last_row":39,"period_column":"A","value_column":"C",
+  "assert_cell":{
+    "A1":"Labour productivity per hour worked at current prices",
+    "C3":"Actual hours worked 1)",
+    "C4":"Millions of hours",
+    "A44":"Last update: 28.08.2026"
+  },
+  "key":"T 04.07.04.01 / A5:A39 / C5:C39 / actual hours (millions)",
+  "expected_count":35,
+  "revision_companion_file":"data/raw/fso-wps-productivity-2026-10-21-0e549062511d456f.csv",
+  "revision_companion_sha256":"0e549062511d456f66e4615c8d39d9bbde2cc362978fcfbc0f8bcdd47d6c5d5d",
+  "revision_companion_selection":"Actual hours worked / Index",
+  "revised_periods":["2023","2024","2025"]
+}

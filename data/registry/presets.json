@@ -280,6 +280,8 @@
     }
   ],
   "styles": {
+    "hourly-labour-productivity": "#0f766e",
+    "total-hours-worked": "#b45309",
     "chf-eur-annual": "#2563eb",
     "chf-usd-annual": "#047857",
     "chf-dem-annual": "#8b2f2f",

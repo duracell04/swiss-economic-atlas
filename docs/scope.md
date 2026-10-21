@@ -25,19 +25,20 @@ The authoritative module inventory, family priorities, existing series membershi
 
 ## Priorities for remaining data
 
-Maintain the verified foundation: GDP and GDP per person, population, SECO and ILO unemployment, prices and inflation, policy instruments, yields, public debt and the franc. Source updates and material corrections take precedence over expansion.
+Maintain the verified foundation: GDP and GDP per person, hourly productivity and compatible total hours, population, SECO and ILO unemployment, prices and inflation, policy instruments, yields, public debt and the franc. Source updates and material corrections take precedence over expansion.
 
 Completed on 21 October 2026: the first exchange-rate priority now has five annual charts — CHF/EUR (1999–2025), CHF/USD (1971–2025), historical CHF/DEM (1950–1998), and nominal/CPI-based real effective CHF indices (1973–2025). Sources, different fixing conventions and the annual calculation are recorded in the [exchange-rate audit](https://github.com/duracell04/swiss-economic-atlas/blob/main/docs/source-audit/exchange-rates.md). This completes those two families, not the entire international-integration module.
 
 **P1 — next additions, in this order:**
 
-1. Hourly productivity and compatible total hours worked.
-2. Real wages and real median disposable household income.
-3. Mortgage borrowing costs and the distinct rental reference rate, real residential property prices, private credit / GDP, and mortgage volumes.
-4. Exports, imports, trade balance and current-account balance.
-5. Government revenue, expenditure and fiscal balance, with consistent GDP denominators.
+1. Real wages and real median disposable household income.
+2. Mortgage borrowing costs and the distinct rental reference rate, real residential property prices, private credit / GDP, and mortgage volumes.
+3. Exports, imports, trade balance and current-account balance.
+4. Government revenue, expenditure and fiscal balance, with consistent GDP denominators.
 
-These close missing connections between production, households, finance and the external economy. Audit inputs together when they share a denominator or deflator. This order is an editorial priority, not a deadline or a reason to hold back a fully verified, relevant series.
+Hourly productivity and compatible total actual hours were completed on 21 October 2026 for 1991–2025. They use the FSO's matched WPS vintage, not unadjusted pre-2010 Work Volume Statistics or nominal productivity. Source flags identify 2023–2025 as revised. See the [source audit](https://github.com/duracell04/swiss-economic-atlas/blob/main/docs/source-audit/productivity-hours.md).
+
+The remaining priorities close missing connections between production, households, finance and the external economy. Audit inputs together when they share a denominator or deflator. This order is an editorial priority, not a deadline or a reason to hold back a fully verified, relevant series.
 
 **P2 — following additions:** employment and participation; migration and age structure; investment and consumption; SARON, broad money and the SNB balance sheet; rents and vacancies; selected bank measures; spending composition; inequality, poverty and social protection; sectoral change, skills and energy.
 

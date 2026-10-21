@@ -2,6 +2,46 @@
   "schema_version": "2.0.0",
   "sources": [
     {
+      "id": "fso-wps-productivity",
+      "publisher": "Federal Statistical Office (FSO / BFS)",
+      "title": "WPS annual real hourly productivity and compatible GDP/hours indices, August 2026",
+      "landing_url": "https://www.bfs.admin.ch/asset/en/ts-x-04.07.01.01",
+      "data_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731796/master",
+      "source_identifier": "ts-x-04.07.01.01 / PERIOD, INDICATOR, UNIT_MEA, VALUE, OBS_STATUS",
+      "audit_status": "verified",
+      "definition": "FSO Growth and productivity statistics (WPS): annual real output per actual hour worked, with GDP and compatible total-hours indices, 1991=100. Previous-year-price volume evolution, not nominal CHF per hour or output per worker.",
+      "coverage": "1991–2025; 35 observations per indicator",
+      "revision_practice": "Published 28 August 2026. CSV flags A=standard and R=revised; 2023–2025 are revised. The 2021 Work Volume Statistics revision led WPS to adapt pre-2010 hours to maintain continuity. Revisions require a new immutable source vintage.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "OPEN-BY — open use, must provide the source",
+        "evidence_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731796",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Federal Statistical Office, Growth and productivity statistics (WPS), ts-x-04.07.01.01, publication 28 August 2026, retrieved 21 October 2026.",
+        "conditions": "The exact FSO asset metadata identifies OPEN-BY (open commercial and non-commercial use with source attribution). Preserve definitions, source precision, 1991 index base and revised flags. The MIT software licence is not a data licence."
+      }
+    },
+    {
+      "id": "fso-wps-hours-levels",
+      "publisher": "Federal Statistical Office (FSO / BFS)",
+      "title": "WPS total actual hours worked in millions, August 2026",
+      "landing_url": "https://www.bfs.admin.ch/asset/en/je-e-04.07.04.01",
+      "data_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757/master",
+      "source_identifier": "T 04.07.04.01 / column C / Actual hours worked / Millions of hours",
+      "audit_status": "verified",
+      "definition": "Published total actual annual hours worked for the Swiss domestic economy, the WPS productivity denominator. Column C is a physical labour-input total, despite being published in a table whose other columns show current-price GDP and nominal productivity.",
+      "coverage": "1991–2025, 35 annual totals",
+      "revision_practice": "Workbook updated 28 August 2026. Absolute hours rebased to 1991 reconcile to the hours index in the same WPS vintage. The companion CSV marks 2023–2025 revised; both source snapshots are retained in observation lineage. Pre-2010 WPS hours were harmonised after the 2021 WV revision and differ from unadjusted WV history.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "OPEN-BY — open use, must provide the source",
+        "evidence_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Federal Statistical Office, Growth and productivity statistics (WPS), T 04.07.04.01 column C, publication 28 August 2026, retrieved 21 October 2026.",
+        "conditions": "Exact FSO asset metadata identifies OPEN-BY. Preserve source attribution, physical units and source-specific pre-2010 adjustment. This is not hours per job/person, usual or contractual hours, or the workbook's nominal productivity column. The checked extraction is reproducible from the retained original workbook."
+      }
+    },
+    {
       "id": "ecb-chf-eur-annual",
       "publisher": "European Central Bank",
       "title": "ECB annual CHF per euro reference rate",
@@ -883,6 +923,61 @@
     }
   ],
   "series": [
+    {
+      "id": "hourly-labour-productivity",
+      "title": "Hourly labour productivity — real output per hour",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "FSO-published real output per actual hour worked for the Swiss domestic economy, index 1991=100. Measures economy-wide labour productivity, not output per worker, nominal CHF per hour, wages or individual worker performance.",
+      "unit": {
+        "code": "index",
+        "label": "Index, 1991 = 100",
+        "dimension": "hourly productivity index 1991=100",
+        "scale": 1
+      },
+      "measurement": "level",
+      "price_basis": "real",
+      "aggregation_kind": "native",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss total economy, domestic production concept; FSO WPS national-accounts output and compatible actual-hours denominator",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "Published annual productivity index: real GDP volume index divided by the compatible total actual-hours index, multiplied by 100; both source inputs have base 1991=100. Source values retained, not recalculated from a different atlas GDP vintage or from monthly averages.",
+      "source_ids": [
+        "fso-wps-productivity"
+      ],
+      "source_identifier": "ts-x-04.07.01.01 / Productivity / Index",
+      "breaks": [],
+      "usage_notes": "Coverage 1991–2025. The FSO harmonised pre-2010 total hours following the 2021 WV revision to avoid a productivity break; do not splice unadjusted WV history or create a false 2010 gap. 2023–2025 are revised (R), not labelled provisional merely because they are recent. No partial 2026 or pre-1991 backfill. A value of 149.4 means about 49.4% more real output per hour than in 1991, not CHF 149.4/hour."
+    },
+    {
+      "id": "total-hours-worked",
+      "title": "Total actual hours worked — FSO (BFS)",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "Annual total actual hours worked in Swiss domestic production, in millions of hours, using the FSO WPS denominator compatible with its hourly-productivity series. A measure of labour input, not hours per employee or job.",
+      "unit": {
+        "code": "count",
+        "label": "Million hours",
+        "dimension": "hours",
+        "scale": 1000000
+      },
+      "measurement": "level",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "sum",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss total economy, domestic production concept; actual total hours used by FSO Growth and productivity statistics (WPS)",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "Published calendar-year total in millions of hours from T 04.07.04.01 column C; original numeric precision retained. The physical hours measure has no nominal or real price basis. Reconciled against the same-vintage WPS actual-hours index; revision flags come from its retained companion CSV.",
+      "source_ids": [
+        "fso-wps-hours-levels",
+        "fso-wps-productivity"
+      ],
+      "source_identifier": "T 04.07.04.01 / A5:A39 / C5:C39 / actual hours (millions)",
+      "breaks": [],
+      "usage_notes": "Coverage 1991–2025, including source-harmonised pre-2010 hours; these differ from unadjusted Work Volume Statistics history. 2023–2025 are revised in the companion WPS CSV. Do not replace this denominator with a newer headline WV release, contract hours, hours per job or resident-only labour input. No full-year 2026 value. For example, 8088.317 million hours in 2025 is about 8.088 billion hours."
+    },
     {
       "id": "chf-eur-annual",
       "title": "CHF/EUR exchange rate — annual mean",
@@ -2252,6 +2347,22 @@
       "sha256": "7114597252758ed338d31bb4e7bed8a56bd501a199a692fdc4f6e114e7c1aebb",
       "file": "data/raw/bbk-historical-dem-2026-10-21-7114597252758ed3.csv",
       "source_url": "https://api.statistiken.bundesbank.de/rest/data/BBEX3/D.CHF.DEM.AA.AC.000?format=csv"
+    },
+    {
+      "id": "fso-wps-productivity-2026-10-21-0e549062511d456f",
+      "source_id": "fso-wps-productivity",
+      "retrieved_on": "2026-10-21",
+      "sha256": "0e549062511d456f66e4615c8d39d9bbde2cc362978fcfbc0f8bcdd47d6c5d5d",
+      "file": "data/raw/fso-wps-productivity-2026-10-21-0e549062511d456f.csv",
+      "source_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731796/master"
+    },
+    {
+      "id": "fso-wps-hours-levels-2026-10-21-58cd724d17745b23",
+      "source_id": "fso-wps-hours-levels",
+      "retrieved_on": "2026-10-21",
+      "sha256": "58cd724d17745b233ce73cf57ee19b61107edb73febd1b94183b58d76161aeaf",
+      "file": "data/raw/fso-wps-hours-levels-2026-10-21-58cd724d17745b23.csv",
+      "source_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757/master"
     }
   ]
 }

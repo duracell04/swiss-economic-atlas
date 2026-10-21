@@ -4,6 +4,7 @@ import { colorFor, formatValue, pointsFor } from './geometry.ts';
 import { drawChart, drawCursor } from './renderer.ts';
 import { unemploymentMethod, unemploymentComparison } from '../lib/unemployment.ts';
 import { exchangeRateNote } from '../lib/exchange-rates.ts';
+import { labourInputNote } from '../lib/labour-input.ts';
 
 const element = <T extends HTMLElement = HTMLElement>(id: string): T => document.getElementById(id) as T;
 const make = <K extends keyof HTMLElementTagNameMap>(tag: K, className = '', text = ''): HTMLElementTagNameMap[K] => {
@@ -87,10 +88,14 @@ async function boot(): Promise<void> {
     }
     const fx = exchangeRateNote(id);
     if (fx) content.append(make('p','',fx));
+    const labourInput=labourInputNote(id);
+    if(labourInput)content.append(make('p','',labourInput));
     const dl = make('dl');
-    const fields = [['Unit', s.unit.label], ['Measurement', s.measurement], ['Price basis', s.price_basis.replaceAll('_', ' ')], ['Frequency', s.frequency], ['Coverage', s.institutional_coverage], ['Aggregation', s.aggregation], ['Historical breaks', s.breaks.map(b => `${b.period}: ${b.description}`).join('; ') || 'No breaks recorded; candidate definitions remain subject to audit.'], ['Usage', s.usage_notes]];
+    const noBreaks=labourInput ? 'FSO harmonised pre-2010 hours to preserve continuity. No artificial 2010 gap is introduced.' : 'No breaks recorded; candidate definitions remain subject to audit.';
+    const fields = [['Unit', s.unit.label], ['Measurement', s.measurement], ['Price basis', s.price_basis.replaceAll('_', ' ')], ['Frequency', s.frequency], ['Coverage', s.institutional_coverage], ['Aggregation', s.aggregation], ['Historical breaks', s.breaks.map(b => `${b.period}: ${b.description}`).join('; ') || noBreaks], ['Usage', s.usage_notes]];
     if (labour) fields.unshift(['Source', labour.source], ['Method', labour.method], ['Available periods', coverage(id)]);
     if (fx) fields.unshift(['Available periods', coverage(id)]);
+    if (labourInput) fields.unshift(['Available periods', coverage(id)]);
     for (const [label, value] of fields) dl.append(make('dt', '', label), make('dd', '', value));
     content.append(dl);
     for (const source of data.registry.sources.filter(source => s.source_ids.includes(source.id))) {
@@ -234,6 +239,14 @@ async function boot(): Promise<void> {
       section.append(legend);
       const unit=make('p','axis-note',`${[...new Set(panel.series_ids.map(id=>definition(data,id).unit.label))].join(' / ')} · annual observations`);
       section.append(unit);
+      const inputNote=panel.series_ids.map(labourInputNote).find(note=>note!==undefined);
+      if(inputNote){
+        const notes=make('div','labour-input-methods');
+        notes.append(make('p','',inputNote));
+        const link=make('a','','Productivity and hours: definitions and sources →');
+        link.href=`${import.meta.env.BASE_URL.replace(/\/$/,'')}/methodology/#productivity-hours`;
+        notes.append(link);section.append(notes);
+      }
       const fxNotes = [...new Set(panel.series_ids.map(exchangeRateNote).filter((note): note is string => Boolean(note)))];
       if (fxNotes.length) {
         const notes = make('div','exchange-rate-methods');
