@@ -977,8 +977,8 @@
           "description": "Until 3 May: Bank deutscher Länder conversion rates; 4 May–25 July: agreement-based CHF rates; from 27 July: official Frankfurt quotation. The annual 1953 mean spans these conventions."
         },
         {
-          "period": "1998",
-          "description": "Final pre-euro calendar year. Series ends here and is not converted into a synthetic euro history."
+          "period": "1999",
+          "description": "Euro introduced in January 1999. The final DEM annual observation is 1998; no post-1998 mark or synthetic pre-1999 euro is created."
         }
       ],
       "usage_notes": "Lower CHF per DEM = franc appreciation. Atlas-calculated annual mean, not an inverse of the Bundesbank annual mean (inversion and averaging do not commute). Historical coverage 1950–1998, distinct from EUR. Frankfurt fixing differs from the other bilateral series."

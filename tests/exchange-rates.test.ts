@@ -7,7 +7,7 @@ import {checksum,load} from '../scripts/lib/store.ts';
 import {ecbFxImporter,snbEffectiveImporter,bbkDemImporter} from '../scripts/lib/exchange-rates.ts';
 import {exchangeRateNote} from '../src/lib/exchange-rates.ts';
 import {productionAtlas} from '../scripts/lib/atlas-data.ts';
-import {colorFor,formatValue} from '../src/atlas/geometry.ts';
+import {colorFor,formatValue,pointsFor} from '../src/atlas/geometry.ts';
 
 const {registry,observations}=await load(process.cwd());
 const specs=[
@@ -48,6 +48,10 @@ test('five annual FX datasets retain complete years, original concepts, permitte
   assert.match(exchangeRateNote('chf-eur-annual')!,/Lower CHF/);assert.match(exchangeRateNote('chf-reer-annual')!,/Higher effective/);
   assert.equal(exchangeRateNote('nominal-gdp'),undefined);
   assert.equal(formatValue(0.8305,'CHF per USD'),'0.8305 CHF per USD');
+  const demPanel={id:'dem',title:'Historical mark',series_ids:['chf-dem-annual'],axis:{mode:'native' as const,base_year:null},conventions_acknowledged:false};
+  const demPoints=pointsFor(demPanel,'chf-dem-annual',data,1997,1999);
+  assert.equal(demPoints[1].breakBefore,false,'ending coverage must not introduce a false 1997–1998 statistical break');
+  assert.equal(demPoints[2].value,null);
 });
 
 test('DEM annual means independently reproduce daily inversions, not inverted annual averages',async()=>{

@@ -66,7 +66,7 @@ test('five annual FX charts preserve quotations, separate axes, historical gaps 
   await add(page,eur,bilateral);await add(page,usd,bilateral);await years(page,0,'1950','2025');
   await expect(panel(page,0).locator('[data-unit-axis]')).toHaveCount(3);
   await expect(panel(page,0).locator('.exchange-rate-methods')).toContainText('Lower CHF per foreign currency = a stronger franc');
-  await expect(panel(page,0).locator('[data-statistical-break="chf-dem-annual"]')).toHaveCount(2);
+  await expect(panel(page,0).locator('[data-statistical-break="chf-dem-annual"]')).toHaveCount(1);
   await panel(page,0).locator('svg').focus();await panel(page,0).locator('svg').press('Home');
   await expect(page.locator('#readout .readout-row').filter({hasText:eur})).toContainText('No observation');
   await panel(page,0).locator('svg').press('End');
