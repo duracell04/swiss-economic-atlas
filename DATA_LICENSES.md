@@ -7,6 +7,7 @@ The initial broad candidate source records retain unknown redistribution terms. 
 - **SNB historical tables (2007):** the publication explicitly permits reproduction and publication of figures with reference to source. The committed CSV is a checked transcription of selected table cells.
 - **OECD Swiss ten-year yields via FRED:** section 3 of [OECD Terms and Conditions](https://www.oecd.org/en/about/terms-conditions.html) permits reuse and redistribution with OECD attribution, subject to any underlying source restrictions. Preserve that acknowledgment in downstream distributions.
 - **SNB EG3M monthly data:** [SNB data portal usage guidance](https://data.snb.ch/en/topics/texts/doc/introduction) permits non-commercial use compatible with the data purpose, with attribution. This educational atlas uses that permission. Commercial reuse may require SNB consent; these data are not MIT-licensed.
+- **SNB Labour market / SECO registered unemployment:** the [SNB Labour market cube](https://data.snb.ch/en/topics/uvo/cube/amarbma?dimSel=D0(T1)) publishes the total jobless-rate selection sourced from SECO. The same [SNB data-portal guidance](https://data.snb.ch/en/topics/texts/doc/introduction) permits non-commercial use compatible with the data purpose, with attribution. This educational atlas uses that permission for the monthly extract and its transparent annual mean; commercial reuse may require SNB consent.
 
 The spread inherits its input source terms. Full attribution and conditions are included in the registry and public exports.
 

@@ -1,5 +1,27 @@
 # Release notes
 
+## 2026-10-21 — Distinguish SECO registered unemployment and ILO / BFS unemployment
+
+- Clarified the four monthly, quarterly and annual display titles with the responsible institution, retaining all series IDs and observations.
+- Added source, method, actual coverage and annual-aggregation explanations to unemployment charts, the picker, information dialogs and series pages.
+- Added a comparison note whenever both concepts appear in the workspace, including separate panels, overlays and restored layouts. The methodology explains RAV registration, benefit exhaustion, the ILO survey definition and why the rates' difference does not count unregistered jobseekers.
+- Preserved complete-year SECO means, published BFS annual estimates, the 2021 survey break and the separate native-frequency downloads.
+
+## 2026-10-12 — SECO registered unemployment
+
+- Added the official SNB Labour market cube's total, unadjusted SECO registered-unemployment rate: 512 monthly observations for 1984-01–2026-08. The retained 21 September 2026 source vintage has no September observation; 2026 monthly points remain provisional.
+- Added 42 complete annual arithmetic means for 1984–2025. The calculation requires all twelve monthly observations and deliberately omits partial 2026.
+- Retained the exact SNB CSV snapshot, source selection, SHA-256 and non-commercial attribution conditions. The SNB cube identifies SECO as the underlying source; this does not grant broader commercial rights to SECO/third-party material.
+- The remaining five planned datasets stay unpublished: three-month GMBF auction events and the daily/annual SMI and SMIC return series. Their source evidence and blockers are recorded in the audit files.
+
+## 2026-10-12 — Four previously missing source series and two GDP levels
+
+- Added FSO-derived annual real GDP and real GDP per capita for 1948–2025. Real GDP is reconstructed from the FSO 2020 nominal anchor and published annual real growth; per capita uses the explicitly documented 31-December permanent-resident denominator.
+- Added FFA general-government gross debt, Confederation gross debt and Confederation debt/GDP for 1990–2026. 2026 highrechnung/forecast rows remain tagged forecast/provisional and are not treated as completed-year observations.
+- Added 803 monthly SNB historical Confederation yields by maturity for 1924-01–1990-12 from table 3.1a_M, preserving the original series identity and method-change notes.
+- Registered `chain_level`, `per_capita` and the FFA importer, added immutable source snapshots, and regenerated the public data export. The 2026 partial-year/forecast separation remains explicit.
+- GMBF auction yields and SIX SMI/SMIC data remain unpublished until exact source reuse terms and/or licensing are established. The SECO registered-unemployment series was subsequently verified through the SNB Labour market cube; see the release above.
+
 ## 2026-10-08 — Annual unemployment and unrestricted chart overlays
 
 - Added the FSO’s 16 published annual ILO unemployment rates for 2010–2025 from the checksum-verified retained workbook. Quarterly ILO data and SECO registered-unemployment candidates retain their separate identities.
@@ -133,11 +155,11 @@ Remains candidate: Resolve the real-GDP source reuse grant and verify a compatib
 
 ## 8 October 2026 — Registered unemployment source audit
 
-Remains candidate: Obtain an auditable national SECO/FSO monthly rate export, its denominator and method history, and a dataset-specific public redistribution grant. [Audit](source-audit/registered-unemployment.md).
+Superseded on 12 October 2026 by the verified SNB/SECO monthly cube extract. [Audit](source-audit/registered-unemployment.md).
 
 ## 8 October 2026 — Annual registered unemployment source audit
 
-Remains candidate: Obtain an auditable national annual SECO/FSO rate table and its redistribution grant; verify full-year coverage and the published annual denominator/averaging convention. [Audit](source-audit/registered-unemployment-annual.md).
+Superseded on 12 October 2026 by the verified annual mean derived from the SNB/SECO monthly cube. [Audit](source-audit/registered-unemployment-annual.md).
 
 ## 8 October 2026 — General-government gross debt source audit
 

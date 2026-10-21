@@ -1,15 +1,13 @@
-# Annual registered unemployment — candidate source audit
+# Annual registered unemployment — source audit
 
-Reviewed 8 October 2026. **Candidate; no observations imported.**
+Reviewed 12 October 2026. **Verified derived companion.**
 
-[SECO labour statistics](https://www.seco.admin.ch/en/labour-market-statistics) identifies [AMSTAT](https://www.amstat.ch/v2/amstat_de.html) as the primary register-statistics portal. The public portal was accessible, but this audit did not obtain a reproducible national rate export with original bytes, stable selection identifiers and denominator notes.
+The monthly input is the verified [SNB Labour market cube](https://data.snb.ch/en/topics/uvo/cube/amarbma?dimSel=D0(T1)), whose `D0(T1)` selection is the total, non-seasonally-adjusted jobless rate sourced from SECO. The source snapshot and monthly extraction are documented in [registered unemployment](registered-unemployment.md).
 
-No dataset-specific grant covering public snapshots, chart use and CSV/JSON redistribution was established. The [general federal terms](https://www.admin.ch/en/terms-and-conditions) provide no general open-data grant. AMSTAT's footer points to [arbeit.swiss legal notices](https://www.arbeit.swiss/de/rechtliche-hinweise); those notices describe their own site and cannot independently settle an AMSTAT dataset's permission. An FSO republication would need its own exact OPEN-BY source record.
+The annual observation is derived by `derive-registered-unemployment-annual` in `data/registry/transformations.json`: arithmetic mean of the twelve full-precision monthly rates for each complete calendar year. This reproduces the usual annual-average concept while leaving the exact monthly source values auditable. A year is omitted unless all twelve monthly observations are present and non-null.
 
-Registered and ILO unemployment use different definitions. The already verified ILO rate and the FSO comparison table of unemployed **counts** cannot be substituted for this register-based rate. Audit census/structural-survey denominator revisions and registration-method changes from the exact selected table before assigning historical coverage.
+The resulting coverage is 1984–2025. 2026 has only January–August in the retained source vintage and is intentionally omitted; it is not a partial-year annual estimate or forecast. Derived observations inherit the source snapshot lineage and source publication date.
 
-This annual companion depends on the national register rate and a documented annual convention. Do not average rounded monthly rates without a published convention or accept a partial year as annual. A source-published annual rate should retain its published precision and any revised denominator.
+Registered and ILO unemployment use different definitions. The annual series must not be compared as though it were the ILO survey rate. The SNB non-commercial attribution terms recorded for the monthly input also govern this derived educational output.
 
-Required before import: Obtain an auditable national annual SECO/FSO rate table and its redistribution grant; verify full-year coverage and the published annual denominator/averaging convention.
-
-Schema 2.0.0 and the existing series ID are preserved. This audit publishes metadata and source evidence only; it does not add a snapshot, canonical observation, derived output or verified coverage claim.
+Schema 2.0.0 and the existing series ID are preserved. The annual CSV is regenerated deterministically from the monthly canonical CSV.

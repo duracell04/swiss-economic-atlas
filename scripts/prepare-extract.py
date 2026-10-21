@@ -51,7 +51,7 @@ elif spec['format']=='checked-table-csv':
  if list(source[0])!=spec['columns']:raise ValueError('Checked table column identity mismatch')
  for r in source:
   value=r[spec['value_column']]
-  if value!='.':rows.append([r['year'],spec['key'],value])
+  if value!='.':rows.append([r[spec.get('period_column','year')],spec['key'],value])
 elif spec['format'] in ['snb-json','snb-csv']:
  if spec['format']=='snb-json':
   series=next(s for s in json.loads(data)['timeseries'] if s['metadata']['key']==spec['series_key'])

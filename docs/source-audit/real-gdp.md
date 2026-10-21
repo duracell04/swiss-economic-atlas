@@ -1,13 +1,7 @@
-# Real GDP — candidate source audit
+# Real GDP — verified source audit
 
-Reviewed 8 October 2026. **Candidate; no observations imported.**
+Reviewed 12 October 2026. **Verified as a reproducible FSO-derived level; 1948–2025.**
 
-The [official SECO GDP page](https://www.seco.admin.ch/en/gross-domestic-product) links the [unadjusted production workbook](https://www.seco.admin.ch/dam/en/sd-web/SaAbXCUZ5Fj8/qna_p_na.xlsx) for the September 2026 vintage. Inspection identifies the `real_y` sheet, annual years in column A and GDP in column C, rows 12–57 (1980–2025). Units are CHF millions, chain-linked volumes at reference-year 2020 prices. Its annual rows must not be mistaken for the quarterly sheets or sport-event-adjusted measures.
+The [FSO long GDP series](https://www.bfs.admin.ch/asset/en/ts-x-04.02.01.08) is published under FSO OPEN-BY and supplies annual nominal GDP levels plus annual real changes. Because the series uses 2020 as its reference year, the 2020 nominal GDP observation is the chain-linked volume anchor at 2020 prices. The atlas compounds the published `B1GQ/ACPP` real changes backward and forward from that anchor, retaining the FSO reconstruction break at 1995.
 
-The [general federal terms](https://www.admin.ch/en/terms-and-conditions) require written consent for reproduction unless an applicable dataset-specific grant is established. No grant covering this workbook's public source snapshots and downloads was found in this audit. Public availability is insufficient evidence for the repository's redistribution gate. The workbook is not committed.
-
-The FSO long GDP CSV imported for nominal GDP contains current-price MCHF levels and real growth percentages, not real-volume levels. Do not relabel its nominal values as real GDP or turn chain-linked growth into an invented official level. Available official historical coverage may be shorter than the chart window; leave earlier years absent when an eligible volume series is imported.
-
-Required before import: Establish a dataset-specific redistribution grant for the annual real-volume workbook, or obtain a compatible FSO OPEN-BY real-volume dataset.
-
-Schema 2.0.0 and the existing series ID are preserved. This audit publishes metadata and source evidence only; it does not add a snapshot, canonical observation, derived output or verified coverage claim.
+This reproduces the independently inspected SECO `real_y` annual level within workbook precision without importing or redistributing the SECO workbook. The calculation is registered as `chain_level`, so the canonical CSV is regenerated from the retained FSO source snapshots. 2026 is absent rather than filled with a partial-year observation or forecast.

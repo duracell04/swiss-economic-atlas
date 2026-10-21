@@ -1,15 +1,9 @@
-# Confederation debt / GDP — candidate source audit
+# Confederation debt / GDP — verified source audit
 
-Reviewed 8 October 2026. **Candidate; no observations imported.**
+Reviewed 12 October 2026. **Verified; 1990–2026 selected.**
 
-The [FFA financial-statistics overview](https://www.efv.admin.ch/en/overview-financial-statistics-data) and [exact opendata.swiss FS/GFS main-aggregates record](https://opendata.swiss/en/dataset/hauptaggregate-und-prognosen-im-fs-und-gfs-modell) identify the [CSV resource](https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/main_extern.csv) and [dimension codelist](https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/main_extern_codelist.csv). The catalogue marks this resource **OPEN**, and [FFA's OGD page](https://www.efv.admin.ch/en/open-government-data-en) describes reuse of its data-portal datasets.
+The [FFA financial-statistics data catalogue](https://www.efv.admin.ch/de/finanzstatistik-daten) links the [FS/GFS main-aggregates record](https://opendata.swiss/en/dataset/hauptaggregate-und-prognosen-im-fs-und-gfs-modell) and its [CSV resource](https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/main_extern.csv). The atlas selects `hh=bund`, `model=gfs`, `variable=bruttoschuldenquote` and converts the publisher's fraction to percentage points. This is the publisher's ratio, not a division of mismatched atlas debt and GDP vintages.
 
-On 8 October 2026, the exact CSV, codelist and alternate linked XLSX requests returned a 245-byte HTML **Request Rejected** page rather than usable source data, despite HTTP 200. These responses are not statistical files and are not registered as source snapshots. A browser fetch was also unavailable in the audit environment. The source remains candidate because the data and row selection could not be verified, not because the identified aggregate CSV lacks open terms.
+Rows labelled `Rechnung` are imported as observed/final; 2026 `Hochrechnung` is forecast/provisional. The result is kept separate from the atlas's general-government debt/GDP composite and from the Maastricht debt ratio.
 
-Confirm the `hh` institutional sector and `variable` debt concept using the original codelist. Preserve FS versus GFS model identity, consolidation, valuation and currency scale; do not assume Maastricht gross debt and broader liabilities are interchangeable.
-
-This ratio requires the Confederation debt numerator and its compatible nominal annual GDP denominator. Prefer a publisher ratio with an explicit convention, or register a separate documented derivation once inputs and vintages are verified. Do not substitute general-government debt or divide mismatched GDP vintages.
-
-Required before import: Retrieve usable original FFA data and codelists; verify Confederation debt and nominal-GDP denominator, debt valuation/consolidation and the matching annual nominal-GDP vintage and ratio convention.
-
-Schema 2.0.0 and the existing series ID are preserved. This audit publishes metadata and source evidence only; it does not add a snapshot, canonical observation, derived output or verified coverage claim.
+The source snapshot is immutable and the registry preserves the FFA attribution and OPEN reuse terms. Future FFA vintages require a new snapshot and a reviewed replacement import.

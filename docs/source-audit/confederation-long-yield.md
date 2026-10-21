@@ -1,13 +1,9 @@
-# Historical long-term Confederation yield — candidate source audit
+# Historical long-term Confederation yield — verified source audit
 
-Reviewed 8 October 2026. **Candidate; no observations imported.**
+Reviewed 12 October 2026. **Verified; 803 monthly observations imported.**
 
-[SNB Historical time series 4, November 2007](https://www.snb.ch/public/publication/en/www-snb-ch/publications/statistical-publications/historical-time-series/2007/renditen_book/publications0_en/e_zinssaetze_u_renditen.book.pdf) prints annual historical bond-yield figures and discusses companion statistical tables. This catalogue entry calls for the original **monthly historical yield** concept. A usable exact monthly companion was not located in the audit.
+The [SNB historical-time-series catalogue](https://www.snb.ch/en/the-snb/mandates-goals/statistics/statistics-pub/publication-history/historical-time-series) links the official [historical rates workbook](https://www.snb.ch/dam/jcr%3A7d42dd04-945c-4e40-8e40-1fd20d372e3f/histz_rd.n.xls). Sheet `3.1a_M`, column C, is the monthly end-of-period **Yield by maturity** series. Numeric observations begin in January 1924 and end in December 1990; earlier rows contain only the 3.5% SBB/CFF series and later historical methods are represented in other tables.
 
-The verified `confederation-10y` series is a fitted zero-coupon ten-year spot rate. The monthly spot cube is also a spot-rate concept and cannot fill the older coupon-yield series. The existing annual financing baseline is separately documented; annual values cannot become monthly observations by repetition or interpolation.
+The atlas retains the original monthly values at native frequency. It does not splice this coupon-bond measure into the fitted daily ten-year spot-rate series. The SNB table notes methodological changes around 1970, 1977 and 1981–1982; those boundaries are recorded in the registry and values are not smoothed or interpolated across them.
 
-The book discusses changes in historical yield calculations, including 1970, 1977 and 1981–1982. Those changes must be mapped to the exact monthly table before assigning reconstruction labels or break periods. Its figures have an attribution-based reproduction grant, but that does not identify the missing companion file. Preserve this candidate at native monthly frequency and retain gaps.
-
-Required before import: Locate and retrieve the original SNB monthly historical long-term yield table; verify its exact series identity, method transitions, native periods and source-specific reuse terms.
-
-Schema 2.0.0 and the existing series ID are preserved. This audit publishes metadata and source evidence only; it does not add a snapshot, canonical observation, derived output or verified coverage claim.
+The committed source snapshot is a checked CSV extraction of the selected workbook column because the repository's raw-source convention is CSV. The original workbook URL, table identity, source attribution and extraction identity remain in the registry. The SNB historical publication grants reproduction with source reference; downstream use must preserve those terms.

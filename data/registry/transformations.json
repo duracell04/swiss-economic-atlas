@@ -2,6 +2,36 @@
   "schema_version": "2.0.0",
   "transformations": [
     {
+      "id": "derive-real-gdp-volume-level",
+      "output_series_id": "real-gdp",
+      "method": "chain_level",
+      "inputs": [
+        "nominal-gdp",
+        "real-gdp-growth"
+      ],
+      "anchor_period": "2020",
+      "convention": "Use the FSO 2020 current-price GDP observation as the chain-linked volume anchor because the reference year is 2020; compound published annual real growth backward and forward. Preserve the 1995 historical-accounting break and source statuses."
+    },
+    {
+      "id": "derive-real-gdp-per-capita",
+      "output_series_id": "real-gdp-per-capita",
+      "method": "per_capita",
+      "inputs": [
+        "real-gdp",
+        "population"
+      ],
+      "convention": "Divide annual real GDP in CHF millions by the permanent-resident population at 31 December, converting millions of CHF to CHF per person. The denominator is end-of-period, not an annual average."
+    },
+    {
+      "id": "derive-registered-unemployment-annual",
+      "output_series_id": "registered-unemployment-annual",
+      "method": "annual_mean",
+      "inputs": [
+        "registered-unemployment"
+      ],
+      "convention": "Arithmetic mean of the twelve unadjusted monthly total jobless-rate observations from the same SNB/SECO vintage. Derive only complete calendar years; do not create a partial 2026 annual value. Preserve the full source precision before calculating."
+    },
+    {
       "id": "derive-confederation-yield-spread",
       "output_series_id": "confederation-10y-minus-gmbf-3m",
       "method": "spread",

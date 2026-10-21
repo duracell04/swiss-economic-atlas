@@ -32,6 +32,19 @@ test('rebasing uses a fixed valid base and preserves missing values', () => {
   assert.throws(() => derive(rebase, [input], [row('2020', -2)]), /base value/);
 });
 
+test('annual means use only complete calendar years and preserve full precision', () => {
+  const monthly: Series = {...input, id:'example-monthly', frequency:'monthly', aggregation_kind:'native', aggregation:'Native monthly observations'};
+  const annual: Series = {...monthly, id:'example-annual-mean', frequency:'annual', aggregation_kind:'annual_average', aggregation:'Arithmetic mean of complete monthly observations'};
+  const spec: Transformation = {id:'calculate-annual-mean', output_series_id:annual.id, method:'annual_mean', inputs:[monthly.id], convention:'Arithmetic mean of twelve complete monthly observations'};
+  specs.set(annual.id, spec);
+  const rows = Array.from({length: 12}, (_, index) => row(`2024-${String(index + 1).padStart(2, '0')}`, index + 1, monthly.id));
+  rows.push(row('2025-01', 99, monthly.id));
+  assert.equal(assertCompatible(annual, [monthly]), undefined);
+  const result = derive(annual, [monthly], rows);
+  assert.deepEqual(result.map(observation => observation.reference_period), ['2024']);
+  assert.equal(result[0].value, 6.5);
+});
+
 test('spreads align periods and produce percentage points, not relative percentage changes', () => {
   const long = { ...input, id: 'example-long', unit: { code: 'percent' as const, label: 'Percent', dimension:'percent', scale:1 } };
   const short = { ...long, id: 'example-short' };

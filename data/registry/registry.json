@@ -202,6 +202,26 @@
       }
     },
     {
+      "id": "snb-seco-registered-unemployment",
+      "publisher": "Swiss National Bank; source: State Secretariat for Economic Affairs",
+      "title": "Labour market: total jobless rate, monthly",
+      "landing_url": "https://data.snb.ch/en/topics/uvo/cube/amarbma?dimSel=D0(T1)",
+      "data_url": "https://data.snb.ch/api/cube/amarbma/data/csv/en?dimSel=D0(T1)&fromDate=1948-01&toDate=2026-09",
+      "source_identifier": "EPB@SNB.amarbma{T1}; total jobless rate; monthly; unadjusted",
+      "audit_status": "verified",
+      "definition": "Total registered-unemployment rate, calculated as registered unemployed divided by the labour force, multiplied by 100. The SNB Labour market cube identifies SECO as the source; T1 is the total, non-seasonally-adjusted jobless-rate selection.",
+      "coverage": "January 1984–August 2026; source rows before 1984 are empty; August 2026 is the latest available month in the retained 21 September 2026 vintage",
+      "revision_practice": "SNB portal histories can be revised. Retain the immutable CSV vintage and replace the complete monthly history when importing a later publication vintage. 2026 monthly values are provisional in this atlas; no full-year 2026 annual value is derived.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "SNB data portal: non-commercial reuse with attribution",
+        "evidence_url": "https://data.snb.ch/en/topics/texts/doc/introduction",
+        "reviewed_on": "2026-10-12",
+        "attribution": "Swiss National Bank, Labour market, amarbma, total jobless rate (T1), source SECO, accessed 2026-10-12. URL: https://data.snb.ch/en/topics/uvo/cube/amarbma?dimSel=D0(T1).",
+        "conditions": "This non-commercial educational atlas saves and redistributes the selected SNB data with source attribution for a purpose compatible with the data portal. Commercial reuse may require SNB consent. The underlying SECO source and any third-party rights remain applicable; no endorsement is implied."
+      }
+    },
+    {
       "id": "jst-swiss-public-debt",
       "publisher": "Jordà–Schularick–Taylor Macrohistory Database",
       "title": "Release 6: Swiss public debt / GDP",
@@ -740,35 +760,76 @@
         "attribution": "SIX Swiss Exchange",
         "conditions": "SIX historical index data and use are subject to purpose-specific licensing. No agreement authorizing this project's public observations, source snapshots or downloadable outputs was established. Derived output permission must also be confirmed."
       }
+    },
+    {
+      "id": "ffa-main-aggregates",
+      "publisher": "Federal Finance Administration",
+      "title": "FS/GFS main aggregates and forecasts",
+      "landing_url": "https://opendata.swiss/en/dataset/hauptaggregate-und-prognosen-im-fs-und-gfs-modell",
+      "data_url": "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/main_extern.csv",
+      "source_identifier": "main_extern.csv; selected FS/GFS aggregate rows; 1990–2026",
+      "audit_status": "verified",
+      "definition": "Federal Finance Administration main aggregate export. FS gross debt is retained for general government and the Confederation; the Confederation ratio uses the export's bruttoschuldenquote fraction converted to percent.",
+      "coverage": "1990–2026 selected; 2026 is a forecast or highrechnung, not a completed-year observation",
+      "revision_practice": "Retain the retrieved source vintage; FFA annual accounts, highrechnung and forecasts may be revised. Import a new immutable snapshot when the publisher changes the file.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "opendata.swiss OPEN",
+        "evidence_url": "https://opendata.swiss/en/dataset/hauptaggregate-und-prognosen-im-fs-und-gfs-modell",
+        "reviewed_on": "2026-10-12",
+        "attribution": "Federal Finance Administration, FS/GFS main aggregates and forecasts, accessed 12 October 2026.",
+        "conditions": "The linked catalogue record labels the data OPEN. Preserve source attribution and the FS/GFS definitions; source status Rechnung is observed, while Hochrechnung and Prognosen remain forecasts or provisional estimates."
+      }
+    },
+    {
+      "id": "snb-historical-long-yield",
+      "publisher": "Swiss National Bank",
+      "title": "Historical Confederation bond yield by maturity, monthly",
+      "landing_url": "https://www.snb.ch/en/the-snb/mandates-goals/statistics/statistics-pub/publication-history/historical-time-series",
+      "data_url": "https://www.snb.ch/dam/jcr%3A7d42dd04-945c-4e40-8e40-1fd20d372e3f/histz_rd.n.xls",
+      "source_identifier": "histz_rd.n.xls / sheet 3.1a_M / column C / Yield by maturity",
+      "audit_status": "verified",
+      "definition": "Monthly end-of-period historical yield by maturity on Swiss Confederation bonds, preserving the original historical table concept rather than substituting the fitted ten-year spot-rate series.",
+      "coverage": "January 1924–December 1990, numeric observations in the original monthly table",
+      "revision_practice": "Fixed Historical time series workbook vintage linked by SNB; later corrections require a new snapshot. Method changes and source notes remain attached to the series audit.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "SNB historical statistical figures: reproduction with source reference",
+        "evidence_url": "https://www.snb.ch/en/the-snb/mandates-goals/statistics/statistics-pub/publication-history/historical-time-series",
+        "reviewed_on": "2026-10-12",
+        "attribution": "Swiss National Bank, Historical time series, Interest rates and yields, table 3.1a_M, accessed 12 October 2026.",
+        "conditions": "The retained CSV is a checked extraction of table 3.1a_M column C from the official workbook; preserve the original table identity, source reference and methodological notes."
+      }
     }
   ],
   "series": [
     {
       "id": "real-gdp-per-capita",
       "title": "Real GDP per capita",
-      "verification": "candidate",
+      "verification": "verified",
       "data_class": "real",
       "definition": "Output per person using a documented real GDP measure and a compatible population denominator.",
       "unit": {
         "code": "currency",
-        "label": "Volume measure per person",
+        "label": "CHF per person, chain-linked volume (reference year 2020)",
         "dimension": "CHF/person",
         "scale": 1
       },
+      "measurement": "level",
+      "price_basis": "real",
+      "aggregation_kind": "end_of_period",
       "frequency": "annual",
       "institutional_coverage": "Swiss resident population",
       "instrument": null,
       "maturity": null,
-      "aggregation": "Candidate real GDP per person; compatible population convention must be verified before derivation.",
+      "aggregation": "Annual chain-linked real GDP divided by the published 31 December permanent-resident population; this is an end-of-period denominator, not an annual-average population.",
       "source_ids": [
-        "real-gdp-per-capita-inputs-candidate"
+        "fso-gdp-long-series",
+        "fso-population-long"
       ],
-      "source_identifier": "real_y / annual GDP / population denominator pending",
+      "source_identifier": "B1GQ/ACPP chained from 2020 nominal anchor; divided by POP_DEC",
       "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Resolve the real-GDP source reuse grant and verify a compatible published annual-average population denominator, or obtain an official real-GDP-per-capita series with documented methodology and permission. No observations are published. See docs/source-audit/real-gdp-per-capita.md.",
-      "measurement": "level",
-      "price_basis": "real",
-      "aggregation_kind": "sum"
+      "usage_notes": "Derived series. Real GDP is chained from the FSO 2020 current-price anchor using published annual real growth; it is divided by year-end permanent-resident population. The denominator convention is explicit and differs from an annual-average population. 1948–1994 inherits the historical GDP reconstruction; 1861–1980 population history is not used because real GDP starts in 1948."
     },
     {
       "id": "population",
@@ -809,7 +870,7 @@
     {
       "id": "real-gdp",
       "title": "Real GDP",
-      "verification": "candidate",
+      "verification": "verified",
       "data_class": "real",
       "definition": "Output measured in volumes; preserve price basis and reconstruction methodology.",
       "unit": {
@@ -818,20 +879,25 @@
         "dimension": "CHF",
         "scale": 1000000
       },
+      "measurement": "level",
+      "price_basis": "real",
+      "aggregation_kind": "sum",
       "frequency": "annual",
       "institutional_coverage": "Swiss domestic economy",
       "instrument": null,
       "maturity": null,
-      "aggregation": "Annual unadjusted GDP volumes; reference year 2020. Source reuse grant pending.",
+      "aggregation": "Annual chain-linked GDP volume level reconstructed from the published 2020 current-price anchor and annual real-growth observations.",
       "source_ids": [
-        "seco-real-gdp-annual-candidate"
+        "fso-gdp-long-series"
       ],
-      "source_identifier": "qna_p_na.xlsx / real_y / annual GDP / candidate",
-      "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Establish a dataset-specific redistribution grant for the annual real-volume workbook, or obtain a compatible FSO OPEN-BY real-volume dataset. No observations are published. See docs/source-audit/real-gdp.md.",
-      "measurement": "level",
-      "price_basis": "real",
-      "aggregation_kind": "sum"
+      "source_identifier": "B1GQ/MCHF 2020 anchor + B1GQ/ACPP annual chain-linking",
+      "breaks": [
+        {
+          "period": "1995",
+          "description": "The FSO long series changes from retropolated historical national accounts to the current accounting framework; the derived level inherits this break."
+        }
+      ],
+      "usage_notes": "Derived from the FSO OPEN-BY long series: the 2020 real-volume anchor equals nominal GDP at 2020 prices, then published annual real changes are compounded backward and forward. This reproduces the independently inspected SECO real_y level within workbook precision without redistributing the SECO workbook. 1948–1994 is reconstructed; 2026 is absent."
     },
     {
       "id": "real-gdp-growth",
@@ -845,6 +911,9 @@
         "dimension": "percent",
         "scale": 1
       },
+      "measurement": "growth",
+      "price_basis": "real",
+      "aggregation_kind": "annual_change",
       "frequency": "annual",
       "institutional_coverage": "Swiss domestic economy",
       "instrument": null,
@@ -860,44 +929,41 @@
           "description": "Transition from reconstructed historical national accounts to the current framework; full history is not methodologically uniform."
         }
       ],
-      "usage_notes": "1949–1994 reconstructed historical accounts. The 1995 transition changes methodology. 1948 is explicitly missing in the source; 1946–1948 and 2026 have no value. Normal source status A is final in this retained vintage; later vintages can revise history.",
-      "measurement": "growth",
-      "price_basis": "real",
-      "aggregation_kind": "annual_change"
+      "usage_notes": "1949–1994 reconstructed historical accounts. The 1995 transition changes methodology. 1948 is explicitly missing in the source; 1946–1948 and 2026 have no value. Normal source status A is final in this retained vintage; later vintages can revise history."
     },
     {
       "id": "registered-unemployment",
-      "title": "Registered unemployment",
-      "verification": "candidate",
+      "title": "Registered unemployment rate — SECO",
+      "verification": "verified",
       "data_class": "real",
-      "definition": "Register-based unemployment rate with denominator and methodological changes recorded.",
+      "definition": "Monthly registered unemployment rate (registrierte Arbeitslosenquote): people registered at an RAV, without a job and immediately available, relative to the labour force. SECO administrative-register data distributed through the SNB Labour market cube, unadjusted and at published precision.",
       "unit": {
         "code": "percent",
         "label": "Percent",
         "dimension": "percent",
         "scale": 1
       },
-      "frequency": "monthly",
-      "institutional_coverage": "SECO registered labour force",
-      "instrument": null,
-      "maturity": null,
-      "aggregation": "Native national monthly rate; exact seasonality, denominator and history pending audit.",
-      "source_ids": [
-        "seco-registered-unemployment-candidate"
-      ],
-      "source_identifier": "AMSTAT / national total / registered unemployment rate / monthly selection pending",
-      "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Obtain an auditable national SECO/FSO monthly rate export, its denominator and method history, and a dataset-specific public redistribution grant. No observations are published. See docs/source-audit/registered-unemployment.md.",
       "measurement": "rate",
       "price_basis": "not_applicable",
-      "aggregation_kind": "native"
+      "aggregation_kind": "native",
+      "frequency": "monthly",
+      "institutional_coverage": "People registered as unemployed at an RAV; rate relative to the labour force",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "Native monthly total rate; the SNB notes Jobless rate = registered unemployed / labour force × 100. This atlas uses the non-seasonally-adjusted total selection.",
+      "source_ids": [
+        "snb-seco-registered-unemployment"
+      ],
+      "source_identifier": "EPB@SNB.amarbma{T1}; total jobless rate; monthly; unadjusted",
+      "breaks": [],
+      "usage_notes": "Verified from the SNB public Labour market cube, which identifies SECO as the source. Coverage is January 1984–August 2026; the source returns empty rows before 1984 and no September 2026 observation in the retained vintage. 2026 monthly values are provisional. This differs from the ILO survey rate. See docs/source-audit/registered-unemployment.md."
     },
     {
       "id": "ilo-unemployment",
-      "title": "ILO unemployment",
+      "title": "ILO unemployment rate — FSO (BFS)",
       "verification": "verified",
       "data_class": "real",
-      "definition": "Quarterly total ILO unemployment rate in percent of the survey labour force, as published by FSO. Survey estimates are observed statistics.",
+      "definition": "Quarterly ILO unemployment rate (Erwerbslosenquote gemäss ILO), published by FSO (BFS) from SLFS / SAKE. People aged 15–74 who were not employed in the reference week, actively sought work in the previous four weeks and were available to start, regardless of RAV registration, as a percentage of the survey labour force.",
       "unit": {
         "code": "percent",
         "label": "Percent",
@@ -934,10 +1000,10 @@
     },
     {
       "id": "ilo-unemployment-annual",
-      "title": "Annual ILO unemployment rate",
+      "title": "Annual ILO unemployment rate — FSO (BFS)",
       "verification": "verified",
       "data_class": "real",
-      "definition": "Published annual mean total ILO unemployment rate, in percent of the Swiss Labour Force Survey labour force. These are original FSO annual observations.",
+      "definition": "Published annual mean ILO unemployment rate (Erwerbslosenquote gemäss ILO), in percent of the SLFS / SAKE labour force. Includes active, available jobseekers aged 15–74 regardless of RAV registration. These are original FSO (BFS) annual observations, separate from SECO registered unemployment.",
       "unit": {
         "code": "percent",
         "label": "Percent",
@@ -1081,7 +1147,7 @@
     {
       "id": "confederation-long-yield",
       "title": "Historical long-term Confederation yield",
-      "verification": "candidate",
+      "verification": "verified",
       "data_class": "real",
       "definition": "Historical yield concept retaining its original methodology, distinct from a fixed-maturity spot rate.",
       "unit": {
@@ -1090,20 +1156,33 @@
         "dimension": "percent",
         "scale": 1
       },
+      "measurement": "yield",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "native",
       "frequency": "monthly",
       "institutional_coverage": "Swiss Confederation",
       "instrument": "Original historical bond measure",
       "maturity": "Source-defined",
       "aggregation": "Preserve original observation convention.",
       "source_ids": [
-        "snb-historical-long-yield-candidate"
+        "snb-historical-long-yield"
       ],
-      "source_identifier": "Historical time series 4 / historical yield / monthly companion pending",
-      "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Locate and retrieve the original SNB monthly historical long-term yield table; verify its exact series identity, method transitions, native periods and source-specific reuse terms. No observations are published. See docs/source-audit/confederation-long-yield.md.",
-      "measurement": "yield",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "native"
+      "source_identifier": "histz_rd.n.xls / 3.1a_M / column C / Yield by maturity",
+      "breaks": [
+        {
+          "period": "1970",
+          "description": "SNB historical-table notes identify a methodological change; retain the publisher's original monthly values rather than smoothing across it."
+        },
+        {
+          "period": "1977",
+          "description": "SNB historical-table notes identify a methodological change; retain the publisher's original monthly values rather than smoothing across it."
+        },
+        {
+          "period": "1982",
+          "description": "SNB historical-table notes identify a methodological change; retain the publisher's original monthly values rather than smoothing across it."
+        }
+      ],
+      "usage_notes": "Verified extraction of the official SNB historical table's monthly end-of-period 'Yield by maturity' column. Coverage is 1924-01–1990-12 because earlier table rows contain only the 3.5% SBB/CFF series and later rows transition to other historical methods. This is not the fitted daily ten-year spot rate. See docs/source-audit/confederation-long-yield.md."
     },
     {
       "id": "confederation-10y",
@@ -1149,6 +1228,9 @@
         "dimension": "percent",
         "scale": 1
       },
+      "measurement": "yield",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "native",
       "frequency": "event",
       "institutional_coverage": "Swiss Confederation",
       "instrument": "GMBF",
@@ -1159,64 +1241,61 @@
       ],
       "source_identifier": "resultate-gmbf.xlsx / three-month auction tranche / selection pending",
       "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Establish reuse permission for the exact FFA auction workbook, then audit the three-month tranche selection, event-date identity, quotation and duplicate-auction handling. No observations are published. See docs/source-audit/gmbf-3m.md.",
-      "measurement": "yield",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "native"
+      "usage_notes": "Candidate. Audit on 12 October 2026: the exact FFA auction workbook is identified, but dataset-specific redistribution permission was not established; the three-month tranche selection, event-date identity, quotation and duplicate-auction handling also require audit. No observations are published. See docs/source-audit/gmbf-3m.md."
     },
     {
       "id": "general-government-debt",
       "title": "General-government gross debt",
-      "verification": "candidate",
+      "verification": "verified",
       "data_class": "real",
       "definition": "Gross debt with the exact statistical definition and consolidation coverage recorded.",
       "unit": {
         "code": "currency",
-        "label": "CHF, scale pending audit",
+        "label": "CHF millions",
         "dimension": "CHF",
-        "scale": 1
+        "scale": 1000000
       },
+      "measurement": "level",
+      "price_basis": "nominal",
+      "aggregation_kind": "end_of_period",
       "frequency": "annual",
       "institutional_coverage": "Consolidated Swiss general government",
       "instrument": null,
       "maturity": null,
-      "aggregation": "Annual stock; Maastricht and broader liabilities require separate identities.",
+      "aggregation": "Annual end-of-period FS gross-debt stock for the consolidated general-government sector; do not substitute the GFS Maastricht or IMF debt concepts.",
       "source_ids": [
-        "ffa-general-government-debt-candidate"
+        "ffa-main-aggregates"
       ],
-      "source_identifier": "FS/GFS main_extern / hh and variable selections pending",
+      "source_identifier": "main_extern / hh=staat / model=fs / variable=bruttoschuld_fs",
       "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Retrieve usable original FFA data and codelists; verify consolidated general government, debt valuation/consolidation and the FS/GFS debt definition and currency scale. No observations are published. See docs/source-audit/general-government-debt.md.",
-      "measurement": "level",
-      "price_basis": "nominal",
-      "aggregation_kind": "end_of_period"
+      "usage_notes": "Verified FFA FS gross-debt stock in CHF millions, 1990–2026 selected. The source's Rechnung rows are observed; 2025–2026 general-government projections remain forecast/provisional where the publisher labels them Prognosen. This is separate from the published general-government debt/GDP composite and from Maastricht debt."
     },
     {
       "id": "confederation-debt",
       "title": "Confederation gross debt",
-      "verification": "candidate",
+      "verification": "verified",
       "data_class": "real",
       "definition": "Federal gross debt with valuation and statistical definition preserved.",
       "unit": {
         "code": "currency",
-        "label": "CHF, scale pending audit",
+        "label": "CHF millions",
         "dimension": "CHF",
-        "scale": 1
+        "scale": 1000000
       },
+      "measurement": "level",
+      "price_basis": "nominal",
+      "aggregation_kind": "end_of_period",
       "frequency": "annual",
       "institutional_coverage": "Swiss Confederation",
       "instrument": null,
       "maturity": null,
-      "aggregation": "Annual stock; do not substitute general-government debt.",
+      "aggregation": "Annual end-of-period FS gross-debt stock for the Swiss Confederation; do not substitute consolidated general-government debt.",
       "source_ids": [
-        "ffa-confederation-debt-candidate"
+        "ffa-main-aggregates"
       ],
-      "source_identifier": "FS/GFS main_extern / hh and variable selections pending",
+      "source_identifier": "main_extern / hh=bund / model=fs / variable=bruttoschuld_fs",
       "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Retrieve usable original FFA data and codelists; verify Confederation, debt valuation/consolidation and the FS/GFS debt definition and currency scale. No observations are published. See docs/source-audit/confederation-debt.md.",
-      "measurement": "level",
-      "price_basis": "nominal",
-      "aggregation_kind": "end_of_period"
+      "usage_notes": "Verified FFA FS gross-debt stock in CHF millions, 1990–2026 selected. The 2026 Hochrechnung is retained as a forecast/provisional estimate and is not presented as a completed-year observation. Historical values remain subject to FFA revisions."
     },
     {
       "id": "nominal-gdp",
@@ -1230,6 +1309,9 @@
         "dimension": "CHF",
         "scale": 1000000
       },
+      "measurement": "level",
+      "price_basis": "nominal",
+      "aggregation_kind": "sum",
       "frequency": "annual",
       "institutional_coverage": "Swiss domestic economy",
       "instrument": null,
@@ -1245,10 +1327,7 @@
           "description": "End of the pre-1995 retropolated reconstruction based on older accounting systems. The publisher does not guarantee conceptual and methodological consistency over the whole long series."
         }
       ],
-      "usage_notes": "Current prices; distinguish from chain-linked real GDP. Coverage is 1948–2025: 1946–1947 and 2026 have no observations. The 1948–1994 history is reconstructed. Source flag A (normal) maps to final for this publication vintage; later releases may revise it. Attribution required under FSO OPEN-BY.",
-      "measurement": "level",
-      "price_basis": "nominal",
-      "aggregation_kind": "sum"
+      "usage_notes": "Current prices; distinguish from chain-linked real GDP. Coverage is 1948–2025: 1946–1947 and 2026 have no observations. The 1948–1994 history is reconstructed. Source flag A (normal) maps to final for this publication vintage; later releases may revise it. Attribution required under FSO OPEN-BY."
     },
     {
       "id": "smi",
@@ -1262,6 +1341,9 @@
         "dimension": "smi-index",
         "scale": 1
       },
+      "measurement": "level",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "native",
       "frequency": "daily",
       "institutional_coverage": "SMI constituent equities",
       "instrument": "SMI",
@@ -1272,10 +1354,7 @@
       ],
       "source_identifier": "CH0009980894 / daily closing level candidate",
       "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Obtain an authorized SIX historical SMI closing-level dataset and a licence covering public website display and CSV/JSON redistribution; verify trading-date closes and original historical precision. No observations are published. See docs/source-audit/smi.md.",
-      "measurement": "level",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "native"
+      "usage_notes": "Candidate. Audit on 12 October 2026: SIX historical-file metadata is visible, but the official download endpoint requires an authenticated licence/session. Obtain an authorized historical SMI closing-level dataset and a licence covering public website display and CSV/JSON redistribution; verify trading-date closes and original historical precision. No observations are published. See docs/source-audit/smi.md."
     },
     {
       "id": "smic",
@@ -1289,6 +1368,9 @@
         "dimension": "smic-index",
         "scale": 1
       },
+      "measurement": "level",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "native",
       "frequency": "daily",
       "institutional_coverage": "SMI constituent equities",
       "instrument": "SMIC",
@@ -1299,37 +1381,34 @@
       ],
       "source_identifier": "CH0000222130 / daily closing level candidate",
       "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Obtain an authorized SIX historical SMIC closing-level dataset and a licence covering public website display and CSV/JSON redistribution; verify trading-date closes and original historical precision. No observations are published. See docs/source-audit/smic.md.",
-      "measurement": "level",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "native"
+      "usage_notes": "Candidate. Audit on 12 October 2026: SIX historical-file metadata is visible, but the official download endpoint requires an authenticated licence/session. Obtain an authorized historical SMIC closing-level dataset and a licence covering public website display and CSV/JSON redistribution; verify trading-date closes and original historical precision. No observations are published. See docs/source-audit/smic.md."
     },
     {
       "id": "registered-unemployment-annual",
-      "title": "Annual registered unemployment",
-      "verification": "candidate",
+      "title": "Annual registered unemployment rate — SECO",
+      "verification": "verified",
       "data_class": "real",
-      "definition": "Proposed annual companion to registered-unemployment. Exact preparation convention requires source audit.",
+      "definition": "Annual registered unemployment rate (registrierte Arbeitslosenquote): arithmetic mean of twelve complete monthly, unadjusted SECO rates from the same SNB vintage. Counts RAV-registered people without a job who are immediately available, relative to the labour force. This is an atlas derivation, separate from the ILO survey rate.",
       "unit": {
         "code": "percent",
         "label": "Percent",
         "dimension": "percent",
         "scale": 1
       },
-      "frequency": "annual",
-      "institutional_coverage": "SECO registered labour force",
-      "instrument": null,
-      "maturity": null,
-      "aggregation": "Published annual rate with denominator and averaging convention pending audit.",
-      "source_ids": [
-        "seco-registered-unemployment-annual-candidate"
-      ],
-      "source_identifier": "AMSTAT / national total / registered unemployment rate / annual selection pending",
-      "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Obtain an auditable national annual SECO/FSO rate table and its redistribution grant; verify full-year coverage and the published annual denominator/averaging convention. No observations are published. See docs/source-audit/registered-unemployment-annual.md.",
       "measurement": "rate",
       "price_basis": "not_applicable",
-      "aggregation_kind": "annual_average"
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "People registered as unemployed at an RAV; rate relative to the labour force",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "Arithmetic mean of twelve complete monthly observations; no partial-year 2026 value.",
+      "source_ids": [
+        "snb-seco-registered-unemployment"
+      ],
+      "source_identifier": "derive-registered-unemployment-annual from EPB@SNB.amarbma{T1}",
+      "breaks": [],
+      "usage_notes": "Verified derived companion: 1984–2025 complete annual means from the monthly SNB/SECO rate. The calculation is registered in transformations.json and preserves the monthly source snapshot lineage. No full-year 2026 estimate is generated. See docs/source-audit/registered-unemployment-annual.md."
     },
     {
       "id": "snb-policy-rate-annual",
@@ -1370,6 +1449,9 @@
         "dimension": "percent",
         "scale": 1
       },
+      "measurement": "yield",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "annual_average",
       "frequency": "annual",
       "institutional_coverage": "Swiss Confederation",
       "instrument": "OECD ten-year government benchmark; historical Confederation bond proxy before 1955",
@@ -1395,10 +1477,7 @@
           "description": "Partial-year average: Jan–Aug 2026 (8 months), not a full-year average or current yield."
         }
       ],
-      "usage_notes": "1946–1954 rows are marked reconstructed because of the proxy extension; their source yields are observed. 2026 is observed/provisional, not a forecast. This series differs from the daily SNB fitted spot-rate candidate. Do not pair the 2026 average with a different-month short-rate average. Data retain publisher-specific usage terms.",
-      "measurement": "yield",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "annual_average"
+      "usage_notes": "1946–1954 rows are marked reconstructed because of the proxy extension; their source yields are observed. 2026 is observed/provisional, not a forecast. This series differs from the daily SNB fitted spot-rate candidate. Do not pair the 2026 average with a different-month short-rate average. Data retain publisher-specific usage terms."
     },
     {
       "id": "gmbf-3m-annual",
@@ -1412,6 +1491,9 @@
         "dimension": "percent",
         "scale": 1
       },
+      "measurement": "yield",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "annual_average",
       "frequency": "annual",
       "institutional_coverage": "Swiss Confederation",
       "instrument": "GMBF",
@@ -1436,10 +1518,7 @@
           "description": "Partial-year average: Jan–Sep 2026 (9 months), not a full-year average or current yield."
         }
       ],
-      "usage_notes": "No three-month observations are supplied before 1980; absence is not zero. 2026 is observed/provisional. Public SNB portal data are reused for non-commercial educational purposes with attribution; commercial reuse may require consent.",
-      "measurement": "yield",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "annual_average"
+      "usage_notes": "No three-month observations are supplied before 1980; absence is not zero. 2026 is observed/provisional. Public SNB portal data are reused for non-commercial educational purposes with attribution; commercial reuse may require consent."
     },
     {
       "id": "general-government-debt-ratio",
@@ -1453,6 +1532,9 @@
         "dimension": "percent",
         "scale": 1
       },
+      "measurement": "rate",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "end_of_period",
       "frequency": "annual",
       "institutional_coverage": "Swiss general government; historical Confederation, cantons and municipalities, modern IMF general-government coverage",
       "instrument": "Gross government debt; historical and IMF definitions differ",
@@ -1474,37 +1556,34 @@
           "description": "Continue JST 1988–1989 IMF vintage with April 2026 WEO history. Source vintage and precision change; the two-year JST bridge is not revised with the current WEO data."
         }
       ],
-      "usage_notes": "Not Maastricht debt and not Confederation-only debt. No pre-1946 total-government observations are imported from JST because earlier JST debt covers central government only. 1946–1987 is marked reconstructed; 2025 is observed/provisional and 2026 forecast/provisional (38.50% of GDP), not a completed observation. Historical ratios retain the supplied one-decimal rounding; modern ratios retain the cited two-decimal table. Historical data/adaptations: CC BY-NC-SA 4.0 with JST citation; modern data retain IMF and ecolod terms. Reuse this combined file for non-commercial purposes under CC BY-NC-SA 4.0, retaining all source attributions.",
-      "measurement": "rate",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "end_of_period"
+      "usage_notes": "Not Maastricht debt and not Confederation-only debt. No pre-1946 total-government observations are imported from JST because earlier JST debt covers central government only. 1946–1987 is marked reconstructed; 2025 is observed/provisional and 2026 forecast/provisional (38.50% of GDP), not a completed observation. Historical ratios retain the supplied one-decimal rounding; modern ratios retain the cited two-decimal table. Historical data/adaptations: CC BY-NC-SA 4.0 with JST citation; modern data retain IMF and ecolod terms. Reuse this combined file for non-commercial purposes under CC BY-NC-SA 4.0, retaining all source attributions."
     },
     {
       "id": "confederation-debt-ratio",
       "title": "Confederation debt / GDP",
-      "verification": "candidate",
+      "verification": "verified",
       "data_class": "real",
-      "definition": "Proposed annual companion to confederation-debt. Exact preparation convention requires source audit.",
+      "definition": "Federal Finance Administration FS gross-debt ratio for the Confederation, published in the main aggregate export as bruttoschuldenquote and converted from a fraction to percent.",
       "unit": {
         "code": "percent",
         "label": "Percent",
         "dimension": "percent",
         "scale": 1
       },
+      "measurement": "rate",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "end_of_period",
       "frequency": "annual",
       "institutional_coverage": "Swiss Confederation",
       "instrument": null,
       "maturity": null,
-      "aggregation": "Annual convention to be verified: end of period",
+      "aggregation": "Annual end-of-period ratio from the publisher's aggregate export; 2026 is a forecast/highrechnung, not a completed-year observation.",
       "source_ids": [
-        "ffa-confederation-debt-ratio-candidate"
+        "ffa-main-aggregates"
       ],
-      "source_identifier": "FS/GFS main_extern / hh and variable selections pending",
+      "source_identifier": "main_extern / hh=bund / model=gfs / variable=bruttoschuldenquote / fraction converted to percent",
       "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Retrieve usable original FFA data and codelists; verify Confederation debt and nominal-GDP denominator, debt valuation/consolidation and the matching annual nominal-GDP vintage and ratio convention. No observations are published. See docs/source-audit/confederation-debt-ratio.md.",
-      "measurement": "rate",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "end_of_period"
+      "usage_notes": "Verified publisher ratio from the FFA export, retained separately from the atlas's general-government debt/GDP composite. The source codelist documents the surrounding FS/GFS concepts; this export variable is selected directly and converted to percentage points. 2025 is a Rechnung observation and 2026 is Hochrechnung."
     },
     {
       "id": "smi-annual-return",
@@ -1518,6 +1597,9 @@
         "dimension": "percent",
         "scale": 1
       },
+      "measurement": "return",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "annual_change",
       "frequency": "annual",
       "institutional_coverage": "SMI constituent equities",
       "instrument": "SMI",
@@ -1528,10 +1610,7 @@
       ],
       "source_identifier": "CH0009980894 / annual close-to-close return candidate",
       "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Obtain an authorized SIX historical SMI closing-level dataset and a licence covering public derived annual returns and downloads; verify matching year-end trading closes. No observations are published. See docs/source-audit/smi-annual-return.md.",
-      "measurement": "return",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "annual_change"
+      "usage_notes": "Candidate. Audit on 12 October 2026: SIX historical-file metadata is visible, but the official download endpoint requires an authenticated licence/session. Obtain an authorized SMI level dataset and permission covering public derived annual returns and downloads; verify matching year-end trading closes. No observations are published. See docs/source-audit/smi-annual-return.md."
     },
     {
       "id": "smic-annual-return",
@@ -1545,6 +1624,9 @@
         "dimension": "percent",
         "scale": 1
       },
+      "measurement": "return",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "annual_change",
       "frequency": "annual",
       "institutional_coverage": "SMI constituent equities",
       "instrument": "SMIC",
@@ -1555,10 +1637,7 @@
       ],
       "source_identifier": "CH0000222130 / annual close-to-close return candidate",
       "breaks": [],
-      "usage_notes": "Candidate. Audit on 8 October 2026: Obtain an authorized SIX historical SMIC closing-level dataset and a licence covering public derived annual returns and downloads; verify matching year-end trading closes. No observations are published. See docs/source-audit/smic-annual-return.md.",
-      "measurement": "return",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "annual_change"
+      "usage_notes": "Candidate. Audit on 12 October 2026: SIX historical-file metadata is visible, but the official download endpoint requires an authenticated licence/session. Obtain an authorized SMIC level dataset and permission covering public derived annual returns and downloads; verify matching year-end trading closes. No observations are published. See docs/source-audit/smic-annual-return.md."
     },
     {
       "id": "confederation-10y-minus-gmbf-3m",
@@ -1572,6 +1651,9 @@
         "dimension": "percentage_points",
         "scale": 1
       },
+      "measurement": "spread",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "annual_average",
       "frequency": "annual",
       "institutional_coverage": "Swiss Confederation",
       "instrument": "Ten-year government benchmark minus three-month GMBF",
@@ -1590,10 +1672,7 @@
           "description": "Quotation changes from yield at issue to auction yield; last issue/auction of each month."
         }
       ],
-      "usage_notes": "Negative values indicate annual-average short yields above long yields; annual averages do not establish the duration of intrayear inversion. 2026 has no spread observation because Jan–Aug and Jan–Sep means are not comparable. Native source terms are inherited.",
-      "measurement": "spread",
-      "price_basis": "not_applicable",
-      "aggregation_kind": "annual_average"
+      "usage_notes": "Negative values indicate annual-average short yields above long yields; annual averages do not establish the duration of intrayear inversion. 2026 has no spread observation because Jan–Aug and Jan–Sep means are not comparable. Native source terms are inherited."
     },
     {
       "id": "snb-libor-target-lower",
@@ -1873,6 +1952,30 @@
       "sha256": "4bb9be80c14479f6340cacede6b413c429b198f9604973803cd22267d85eb35a",
       "file": "data/raw/fso-ilo-annual-2026-10-08-4bb9be80c14479f6.csv",
       "source_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36710104/master"
+    },
+    {
+      "id": "ffa-main-aggregates-2026-10-12-d5fe12eeae55bf85",
+      "source_id": "ffa-main-aggregates",
+      "retrieved_on": "2026-10-12",
+      "sha256": "d5fe12eeae55bf854949880a29f7f5b1cc372b20a22f3ad770a20980bc88e48c",
+      "file": "data/raw/ffa-main-aggregates-2026-10-12-d5fe12eeae55bf85.csv",
+      "source_url": "https://www.data.finance.admin.ch/static/assets/datasets/fs_dashboard/main_extern.csv"
+    },
+    {
+      "id": "snb-historical-long-yield-2026-10-12-eb52a0f395069f78",
+      "source_id": "snb-historical-long-yield",
+      "retrieved_on": "2026-10-12",
+      "sha256": "eb52a0f395069f78534b28b56e05e39c78bebb422cee2e3149b1f142a639897b",
+      "file": "data/raw/snb-historical-long-yield-2026-10-12-eb52a0f395069f78.csv",
+      "source_url": "https://www.snb.ch/dam/jcr%3A7d42dd04-945c-4e40-8e40-1fd20d372e3f/histz_rd.n.xls"
+    },
+    {
+      "id": "snb-seco-registered-unemployment-2026-10-12-bbeca1289c6c95da",
+      "source_id": "snb-seco-registered-unemployment",
+      "retrieved_on": "2026-10-12",
+      "sha256": "bbeca1289c6c95dab58f8d69b1f4d2a847b2d63150acc31f62cf131882743ba0",
+      "file": "data/raw/snb-seco-registered-unemployment-2026-10-12-bbeca1289c6c95da.csv",
+      "source_url": "https://data.snb.ch/api/cube/amarbma/data/csv/en?dimSel=D0(T1)&fromDate=1948-01&toDate=2026-09"
     }
   ]
 }

@@ -42,7 +42,7 @@ The printed directory contains a sample registry, original snapshot and canonica
 
 ## Derive measures
 
-Add the output series definition to `registry.json` and a calculation record to `transformations.json` with `id`, `output_series_id`, `method` (`growth`, `rebase` or `spread`), `inputs` and a human-readable `convention`. A rebase also fixes `base_period`. Derived source IDs must match the complete input lineage. In this milestone, all three transforms require annual inputs with matching coverage and data class; native monthly, quarterly and event observations remain separate.
+Add the output series definition to `registry.json` and a calculation record to `transformations.json` with `id`, `output_series_id`, `method` (`growth`, `rebase`, `chain_level`, `per_capita`, `annual_mean` or `spread`), `inputs` and a human-readable `convention`. A rebase also fixes `base_period`. Derived source IDs must match the complete input lineage. Annual means explicitly require one monthly input and twelve complete observations per calendar year; other native monthly, quarterly and event observations remain separate unless a source-specific calculation is registered.
 
 Growth and rebasing require level inputs; spreads require percent inputs and percentage-point output. Mixed observation or revision statuses are rejected for an explicit methodological decision. The tools do not invent precedence between a provisional reading, a final reconstruction and a forecast.
 
@@ -50,7 +50,7 @@ Growth and rebasing require level inputs; spreads require percent inputs and per
 npm run data:derive
 ```
 
-Derivations run in dependency order. Their outputs retain input snapshot references. Publication validates stored calculations against recomputed values. No implicit annual aggregation or series splicing is provided.
+Derivations run in dependency order. Their outputs retain input snapshot references. Publication validates stored calculations against recomputed values. No implicit annual aggregation or series splicing is provided; annual means are explicit registered transformations rather than automatic frequency conversion.
 
 ## Review and publish
 

@@ -1,0 +1,18 @@
+{
+  "format": "checked-table-csv",
+  "original_file": "data/extractions/checked/confederation-long-yield.csv",
+  "original_sha256": "eb52a0f395069f78534b28b56e05e39c78bebb422cee2e3149b1f142a639897b",
+  "input_kind": "checked extraction of SNB historical workbook sheet 3.1a_M column C; not original publisher CSV",
+  "publisher_workbook_url": "https://www.snb.ch/dam/jcr%3A7d42dd04-945c-4e40-8e40-1fd20d372e3f/histz_rd.n.xls",
+  "publisher_workbook_sha256": "ef1612d95faf073b7539c6182064cc13bb7565ba2abca39f5e45508feede2b95",
+  "sheet": "3.1a_M",
+  "period_column": "reference_period",
+  "value_column": "value",
+  "columns": [
+    "reference_period",
+    "source_identifier",
+    "value"
+  ],
+  "key": "histz_rd.n.xls / 3.1a_M / column C / Yield by maturity",
+  "expected_count": 803
+}

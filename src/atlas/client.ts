@@ -2,6 +2,7 @@ import type { AtlasData, ChartState, Panel } from './contracts.ts';
 import { available, availableYearRange, definition, emptyState, panelYears, validateState, removeSeries, separateSeries, overlaySeries, movePanel, restoreState, encodeState, newPanelId } from './composition.ts';
 import { colorFor, formatValue, pointsFor } from './geometry.ts';
 import { drawChart, drawCursor } from './renderer.ts';
+import { unemploymentMethod, unemploymentComparison } from '../lib/unemployment.ts';
 
 const element = <T extends HTMLElement = HTMLElement>(id: string): T => document.getElementById(id) as T;
 const make = <K extends keyof HTMLElementTagNameMap>(tag: K, className = '', text = ''): HTMLElementTagNameMap[K] => {
@@ -45,6 +46,16 @@ async function boot(): Promise<void> {
   let fullRange = { start_year: state.start_year, end_year: state.end_year };
   element('demo-banner').hidden = data.mode !== 'demo';
 
+  function coverage(id: string): string {
+    const periods = data.observations.filter(row => row.series_id === id && row.value !== null).map(row => row.reference_period).sort();
+    return periods.length ? `${periods[0]}–${periods.at(-1)}` : 'No observations available';
+  }
+  function methodologyLink(): HTMLAnchorElement {
+    const link = make('a', '', 'Definitions and annual methods →');
+    link.href = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/methodology/#unemployment`;
+    return link;
+  }
+
   function save(): void {
     try { localStorage.setItem(storageKey, JSON.stringify(state)); } catch { message('This browser cannot save layouts. You can still use a share link.'); }
     if (location.hash.startsWith('#chart=')) history.replaceState(null, '', `${location.pathname}${location.search}#chart=${encodeState(state)}`);
@@ -68,8 +79,14 @@ async function boot(): Promise<void> {
   function showInfo(id: string): void {
     const s = definition(data, id), content = element('info-content');
     content.replaceChildren(make('h2', '', s.title), make('p', '', s.definition));
+    const labour = unemploymentMethod(id);
+    if (labour) {
+      content.append(make('p', '', labour.definition), make('p', '', unemploymentComparison));
+      content.append(methodologyLink());
+    }
     const dl = make('dl');
     const fields = [['Unit', s.unit.label], ['Measurement', s.measurement], ['Price basis', s.price_basis.replaceAll('_', ' ')], ['Frequency', s.frequency], ['Coverage', s.institutional_coverage], ['Aggregation', s.aggregation], ['Historical breaks', s.breaks.map(b => `${b.period}: ${b.description}`).join('; ') || 'No breaks recorded; candidate definitions remain subject to audit.'], ['Usage', s.usage_notes]];
+    if (labour) fields.unshift(['Source', labour.source], ['Method', labour.method], ['Available periods', coverage(id)]);
     for (const [label, value] of fields) dl.append(make('dt', '', label), make('dd', '', value));
     content.append(dl);
     for (const source of data.registry.sources.filter(source => s.source_ids.includes(source.id))) {
@@ -93,6 +110,8 @@ async function boot(): Promise<void> {
         const s = definition(data, id), canAdd = available(data, id);
         const node = button(`+ ${s.title}`, `Add ${s.title}`, () => configure(id), !canAdd);
         const detail = make('small', '', canAdd ? `${s.unit.label} · annual${s.data_class === 'synthetic' ? ' · synthetic example' : ''}` : s.frequency !== 'annual' ? `${s.frequency} · unavailable in this annual view` : 'Awaiting verified observations');
+        const labour = unemploymentMethod(id);
+        if (labour) detail.textContent += ` · ${labour.method} · ${coverage(id)}`;
         const row = make('div', 'indicator-option'); row.append(node, detail); section.append(row); matches++;
       }
       listing.append(section);
@@ -189,6 +208,8 @@ async function boot(): Promise<void> {
     element('empty-intro').hidden = hasCharts;
     element('empty-atlas').dataset.hasCharts = String(hasCharts);
     panels.replaceChildren();
+    const unemploymentFamilies = new Set(state.panels.flatMap(panel => panel.series_ids).map(id => unemploymentMethod(id)?.family));
+    element('unemployment-comparison').hidden = !(unemploymentFamilies.has('registered') && unemploymentFamilies.has('ilo'));
     for (const [index, panel] of state.panels.entries()) {
       const section = make('section', 'chart-panel'); section.dataset.panel = panel.id; section.setAttribute('aria-label', panel.title);
       const header = make('div', 'panel-header'); header.append(make('h2', '', `${String(index+1).padStart(2,'0')}  ${panel.title}`));
@@ -209,6 +230,16 @@ async function boot(): Promise<void> {
       section.append(legend);
       const unit=make('p','axis-note',`${[...new Set(panel.series_ids.map(id=>definition(data,id).unit.label))].join(' / ')} · annual observations`);
       section.append(unit);
+      const labourNotes = make('div', 'unemployment-methods');
+      for (const id of panel.series_ids) {
+        const labour = unemploymentMethod(id);
+        if (!labour) continue;
+        const s = definition(data, id);
+        const note = make('p'); note.dataset.methodFor = id;
+        note.append(make('strong', '', `${s.title}: `), `${labour.method} · ${coverage(id)}. ${s.aggregation}`);
+        labourNotes.append(note);
+      }
+      if (labourNotes.childElementCount) { labourNotes.append(methodologyLink()); section.append(labourNotes); }
       const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('role','group');svg.setAttribute('aria-label',`${panel.title}, interactive annual chart`);svg.setAttribute('tabindex','0');
       const scroll=make('div','chart-scroll');scroll.append(svg);section.append(scroll);panels.append(section);drawChart(svg,panel,state,data,section.clientWidth);
       const pick=(event:PointerEvent)=>{

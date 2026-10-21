@@ -34,11 +34,22 @@ Percent means percentage levels: a 2% rate is stored as `2`, not `0.02`. Changes
 
 - **Annual growth:** `100 × (value[t] / value[t−1] − 1)`. Require the preceding calendar year and a positive denominator. Missing input produces a missing result; absent prior years produce no comparison row.
 - **Rebasing:** `100 × value[t] / value[base]`. The fixed base must exist and be positive. Missing later input remains missing.
+- **Annual mean:** arithmetic mean of one monthly input's twelve complete calendar-month observations. Incomplete years and years containing null input values are omitted; there is no automatic partial-year annual estimate.
 - **Spread:** aligned left yield minus right yield, both stored in percent. Output is percentage points. Keep only matched periods; no asynchronous pairing or filling. Optional explicit `exclude_periods` omits documented non-comparable annual periods; the Confederation spread excludes 2026 because its two partial-year windows differ.
 
-Growth/rebasing require level inputs. All initial calculations require annual frequency, matching institutional coverage and matching real/synthetic class. Combined rows require equal value-kind and revision-status fields. If all input publication dates are known, the derived date is their latest date; otherwise it remains unknown. Source snapshot references are unioned and checked against registered lineage.
+Growth/rebasing require level inputs. Annual means explicitly aggregate one monthly series only when all twelve calendar months are present and non-null; no partial year is emitted. Other calculations require annual frequency, matching institutional coverage and matching real/synthetic class. Combined rows require equal value-kind and revision-status fields. If all input publication dates are known, the derived date is their latest date; otherwise it remains unknown. Source snapshot references are unioned and checked against registered lineage.
 
-Unsupported annual aggregations are deliberately deferred to source-specific work: annual-average CPI levels, calendar-day administered-rate averages, auction conventions and matched trading endpoints require distinct definitions. No debt ratio, real-return or correlation calculation is implied by the foundation tooling.
+Unsupported annual aggregations are deliberately deferred to source-specific work: annual-average CPI levels, auction conventions and matched trading endpoints require distinct definitions. The registered monthly SECO mean and policy-rate annualisation are explicit source-specific calculations; no debt ratio, real-return or correlation calculation is implied by the foundation tooling.
+
+## Registered unemployment and ILO unemployment
+
+SECO's registered unemployment rate counts people registered at a regional employment centre (RAV), without a job and immediately available, regardless of benefit receipt. Exhausting benefits does not itself remove someone from this statistic if they remain registered and meet its criteria. The atlas retains the SNB-distributed monthly rates and derives the annual companion from twelve complete, unadjusted monthly observations only (1984–2025 in the retained vintage).
+
+FSO (BFS) ILO unemployment is measured through the Swiss Labour Force Survey (SLFS / SAKE). It covers people aged 15–74 who were not employed in the reference week, actively looked for work in the preceding four weeks and were available, whether or not they registered at an RAV. The annual atlas uses the publisher's annual means (2010–2025), preserving the 2021 survey break. It does not derive these means from quarterly rates or splice the SECO series into earlier years.
+
+Both are rates relative to a labour force with source-specific population and measurement conventions. Display titles identify the institution; chart notes identify the method, actual coverage and annual aggregation. A comparison notice appears when both concepts are selected, including in separate panels. Their percentage-point gap is not a count of unregistered people or a causal measure of benefit exhaustion. Registered jobseekers are a broader SECO category and are not interchangeable with registered unemployed people.
+
+Definition evidence: [BFS labour-market glossary](https://www.bfs.admin.ch/bfsstatic/dam/assets/13695294/master), [BFS ILO definitions](https://www.swissstats.bfs.admin.ch/data/webviewer/appId/ch.admin.bfs.swissstat/article/issue181516691600-07/package). Source vintages, series IDs and canonical observations retain their existing identities.
 
 ## Publication
 

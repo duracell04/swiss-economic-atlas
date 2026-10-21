@@ -52,5 +52,9 @@ test('debt is a separate production panel with explicit source breaks and a fore
   const definition=data.registry.series.find(s=>s.id==='general-government-debt-ratio')!;
   assert.equal(definition.title,'General government gross debt / GDP');
   assert.ok(definition.definition.includes('not the narrower Maastricht'));
-  assert.ok(!data.observations.some(o=>o.series_id==='confederation-debt-ratio'));
+  const confederationRatio=data.observations.filter(o=>o.series_id==='confederation-debt-ratio');
+  assert.equal(confederationRatio.length,37);
+  assert.equal(confederationRatio.at(-1)!.reference_period,'2026');
+  assert.equal(confederationRatio.at(-1)!.value_kind,'forecast');
+  assert.equal(confederationRatio.at(-1)!.revision_status,'provisional');
 });

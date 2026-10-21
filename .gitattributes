@@ -6,3 +6,6 @@ data/raw/** -text
 
 # Preserve exact publisher bytes for reproducible workbook/CSV extractions.
 data/extractions/originals/** -text
+
+# Checked extraction inputs are also checksum-pinned; preserve their exact bytes.
+data/extractions/checked/** -text

@@ -89,7 +89,7 @@ All 61 unit/data/configuration cases and 28 desktop/mobile browser cases passed,
 
 ## 8 October 2026 — Annual unemployment and overlays on any chart
 
-Added 16 original FSO annual ILO unemployment observations for 2010–2025 from the retained, checksum-verified `Annuel` worksheet. The extraction is reproduced cell-for-cell in the audited importer tests. Existing sources, series definitions, snapshots and observations are unchanged; the annual selection has separate identifiers and retains the 2021 survey boundary. SECO registered unemployment remains a candidate without observations.
+Added 16 original FSO annual ILO unemployment observations for 2010–2025 from the retained, checksum-verified `Annuel` worksheet. The extraction is reproduced cell-for-cell in the audited importer tests. Existing sources, series definitions, snapshots and observations are unchanged; the annual selection has separate identifiers and retains the 2021 survey boundary. The SECO registered-unemployment series was subsequently verified through the SNB/SECO Labour market cube and now has separate monthly and annual identities.
 
 Whole charts and individual indicators can overlay any other annual chart, in either direction. Matching units share a scale; differing units, scales or price bases receive separate labelled axes using original observations. Mobile legends expose every indicator, and additional axes scroll within the chart. Annual conventions, missing years, break markers and forecast/provisional/reconstructed distinctions remain in rendering and inspection. Saved/shared layouts and browser-storage keys retain version 2 compatibility.
 
