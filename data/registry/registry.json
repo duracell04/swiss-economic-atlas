@@ -2,6 +2,46 @@
   "schema_version": "2.0.0",
   "sources": [
     {
+      "id": "fso-real-wages-long",
+      "publisher": "Federal Statistical Office (FSO / BFS)",
+      "title": "Swiss Wage Index: real wages, total employees, 1939=100",
+      "landing_url": "https://www.bfs.admin.ch/asset/en/ts-x-03.04.03.02.01",
+      "data_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506632/master",
+      "source_identifier": "ts-x-03.04.03.02.01 / SEX=T / WAGE_TYPE=R / VALUE",
+      "audit_status": "verified",
+      "definition": "Published CPI-adjusted gross wage index, total employees, base 1939=100. The Swiss Wage Index holds employee structure fixed within its weighting framework. It measures wage-price evolution, not median salary, household income or changes in the composition of employment.",
+      "coverage": "1942–2025; 84 annual index values. Base year 1939 is not an observation in this CSV; no 1940–1941 values are filled.",
+      "revision_practice": "Published 21 April 2026; asset version updated 20 August 2026. E marks the 1942 source estimate; A marks subsequent standard observations. In 1994 the wage source changes from the October wage survey to SSUV accident reports and CPI timing changes from October to annual-average variation. Source precision changes in 2021. Review new flags and vintages before updating.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "OPEN-BY — open use, must provide the source",
+        "evidence_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506632",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Federal Statistical Office, Swiss Wage Index and Consumer Prices Index, ts-x-03.04.03.02.01, published 21 April 2026, retrieved 21 October 2026.",
+        "conditions": "The exact asset metadata identifies OPEN-BY. Attribute FSO and preserve the published index, source flags, historical timing and precision conventions. The software MIT licence does not replace these data terms."
+      }
+    },
+    {
+      "id": "fso-hbs-real-median-income",
+      "publisher": "Federal Statistical Office (FSO / BFS)",
+      "title": "HBS real median disposable equivalised income, total population, 2023 prices",
+      "landing_url": "https://www.bfs.admin.ch/asset/en/36355431",
+      "data_url": "https://datawrapper.dwcdn.net/4bd288526038674e71356216f4ffb48b/4/dataset.csv",
+      "source_identifier": "gr-e-20.03.01.02.02 / total population / disposable equivalised income / 2023 prices",
+      "audit_status": "verified",
+      "definition": "FSO Household Budget Survey (HBS/HABE), total-population median disposable equivalised income without imputed rent. The publisher deflates monthly CHF amounts using the Swiss CPI to 2023 prices. Household disposable income is adjusted by the modified OECD scale and analysed at person level. This is neither mean household income nor the SILC international-comparison series.",
+      "coverage": "2000–2023; 24 annual HBS reference years, expressed as CHF per equivalent person per month at 2023 prices.",
+      "revision_practice": "FSO chart asset published 22 January 2026, non-provisional. From 2015 the revised weighting model improves non-response correction but cannot be applied to earlier years; preserve the break. Original chart data include 95% confidence intervals and drawing-only separator rows. Later releases can revise estimates and change the constant-price reference year.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "OPEN-BY — open use, must provide the source",
+        "evidence_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355431",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Federal Statistical Office, Household Budget Survey (HBS/HABE), gr-e-20.03.01.02.02, total-population median disposable equivalised income, 2023 prices, published 22 January 2026, retrieved 21 October 2026.",
+        "conditions": "The FSO chart asset identifies OPEN-BY. The data URL is the original downloadable dataset of the chart embedded by FSO, not a third-party estimate. Preserve attribution, constant-price base, household-equivalence concept, sampling uncertainty and the 2015 weighting break."
+      }
+    },
+    {
       "id": "fso-wps-productivity",
       "publisher": "Federal Statistical Office (FSO / BFS)",
       "title": "WPS annual real hourly productivity and compatible GDP/hours indices, August 2026",
@@ -923,6 +963,70 @@
     }
   ],
   "series": [
+    {
+      "id": "real-wage-index",
+      "title": "Real wages — FSO gross wage index",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "Published Swiss real gross wage index for total employees, base 1939=100, measuring CPI-adjusted wage purchasing power under the FSO wage-index methodology. This is a wage-price index, not median salary or take-home pay.",
+      "unit": {
+        "code": "index",
+        "label": "Index, 1939 = 100",
+        "dimension": "real wage index 1939=100",
+        "scale": 1
+      },
+      "measurement": "level",
+      "price_basis": "real",
+      "aggregation_kind": "native",
+      "frequency": "annual",
+      "institutional_coverage": "Employees working in Switzerland in the secondary and tertiary sectors under the Swiss Wage Index coverage; total men and women, not self-employed income or all household resources",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "FSO-published annual real index, SEX=T, WAGE_TYPE=R, VALUE. Preserve native values rather than deflating again or deriving growth from rounded index levels. Until 1993 the CPI timing is October; from 1994 it is annual-average variation.",
+      "source_ids": [
+        "fso-real-wages-long"
+      ],
+      "source_identifier": "ts-x-03.04.03.02.01 / SEX=T / WAGE_TYPE=R / VALUE",
+      "breaks": [
+        {
+          "period": "1994",
+          "description": "Wage source changes from the October wage survey to SSUV accident-report data; CPI timing changes from October to annual-average variation. Preserve the source-published history, not a seamless identical-method comparison."
+        }
+      ],
+      "usage_notes": "Coverage 1942–2025. 1939 is the index base, not an extra observation. The source flags 1942 E (estimated); the atlas marks it reconstructed/source-estimated, not forecast. Subsequent A values are observed/final. This fixed-structure gross wage measure differs from household income, median pay, productivity and changes in employment mix. Source precision changes in 2021. The 1942 growth field describes the 1939–1942 average, so it is not imported as a one-year change. No full-year 2026 value."
+    },
+    {
+      "id": "real-median-disposable-income",
+      "title": "Real median disposable household income — equivalised",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "FSO-published real median disposable equivalised income for the total population in private households, without imputed rent, in CHF per month at 2023 prices. It represents household living standards adjusted for household size, not the median raw household total or a mean.",
+      "unit": {
+        "code": "currency",
+        "label": "CHF/month, 2023 prices",
+        "dimension": "CHF per equivalised person/month, 2023 prices",
+        "scale": 1
+      },
+      "measurement": "level",
+      "price_basis": "real",
+      "aggregation_kind": "native",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss resident population in private households, HBS/HABE, total population including people in pensioner households; person-level equivalised income, without imputed rent",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "Annual HBS reference-year estimates expressed as monthly income amounts. Publisher CPI-deflated medians at 2023 prices are imported unchanged, not divided by the atlas CPI again, shifted to SILC interview years, multiplied into annual totals or converted using PPP.",
+      "source_ids": [
+        "fso-hbs-real-median-income"
+      ],
+      "source_identifier": "gr-e-20.03.01.02.02 / total population / disposable equivalised income / 2023 prices",
+      "breaks": [
+        {
+          "period": "2015",
+          "description": "Revised HBS weighting model from 2015 improves non-response correction and cannot be applied before 2015. The 2014–2015 difference is not a comparable income change; the chart deliberately disconnects the two segments."
+        }
+      ],
+      "usage_notes": "Coverage 2000–2023. Disposable income includes transfers and deducts social insurance contributions, taxes, basic health-insurance premiums and regular transfers to other households, but not ordinary consumption/rent. Modified OECD equivalence scale: oldest person 1.0, other people aged 14+ 0.5, children under 14 0.3. No imputed rent. These HBS figures must not be spliced with SILC, working-household-only estimates, means or nominal workbook medians. Point-estimate chart; 95% bounds remain in the original source download. Small annual movements do not establish statistical significance. No invented 2024–2026 observations."
+    },
     {
       "id": "hourly-labour-productivity",
       "title": "Hourly labour productivity — real output per hour",
@@ -2363,6 +2467,22 @@
       "sha256": "58cd724d17745b233ce73cf57ee19b61107edb73febd1b94183b58d76161aeaf",
       "file": "data/raw/fso-wps-hours-levels-2026-10-21-58cd724d17745b23.csv",
       "source_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36731757/master"
+    },
+    {
+      "id": "fso-real-wages-long-2026-10-21-3aec163bb2c4f8bb",
+      "source_id": "fso-real-wages-long",
+      "retrieved_on": "2026-10-21",
+      "sha256": "3aec163bb2c4f8bb393f342793ea60173ff074551b2335b854fe1f11c7e88951",
+      "file": "data/raw/fso-real-wages-long-2026-10-21-3aec163bb2c4f8bb.csv",
+      "source_url": "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506632/master"
+    },
+    {
+      "id": "fso-hbs-real-median-income-2026-10-21-bdfa549b328ac6bd",
+      "source_id": "fso-hbs-real-median-income",
+      "retrieved_on": "2026-10-21",
+      "sha256": "bdfa549b328ac6bd434730f2abac1cfb9357916e81d9cca05f300a12c21f9518",
+      "file": "data/raw/fso-hbs-real-median-income-2026-10-21-bdfa549b328ac6bd.csv",
+      "source_url": "https://datawrapper.dwcdn.net/4bd288526038674e71356216f4ffb48b/4/dataset.csv"
     }
   ]
 }

@@ -11,8 +11,8 @@ test('scope roadmap links priorities to planned families and preserves catalogue
   await page.getByRole('link',{name:'Our scope: the history of Swiss prosperity →',exact:true}).click();
   await expect(page).toHaveURL(productionURL+'scope/');
   await expect(page.locator('.scope-module')).toHaveCount(10);
-  await expect(page.locator('.scope-summary')).toContainText('33');
-  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(4);
+  await expect(page.locator('.scope-summary')).toContainText('35');
+  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(3);
   await page.getByRole('link',{name:'CHF bilateral exchange rates',exact:true}).click();
   await expect(page.locator('#module-external')).toHaveAttribute('open','');
   const family=page.locator('#family-bilateral-fx');await expect(family).toBeVisible();
@@ -131,8 +131,58 @@ test('annual productivity and total hours preserve matched definitions, distinct
   }
   await page.goto(`${productionURL}scope/#family-hourly-productivity`);await expect(page.locator('#family-hourly-productivity')).toContainText('Available');
   await page.goto(`${productionURL}scope/#family-hours-worked`);await expect(page.locator('#family-hours-worked')).toContainText('Available');
-  await expect(page.locator('#priorities .scope-priorities>li').first()).toContainText('wages');
+  await expect(page.locator('#priorities .scope-priorities>li').first()).toContainText('Housing');
   expect(errors).toEqual([]);
+});
+test('annual real wages and median disposable income preserve price bases, missing years and source methodology breaks',async({page},testInfo)=>{
+  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  const wage='Real wages — FSO gross wage index',income='Real median disposable household income — equivalised';
+  await page.goto(productionURL);await expect(page.locator('#atlas')).toHaveAttribute('data-ready','true');
+  await page.getByRole('button',{name:'Reset',exact:true}).click();
+  await add(page,wage);await add(page,income);
+  await expect(panel(page,0).getByRole('button',{name:/Change years for/})).toHaveText('1942–2025');
+  await expect(panel(page,1).getByRole('button',{name:/Change years for/})).toHaveText('2000–2023');
+  await expect(panel(page,0).locator('.purchasing-power-methods')).toContainText('not median pay or take-home income');
+  await expect(panel(page,1).locator('.purchasing-power-methods')).toContainText('observed annually');
+  await expect(panel(page,1).locator('.purchasing-power-methods')).toContainText('2015 weighting change breaks comparability');
+  await expect(panel(page,1).locator('.purchasing-power-methods')).toContainText('95% intervals');
+  await expect(panel(page,0).locator('[data-statistical-break="real-wage-index"]')).toHaveCount(1);
+  await expect(panel(page,1).locator('[data-statistical-break="real-median-disposable-income"]')).toHaveCount(1);
+  await expect(panel(page,1).locator('path[data-series-id="real-median-disposable-income"]')).toHaveCount(2);
+  const wageReadout=page.locator('#readout .readout-row').filter({hasText:wage}),incomeReadout=page.locator('#readout .readout-row').filter({hasText:income});
+  await panel(page,0).locator('svg').focus();await panel(page,0).locator('svg').press('Home');
+  await expect(wageReadout).toContainText('87 Index, 1939 = 100');await expect(wageReadout).toContainText('reconstructed · final');
+  await expect(incomeReadout).toHaveCount(0);
+  await panel(page,0).locator('svg').press('End');await expect(wageReadout).toContainText('321 Index, 1939 = 100');await expect(incomeReadout).toHaveCount(0);
+  await panel(page,1).locator('svg').focus();await panel(page,1).locator('svg').press('End');
+  await expect(incomeReadout).toContainText('CHF/month, 2023 prices');await expect(incomeReadout).toContainText('observed · final');
+  await panel(page,1).locator('svg').press('Escape');
+  await page.getByRole('button',{name:`Information about ${income}`,exact:true}).click();
+  await expect(page.locator('#info-content')).toContainText('2000–2023');await expect(page.locator('#info-content')).toContainText(/modified OECD/i);
+  await expect(page.locator('#info-content')).toContainText('Federal Statistical Office');await expect(page.locator('#info-content')).toContainText('2015');
+  await page.getByRole('button',{name:'Close indicator information'}).click();
+  await page.screenshot({path:`.cache/evidence-purchasing-power-${testInfo.project.name}.png`,fullPage:true});
+  await panel(page,1).getByRole('button',{name:/Remove Real median disposable household income/}).click();
+  await add(page,income,(await panel(page,0).getAttribute('data-panel'))!);
+  await years(page,0,'1942','2025');
+  await expect(panel(page,0).locator('[data-unit-axis]')).toHaveCount(2);
+  await expect(panel(page,0).locator('[data-statistical-break]')).toHaveCount(2);
+  await expect(panel(page,0).locator('.purchasing-power-methods p')).toHaveCount(2);
+  await panel(page,0).locator('svg').focus();await panel(page,0).locator('svg').press('End');await expect(incomeReadout).toContainText('No observation');
+  await panel(page,0).locator('svg').press('Escape');
+  await page.reload();await expect(page.locator('.chart-panel')).toHaveCount(1);await expect(panel(page,0).locator('[data-unit-axis]')).toHaveCount(2);
+  const dimensions=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:innerWidth}));expect(dimensions.scroll).toBeLessThanOrEqual(dimensions.width);
+  await panel(page,0).getByRole('link',{name:'Wages and household income: definitions and sources →',exact:true}).click();
+  await expect(page).toHaveURL(/methodology\/#wages-income$/);await expect(page.locator('#wages-income')).toContainText('OPEN-BY');
+  await expect(page.locator('#wages-income')).toContainText('0.3');
+  for(const id of ['real-wage-index','real-median-disposable-income']){
+    await page.goto(`${productionURL}series/${id}/`);await expect(page.getByRole('link',{name:'CSV ↓',exact:true})).toHaveAttribute('href',new RegExp(`${id}.csv$`));
+    await expect(page.locator('main')).toContainText('How to read this purchasing-power measure');
+  }
+  for(const id of ['real-wages','disposable-income']){
+    await page.goto(`${productionURL}scope/#family-${id}`);await expect(page.locator(`#family-${id}`)).toContainText('Available');
+  }
+  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(3);expect(errors).toEqual([]);
 });
 test('empty workspace keeps a next-indicator card and independent chart years',async({page},testInfo)=>{
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});

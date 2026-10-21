@@ -25,18 +25,19 @@ The authoritative module inventory, family priorities, existing series membershi
 
 ## Priorities for remaining data
 
-Maintain the verified foundation: GDP and GDP per person, hourly productivity and compatible total hours, population, SECO and ILO unemployment, prices and inflation, policy instruments, yields, public debt and the franc. Source updates and material corrections take precedence over expansion.
+Maintain the verified foundation: GDP and GDP per person, hourly productivity and compatible total hours, population, SECO and ILO unemployment, prices and inflation, real wages and real median disposable equivalised income, policy instruments, yields, public debt and the franc. Source updates and material corrections take precedence over expansion.
 
 Completed on 21 October 2026: the first exchange-rate priority now has five annual charts — CHF/EUR (1999–2025), CHF/USD (1971–2025), historical CHF/DEM (1950–1998), and nominal/CPI-based real effective CHF indices (1973–2025). Sources, different fixing conventions and the annual calculation are recorded in the [exchange-rate audit](https://github.com/duracell04/swiss-economic-atlas/blob/main/docs/source-audit/exchange-rates.md). This completes those two families, not the entire international-integration module.
 
 **P1 — next additions, in this order:**
 
-1. Real wages and real median disposable household income.
-2. Mortgage borrowing costs and the distinct rental reference rate, real residential property prices, private credit / GDP, and mortgage volumes.
-3. Exports, imports, trade balance and current-account balance.
-4. Government revenue, expenditure and fiscal balance, with consistent GDP denominators.
+1. Mortgage borrowing costs and the distinct rental reference rate, real residential property prices, private credit / GDP, and mortgage volumes.
+2. Exports, imports, trade balance and current-account balance.
+3. Government revenue, expenditure and fiscal balance, with consistent GDP denominators.
 
 Hourly productivity and compatible total actual hours were completed on 21 October 2026 for 1991–2025. They use the FSO's matched WPS vintage, not unadjusted pre-2010 Work Volume Statistics or nominal productivity. Source flags identify 2023–2025 as revised. See the [source audit](https://github.com/duracell04/swiss-economic-atlas/blob/main/docs/source-audit/productivity-hours.md).
+
+The real wage/median-income priority was completed on 21 October 2026. FSO real gross wages cover 1942–2025 as a 1939=100 index, retaining the 1994 source/CPI-timing change. HBS real median disposable equivalised income covers 2000–2023 in monthly CHF at 2023 prices, with one estimate per year and a 2015 weighting break. These are different concepts, not interchangeable measures of pay. Nominal wage inputs and income confidence intervals remain in the original sources; this release publishes the two real level charts. See the [source audit](https://github.com/duracell04/swiss-economic-atlas/blob/main/docs/source-audit/wages-income.md).
 
 The remaining priorities close missing connections between production, households, finance and the external economy. Audit inputs together when they share a denominator or deflator. This order is an editorial priority, not a deadline or a reason to hold back a fully verified, relevant series.
 

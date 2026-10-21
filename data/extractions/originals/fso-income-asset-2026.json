@@ -1,0 +1,242 @@
+{
+  "ids" : {
+    "uuid" : "e624c9cc-c442-44db-9b62-fdcc46a5412d",
+    "damId" : 36355431,
+    "contentId" : 330488,
+    "languageCopyId" : 36355428,
+    "gnp" : "2026-0471"
+  },
+  "bfs" : {
+    "embargo" : "2026-01-22T07:30:00Z",
+    "lifecycle" : {
+      "id" : 900300,
+      "level" : 0,
+      "code" : "CURRENT",
+      "name" : "Diffundiert/aktuell"
+    },
+    "lifecycleGroup" : "CURRENT",
+    "provisional" : false,
+    "articleModel" : {
+      "id" : 900037,
+      "level" : 1,
+      "code" : "DIAG_DM01",
+      "name" : "DM01 Diagramm (manuel. Datenanbindung)"
+    },
+    "articleModelGroup" : {
+      "id" : 900034,
+      "level" : 0,
+      "code" : "AMG_DIAGRAM",
+      "name" : "Diagramm"
+    }
+  },
+  "description" : {
+    "titles" : {
+      "main" : "Trends in primary and disposable equivalised income: median values"
+    },
+    "categorization" : {
+      "collection" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "code" : "STAT_GEN",
+        "name" : "Allgemeine Statistik"
+      } ],
+      "prodima" : [ {
+        "id" : 900269,
+        "level" : 0,
+        "code" : "20",
+        "name" : "Wirtschaftliche und soziale Situation der Bevölkerung"
+      }, {
+        "id" : 901379,
+        "level" : 1,
+        "code" : "20.03",
+        "name" : "Soziale Situation, Wohlbefinden und Armut"
+      }, {
+        "id" : 901380,
+        "level" : 2,
+        "code" : "20.03.01",
+        "name" : "Ungleichheit der Einkommensverteilung"
+      }, {
+        "id" : 901382,
+        "level" : 3,
+        "code" : "20.03.01.02",
+        "name" : "Umverteilung der Einkommen vor und nach Transfers"
+      } ],
+      "inquiry" : [ {
+        "id" : 900002,
+        "level" : 0,
+        "name" : "Stichprobenerhebung"
+      }, {
+        "id" : 215,
+        "level" : 1,
+        "code" : "HABE",
+        "abbrev" : "HABE",
+        "name" : "Haushaltsbudgeterhebung"
+      } ],
+      "spatialdivision" : [ {
+        "id" : 900091,
+        "level" : 0,
+        "code" : "p_suis",
+        "name" : "Schweiz"
+      }, {
+        "id" : 900001,
+        "level" : 1,
+        "code" : "suis",
+        "name" : "Schweiz"
+      } ],
+      "classification" : [ ],
+      "institution" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Bundesamt für Statistik"
+      }, {
+        "id" : 900065,
+        "level" : 1,
+        "code" : "BFS",
+        "abbrev" : "BFS",
+        "name" : "Bundesamt für Statistik"
+      } ],
+      "publisher" : [ ],
+      "tags" : [ ],
+      "dataSource" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Bundesamt für Statistik"
+      }, {
+        "id" : 900065,
+        "level" : 1,
+        "code" : "BFS",
+        "abbrev" : "BFS",
+        "name" : "Bundesamt für Statistik"
+      } ],
+      "copyrights" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Bundesamt für Statistik"
+      }, {
+        "id" : 900065,
+        "level" : 1,
+        "code" : "BFS",
+        "abbrev" : "BFS",
+        "name" : "Bundesamt für Statistik"
+      } ],
+      "termsOfUse" : [ {
+        "id" : 900004,
+        "level" : 0,
+        "code" : "OPEN-BY",
+        "abbrev" : "Freie Nutzung - Quellenangabe ist Pflicht",
+        "name" : "Open use - Must provide the source"
+      } ],
+      "serie" : [ ],
+      "periodicity" : [ {
+        "id" : 910000,
+        "level" : 0,
+        "code" : "ANNUAL",
+        "name" : "Jährlich"
+      } ]
+    },
+    "bibliography" : {
+      "period" : "2000-2023"
+    },
+    "language" : "EN",
+    "highlight" : false,
+    "discontinued" : false,
+    "downloadable" : true
+  },
+  "shop" : {
+    "orderNr" : "gr-e-20.03.01.02.02",
+    "stock" : false
+  },
+  "seo" : {
+    "metaKeywords" : [ ]
+  },
+  "codeSnippet" : "<iframe title=\"Trends in primary and disposable equivalised income: median values, total population\" aria-label=\"Line chart\" id=\"datawrapper-chart-iFV9v\" src=\"https://datawrapper.dwcdn.net/4bd288526038674e71356216f4ffb48b/4/\" scrolling=\"no\" frameborder=\"0\" style=\"width: 0; min-width: 100% !important; border: none;\" height=\"527\" data-external=\"1\"></iframe><script type=\"text/javascript\">window.addEventListener(\"message\",function(a){if(void 0!==a.data[\"datawrapper-height\"]){var e=document.querySelectorAll(\"iframe\");for(var t in a.data[\"datawrapper-height\"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data[\"datawrapper-height\"][t]+\"px\";r.style.height=d}}});</script>",
+  "links" : [ {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355431",
+    "rel" : "self"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355431/bibtex",
+    "rel" : "bibtex"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355431/ris",
+    "rel" : "ris"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355431/thumbnail",
+    "rel" : "thumbnail"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355431/thumbnail?width=1120&height=1074",
+    "rel" : "preview",
+    "format" : "png",
+    "size" : 136410
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355431/thumbnail-source",
+    "rel" : "thumbnail-source",
+    "format" : "png",
+    "size" : 183794
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355437",
+    "rel" : "alternate",
+    "hreflang" : "fr",
+    "text" : "FR"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355440",
+    "rel" : "alternate",
+    "hreflang" : "it",
+    "text" : "IT"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36355433",
+    "rel" : "alternate",
+    "hreflang" : "de",
+    "text" : "DE"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/packages/2026-0471",
+    "rel" : "related-gnp",
+    "text" : "Entwicklung der Einkommensverteilung und -ungleichheit 2000-2023: Aktualisierung 2023"
+  }, {
+    "href" : "/bfs/de/home/statistiken/wirtschaftliche-soziale-situation-bevoelkerung/erhebungen/habe.html",
+    "rel" : "related-factsheet-inquiry",
+    "text" : "Haushaltsbudgeterhebung"
+  }, {
+    "href" : "/bfs/de/home/statistiken/wirtschaftliche-soziale-situation-bevoelkerung.html",
+    "rel" : "related-theme-entrypage",
+    "text" : "Wirtschaftliche und soziale Situation der Bevölkerung"
+  } ],
+  "_embedded" : {
+    "labels" : {
+      "asset.bfs.embargo" : "Veröffentlicht am",
+      "asset.bfs.lastupdated" : "Letzte Aktualisierung",
+      "asset.bfs.model.name" : "Typ",
+      "asset.bfs.originalembargo" : "Ursprüngliches Publikationsdatum",
+      "asset.bfs.provisional" : "Datenstand",
+      "asset.bfs.status" : "Status",
+      "asset.content.format" : "Format",
+      "asset.content.href" : "Anhang",
+      "asset.description.abstractShort" : "Zusammenfassung",
+      "asset.description.bibliography.author" : "Autor(en)",
+      "asset.description.bibliography.copyright" : "Copyright",
+      "asset.description.bibliography.doi" : "Persistenter Link",
+      "asset.description.bibliography.info" : "Bibliographische Angaben",
+      "asset.description.bibliography.pages" : "Seiten",
+      "asset.description.bibliography.period" : "Dargestellter Zeitraum",
+      "asset.description.bibliography.source" : "Quelle(n)",
+      "asset.description.bibliography.termsofuse" : "Nutzungsbedingungen",
+      "asset.description.categorization.classification" : "Nomenklatur(en)",
+      "asset.description.categorization.geography" : "Raumgliederung",
+      "asset.description.categorization.inquiry" : "Erhebung, Statistik",
+      "asset.description.categorization.institution" : "Herausgeber",
+      "asset.description.categorization.keyword" : "Schlagworte",
+      "asset.description.categorization.periodicity" : "Periodizität",
+      "asset.description.categorization.prodima" : "Thema",
+      "asset.description.categorization.publisher" : "Verlag",
+      "asset.description.categorization.serie" : "Reihe",
+      "asset.description.categorization.tags" : "Tags",
+      "asset.description.language" : "Sprache",
+      "asset.descriptions.title.main" : "Titel",
+      "asset.shop.ordernr" : "BFS-Nummer",
+      "asset.shop.price" : "Preis",
+      "link.rel.appendix" : "Zusätzliche Daten",
+      "links.rel.mostrecentissue" : "Aktuellste Ausgabe",
+      "links.rel.otherlanguages" : "Weitere Sprachen",
+      "links.rel.relateddocuments" : "Verwandte Dokumente"
+    }
+  }
+}

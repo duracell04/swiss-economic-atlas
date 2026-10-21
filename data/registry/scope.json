@@ -33,8 +33,8 @@
       "question": "How do gains in output translate into households' material circumstances?",
       "families": [
         {"id":"consumer-prices","title":"Consumer prices and inflation","priority":"foundation","series_ids":["cpi","cpi-inflation"],"planned":false,"annual_view":"Published annual inflation; the native monthly CPI remains separately available.","next_step":"Maintain the verified price and inflation definitions; extend history only after source review."},
-        {"id":"real-wages","title":"Nominal and real wages","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual wage indices and real wage growth using a named consumer-price basis.","next_step":"Prioritise the FSO wage index; keep wage growth distinct from median salary levels."},
-        {"id":"disposable-income","title":"Real median disposable household income","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual real equivalised median income, with the equivalence scale and deflator stated.","next_step":"Audit household survey coverage, income reference year and breaks; accept a shorter reliable history."},
+        {"id":"real-wages","title":"Wages and real purchasing power","priority":"foundation","series_ids":["real-wage-index"],"planned":false,"annual_view":"Published FSO real gross wage index, 1939=100, covering 1942–2025. The original source also retains nominal inputs; the annual chart is the real index, not median salary.","next_step":"Maintain the source estimate in 1942, the wage/CPI methodology change in 1994 and source precision. Further nominal or growth views must use the published fields rather than growth calculated from rounded index levels."},
+        {"id":"disposable-income","title":"Real median disposable household income","priority":"foundation","series_ids":["real-median-disposable-income"],"planned":false,"annual_view":"FSO HBS annual total-population median, 2000–2023, in equivalised CHF per month at 2023 prices. Modified OECD scale, Swiss CPI deflation, no imputed rent; 2015 weighting break retained.","next_step":"Maintain the native constant-price series, confidence-interval evidence and weighting break. Review the price base on each new release; do not splice nominal, mean, SILC or working-household-only income into this series."},
         {"id":"consumption-per-capita","title":"Real consumption per person","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual real household consumption divided by a compatible population denominator.","next_step":"Document national-accounts versus household-survey coverage before comparing with income."}
       ]
     },
@@ -122,7 +122,6 @@
     }
   ],
   "acquisition_order": [
-    {"title":"Wages and household purchasing power","family_ids":["real-wages","disposable-income"],"why":"Connect national prosperity with the material circumstances of households."},
     {"title":"Housing and its financing","family_ids":["mortgage-rates","residential-prices","private-credit","mortgage-lending"],"why":"Connect borrowing costs and credit exposures with property prices and household burdens."},
     {"title":"Trade and the current account","family_ids":["foreign-trade","current-account"],"why":"Connect domestic activity and the franc with foreign demand and external balances."},
     {"title":"Fiscal revenue, expenditure and balance","family_ids":["government-revenue","government-expenditure","fiscal-balance"],"why":"Give the existing debt history its fiscal-flow and institutional context."}

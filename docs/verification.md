@@ -1,5 +1,11 @@
 # Interactive atlas verification
 
+## Real wages and median disposable income — 21 October 2026
+
+Added 84 annual real wage-index values (1942–2025) and 24 annual real disposable equivalised median-income values (2000–2023). Tests reproduce every wage index against the FSO workbook, reconcile the income base-year median with its nominal workbook within native chart precision, preserve all original confidence bounds and verify OPEN-BY evidence and immutable checksums. Source-specific parsers reject nominal/mean substitutions, malformed wrapping, incompatible units, unknown flags, duplicate/incomplete years and populated drawing-only rows. They retain the 1942 source estimate and 1994/2015 methodology breaks, with no second deflation or fabricated recent income.
+
+All 90 unit/data/calculation tests and 40 desktop/mobile browser tests passed. Astro and tooling TypeScript reported no diagnostics. Production contains 35 datasets and 11,372 permitted observations, with 46 pages and 974 checked internal links. Visual review confirms legible original-unit charts, visible source breaks and notes on desktop/phone. Browser checks also cover independent ranges, unavailable income years, overlay axes, saved layouts, source information, downloads and the updated three-group P1 roadmap without horizontal page overflow or browser errors.
+
 ## Hourly productivity and compatible hours — 21 October 2026
 
 Added two matched FSO WPS annual series for 1991–2025, preserving native numeric precision and source-revised 2023–2025 flags. All 35 GDP/hours/productivity identities and all 35 absolute-hours/index identities reconcile within `1e-10` index points. Tests reproduce the checked hours extraction byte-for-byte from the original workbook, verify immutable source and OPEN-BY evidence hashes, reject incompatible or malformed inputs, and retain both snapshots in hours lineage. Source-harmonised pre-2010 hours remain continuous; there is no artificial 2010 gap or full-year 2026 observation.

@@ -14,7 +14,8 @@ The [scope registry](data/registry/scope.json) defines family memberships, prior
 
 - **Completed first priority:** five annual exchange-rate charts — CHF/EUR 1999–2025, CHF/USD 1971–2025, historical CHF/DEM 1950–1998, and nominal/CPI-based real effective CHF indices 1973–2025. See the [source audit](docs/source-audit/exchange-rates.md). The international-integration module still needs trade and external accounts.
 - **Completed productivity priority:** FSO hourly real labour productivity (index 1991=100) and compatible total actual hours worked (million hours), both 1991–2025. Source-harmonised pre-2010 hours and revised 2023–2025 values remain explicit. See the [source audit](docs/source-audit/productivity-hours.md).
-- **P1 — next:** real wages and disposable income; housing costs/prices and private/mortgage credit; trade and current account; government revenue, expenditure and fiscal balance.
+- **Completed household purchasing-power priority:** FSO real gross wage index (1942–2025) and real median disposable equivalised household income (2000–2023, monthly CHF amounts at 2023 prices, observed annually). Source changes, the 2015 income-weighting break and sampling uncertainty remain explicit. See the [source audit](docs/source-audit/wages-income.md).
+- **P1 — next:** housing costs/prices and private/mortgage credit; trade and current account; government revenue, expenditure and fiscal balance.
 - **P2 — following:** employment, migration and demographics; consumption/investment; SARON, money and SNB balance sheet; housing supply/bank measures; distribution, social protection, sectors, skills and energy.
 - **P3 — later:** deeper external and household balance sheets, wealth concentration, selected infrastructure, broad equity and bond returns, pension assets and focused comparisons. Individual GMBF auctions and the four SMI/SMIC candidates remain unresolved source/licensing work; annual GMBF is already available.
 

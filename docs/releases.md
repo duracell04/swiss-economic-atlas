@@ -1,5 +1,12 @@
 # Release notes
 
+## 2026-10-21 — Real wages and median disposable household income
+
+- Added the FSO real gross wage index (1939=100), 84 annual values for 1942–2025. Retained the 1942 source estimate, the 1994 wage-source/CPI-timing change and published precision; no second deflation or growth derived from rounded levels.
+- Added the FSO HBS total-population median disposable equivalised income, 24 annual values for 2000–2023, in CHF per month at 2023 prices. These are annual observations of monthly income amounts, not monthly-frequency data. No imputed rent, PPP conversion, SILC splice, mean-income substitution or invented recent years.
+- Disconnected the income chart at the 2015 weighting break. Preserved 95% bounds in the original source download, with an explicit point-estimate/sampling-uncertainty note. Added source-specific imports, immutable evidence, audit documentation and desktop/mobile coverage.
+- The atlas now publishes 35 datasets and 11,372 observations. The two purchasing-power families join the maintained foundation; housing and its financing lead the three remaining P1 acquisition groups.
+
 ## 2026-10-21 — Hourly labour productivity and compatible total hours
 
 - Added 35 annual FSO real hourly-productivity observations (published index 1991=100) and 35 compatible total actual-hours observations (million hours), both 1991–2025.

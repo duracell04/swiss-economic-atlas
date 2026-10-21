@@ -31,7 +31,7 @@
       "id": "households",
       "title": "Purchasing power and household income",
       "description": "Consumer prices, wages, income and household consumption.",
-      "series_ids": ["cpi", "cpi-inflation"]
+      "series_ids": ["cpi", "cpi-inflation", "real-wage-index", "real-median-disposable-income"]
     },
     {
       "id": "monetary",

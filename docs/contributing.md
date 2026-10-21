@@ -1,5 +1,9 @@
 # Contributing sources and observations
 
+### Real wages and median household income
+
+Use `--importer fso-real-wages --series real-wage-index --source fso-real-wages-long` with the original double-wrapped FSO CSV. The importer explicitly unwraps its outer CSV layer, selects total/real/index, and preserves the 1942 E estimate. Do not import the 1942 multi-year average growth as an annual rate. Use `--importer fso-real-median-income --series real-median-disposable-income --source fso-hbs-real-median-income` with the FSO chart's original tab-delimited, decimal-comma dataset. Its native constant-price medians are not nominal workbook medians. Preserve the 2015 break and retain the source's 95% intervals; blank/dummy drawing rows are not observations. New releases require checking the chart version, constant-price base, source flags and reuse evidence. See the [source audit](source-audit/wages-income.md).
+
 ### Productivity and actual hours
 
 Use `--importer fso-productivity` with the original FSO `ts-x-04.07.01.01` CSV for `hourly-labour-productivity`. Reproduce `total-hours-worked` from the checksum-pinned workbook using `scripts/prepare-extract.py` and `data/extractions/total-hours-worked.json`, then import with `--importer fso-productivity-hours`. Import the companion productivity CSV first: the total-hours records explicitly retain its immutable snapshot for revision flags and compatible-denominator evidence. New vintages require review of both tables and the paired snapshot constant. See the [source audit](source-audit/productivity-hours.md). Do not mix WPS harmonised pre-2010 hours with unadjusted WV totals, select the nominal-productivity column, or infer provisional status from a year alone.

@@ -5,6 +5,7 @@ import { drawChart, drawCursor } from './renderer.ts';
 import { unemploymentMethod, unemploymentComparison } from '../lib/unemployment.ts';
 import { exchangeRateNote } from '../lib/exchange-rates.ts';
 import { labourInputNote } from '../lib/labour-input.ts';
+import { purchasingPowerNote } from '../lib/purchasing-power.ts';
 
 const element = <T extends HTMLElement = HTMLElement>(id: string): T => document.getElementById(id) as T;
 const make = <K extends keyof HTMLElementTagNameMap>(tag: K, className = '', text = ''): HTMLElementTagNameMap[K] => {
@@ -90,12 +91,15 @@ async function boot(): Promise<void> {
     if (fx) content.append(make('p','',fx));
     const labourInput=labourInputNote(id);
     if(labourInput)content.append(make('p','',labourInput));
+    const purchasingPower=purchasingPowerNote(id);
+    if(purchasingPower)content.append(make('p','',purchasingPower));
     const dl = make('dl');
     const noBreaks=labourInput ? 'FSO harmonised pre-2010 hours to preserve continuity. No artificial 2010 gap is introduced.' : 'No breaks recorded; candidate definitions remain subject to audit.';
     const fields = [['Unit', s.unit.label], ['Measurement', s.measurement], ['Price basis', s.price_basis.replaceAll('_', ' ')], ['Frequency', s.frequency], ['Coverage', s.institutional_coverage], ['Aggregation', s.aggregation], ['Historical breaks', s.breaks.map(b => `${b.period}: ${b.description}`).join('; ') || noBreaks], ['Usage', s.usage_notes]];
     if (labour) fields.unshift(['Source', labour.source], ['Method', labour.method], ['Available periods', coverage(id)]);
     if (fx) fields.unshift(['Available periods', coverage(id)]);
     if (labourInput) fields.unshift(['Available periods', coverage(id)]);
+    if (purchasingPower) fields.unshift(['Available periods', coverage(id)]);
     for (const [label, value] of fields) dl.append(make('dt', '', label), make('dd', '', value));
     content.append(dl);
     for (const source of data.registry.sources.filter(source => s.source_ids.includes(source.id))) {
@@ -239,6 +243,14 @@ async function boot(): Promise<void> {
       section.append(legend);
       const unit=make('p','axis-note',`${[...new Set(panel.series_ids.map(id=>definition(data,id).unit.label))].join(' / ')} · annual observations`);
       section.append(unit);
+      const purchasingNotes=panel.series_ids.map(purchasingPowerNote).filter((note):note is string=>Boolean(note));
+      if(purchasingNotes.length){
+        const notes=make('div','purchasing-power-methods');
+        for(const note of purchasingNotes)notes.append(make('p','',note));
+        const link=make('a','','Wages and household income: definitions and sources →');
+        link.href=`${import.meta.env.BASE_URL.replace(/\/$/,'')}/methodology/#wages-income`;
+        notes.append(link);section.append(notes);
+      }
       const inputNote=panel.series_ids.map(labourInputNote).find(note=>note!==undefined);
       if(inputNote){
         const notes=make('div','labour-input-methods');

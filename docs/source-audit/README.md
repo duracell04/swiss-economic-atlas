@@ -1,5 +1,7 @@
 # Source audit
 
+Completed household purchasing-power audit: [real gross wages and real median disposable equivalised income](wages-income.md), with native FSO price adjustments, the 1994 wage-source change, the 2015 income-weighting break, confidence-interval evidence and dataset-specific OPEN-BY terms.
+
 Completed labour-input audit: [real hourly productivity and compatible total actual hours worked](productivity-hours.md), FSO WPS, 1991–2025, including the pre-2010 harmonisation, revision flags and original workbook reproduction.
 
 Completed annual exchange-rate audit: [CHF/EUR, CHF/USD, historical CHF/DEM and SNB nominal/CPI-based real effective CHF indices](exchange-rates.md), including source-specific reuse evidence and reproducible annual methods.

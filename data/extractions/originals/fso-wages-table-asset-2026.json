@@ -1,0 +1,281 @@
+{
+  "ids" : {
+    "uuid" : "c3dcf268-3df6-49ef-9823-02f358f964cb",
+    "damId" : 36506614,
+    "contentId" : 335174,
+    "languageCopyId" : 36506611,
+    "gnp" : "2026-0493"
+  },
+  "bfs" : {
+    "embargo" : "2026-04-21T06:30:00Z",
+    "lastUpdatedVersion" : "2026-08-20T12:10:00Z",
+    "lifecycle" : {
+      "id" : 900300,
+      "level" : 0,
+      "code" : "CURRENT",
+      "name" : "Diffundiert/aktuell"
+    },
+    "lifecycleGroup" : "CURRENT",
+    "provisional" : false,
+    "articleModel" : {
+      "id" : 900030,
+      "level" : 1,
+      "code" : "TABL",
+      "name" : "TM10 Tabelle Datei"
+    },
+    "articleModelGroup" : {
+      "id" : 900029,
+      "level" : 0,
+      "code" : "AMG_TABLE",
+      "name" : "Daten - Tabelle"
+    }
+  },
+  "description" : {
+    "titles" : {
+      "main" : "Evolution of nominal wages, consumer prices and real wages"
+    },
+    "categorization" : {
+      "collection" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "code" : "STAT_GEN",
+        "name" : "Allgemeine Statistik"
+      }, {
+        "id" : 900014,
+        "level" : 0,
+        "code" : "TAB_JE",
+        "name" : "Tab JE"
+      }, {
+        "id" : 900005,
+        "level" : 0,
+        "code" : "MR",
+        "name" : "Multiple ressources"
+      }, {
+        "id" : 900041,
+        "level" : 0,
+        "code" : "KOF",
+        "name" : "KOF"
+      } ],
+      "prodima" : [ {
+        "id" : 900051,
+        "level" : 0,
+        "code" : "03",
+        "name" : "Arbeit und Erwerb"
+      }, {
+        "id" : 901188,
+        "level" : 1,
+        "code" : "03.01",
+        "name" : "Übersicht"
+      }, {
+        "id" : 901155,
+        "level" : 1,
+        "code" : "03.04",
+        "name" : "Löhne, Erwerbseinkommen und Arbeitskosten"
+      }, {
+        "id" : 901173,
+        "level" : 2,
+        "code" : "03.04.03",
+        "name" : "Lohnentwicklung"
+      }, {
+        "id" : 901175,
+        "level" : 3,
+        "code" : "03.04.03.02",
+        "name" : "Serie 1939=100"
+      } ],
+      "inquiry" : [ {
+        "id" : 900002,
+        "level" : 0,
+        "name" : "Stichprobenerhebung"
+      }, {
+        "id" : 51,
+        "level" : 1,
+        "code" : "SLI",
+        "abbrev" : "SLI",
+        "name" : "Schweizerischer Lohnindex"
+      } ],
+      "spatialdivision" : [ {
+        "id" : 900091,
+        "level" : 0,
+        "code" : "p_suis",
+        "name" : "Schweiz"
+      }, {
+        "id" : 900001,
+        "level" : 1,
+        "code" : "suis",
+        "name" : "Schweiz"
+      } ],
+      "classification" : [ ],
+      "institution" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Bundesamt für Statistik"
+      }, {
+        "id" : 900065,
+        "level" : 1,
+        "code" : "BFS",
+        "abbrev" : "BFS",
+        "name" : "Bundesamt für Statistik"
+      } ],
+      "publisher" : [ ],
+      "tags" : [ {
+        "id" : 900053,
+        "level" : 0,
+        "code" : "WOMAN",
+        "name" : "Frau"
+      }, {
+        "id" : 900054,
+        "level" : 0,
+        "code" : "MAN",
+        "name" : "Mann"
+      }, {
+        "id" : 900055,
+        "level" : 0,
+        "code" : "GENDER",
+        "name" : "Geschlecht"
+      } ],
+      "dataSource" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Bundesamt für Statistik"
+      }, {
+        "id" : 900065,
+        "level" : 1,
+        "code" : "BFS",
+        "abbrev" : "BFS",
+        "name" : "Bundesamt für Statistik"
+      } ],
+      "copyrights" : [ {
+        "id" : 900001,
+        "level" : 0,
+        "name" : "Bundesamt für Statistik"
+      }, {
+        "id" : 900065,
+        "level" : 1,
+        "code" : "BFS",
+        "abbrev" : "BFS",
+        "name" : "Bundesamt für Statistik"
+      } ],
+      "termsOfUse" : [ {
+        "id" : 900004,
+        "level" : 0,
+        "code" : "OPEN-BY",
+        "abbrev" : "Freie Nutzung - Quellenangabe ist Pflicht",
+        "name" : "Open use - Must provide the source"
+      } ],
+      "serie" : [ ],
+      "periodicity" : [ {
+        "id" : 910000,
+        "level" : 0,
+        "code" : "ANNUAL",
+        "name" : "Jährlich"
+      } ]
+    },
+    "bibliography" : {
+      "period" : "1939-2025"
+    },
+    "abstractShort" : "This dataset presents the annual figures for the indexes and variations of nominal and real wages on the base 1939=100 by sex and the variation of consumer prices, since 1942.",
+    "shortSummary" : {
+      "html" : "This dataset presents the annual figures for the indexes and variations of nominal and real wages on the base 1939=100 by sex and the variation of consumer prices, since 1942.",
+      "raw" : "This dataset presents the annual figures for the indexes and variations of nominal and real wages on the base 1939=100 by sex and the variation of consumer prices, since 1942."
+    },
+    "language" : "EN",
+    "highlight" : false,
+    "discontinued" : false,
+    "downloadable" : true
+  },
+  "shop" : {
+    "orderNr" : "je-e-03.04.03.02.01",
+    "stock" : false
+  },
+  "seo" : {
+    "metaKeywords" : [ ]
+  },
+  "links" : [ {
+    "href" : "https://www.bfs.admin.ch/asset/en/ts-x-03.04.03.02.01",
+    "rel" : "related-further",
+    "text" : "Evolution of nominal wages, consumer prices and real wages (CSV file)"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506614",
+    "rel" : "self"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506614/bibtex",
+    "rel" : "bibtex"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506614/ris",
+    "rel" : "ris"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506614/thumbnail",
+    "rel" : "thumbnail"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506614/master",
+    "rel" : "master",
+    "format" : "xlsx",
+    "size" : 75221
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506616",
+    "rel" : "alternate",
+    "hreflang" : "it",
+    "text" : "IT"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506613",
+    "rel" : "alternate",
+    "hreflang" : "fr",
+    "text" : "FR"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36506615",
+    "rel" : "alternate",
+    "hreflang" : "de",
+    "text" : "DE"
+  }, {
+    "href" : "https://dam-api.bfs.admin.ch/hub/api/dam/packages/2026-0493",
+    "rel" : "related-gnp",
+    "text" : "Lohnentwicklung im Jahr 2025: Schweizerischer Lohnindex"
+  }, {
+    "href" : "/bfs/de/home/statistiken/arbeit-erwerb/erhebungen/sli.html",
+    "rel" : "related-factsheet-inquiry",
+    "text" : "Schweizerischer Lohnindex"
+  }, {
+    "href" : "/bfs/de/home/statistiken/arbeit-erwerb.html",
+    "rel" : "related-theme-entrypage",
+    "text" : "Arbeit und Erwerb"
+  } ],
+  "_embedded" : {
+    "labels" : {
+      "asset.bfs.embargo" : "Veröffentlicht am",
+      "asset.bfs.lastupdated" : "Letzte Aktualisierung",
+      "asset.bfs.model.name" : "Typ",
+      "asset.bfs.originalembargo" : "Ursprüngliches Publikationsdatum",
+      "asset.bfs.provisional" : "Datenstand",
+      "asset.bfs.status" : "Status",
+      "asset.content.format" : "Format",
+      "asset.content.href" : "Anhang",
+      "asset.description.abstractShort" : "Zusammenfassung",
+      "asset.description.bibliography.author" : "Autor(en)",
+      "asset.description.bibliography.copyright" : "Copyright",
+      "asset.description.bibliography.doi" : "Persistenter Link",
+      "asset.description.bibliography.info" : "Bibliographische Angaben",
+      "asset.description.bibliography.pages" : "Seiten",
+      "asset.description.bibliography.period" : "Dargestellter Zeitraum",
+      "asset.description.bibliography.source" : "Quelle(n)",
+      "asset.description.bibliography.termsofuse" : "Nutzungsbedingungen",
+      "asset.description.categorization.classification" : "Nomenklatur(en)",
+      "asset.description.categorization.geography" : "Raumgliederung",
+      "asset.description.categorization.inquiry" : "Erhebung, Statistik",
+      "asset.description.categorization.institution" : "Herausgeber",
+      "asset.description.categorization.keyword" : "Schlagworte",
+      "asset.description.categorization.periodicity" : "Periodizität",
+      "asset.description.categorization.prodima" : "Thema",
+      "asset.description.categorization.publisher" : "Verlag",
+      "asset.description.categorization.serie" : "Reihe",
+      "asset.description.categorization.tags" : "Tags",
+      "asset.description.language" : "Sprache",
+      "asset.descriptions.title.main" : "Titel",
+      "asset.shop.ordernr" : "BFS-Nummer",
+      "asset.shop.price" : "Preis",
+      "link.rel.appendix" : "Zusätzliche Daten",
+      "links.rel.mostrecentissue" : "Aktuellste Ausgabe",
+      "links.rel.otherlanguages" : "Weitere Sprachen",
+      "links.rel.relateddocuments" : "Verwandte Dokumente"
+    }
+  }
+}

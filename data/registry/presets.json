@@ -280,6 +280,8 @@
     }
   ],
   "styles": {
+    "real-wage-index": "#7c3aed",
+    "real-median-disposable-income": "#0369a1",
     "hourly-labour-productivity": "#0f766e",
     "total-hours-worked": "#b45309",
     "chf-eur-annual": "#2563eb",
