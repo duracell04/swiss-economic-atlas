@@ -5,6 +5,7 @@ import { unemploymentMethod, unemploymentComparison } from '../../lib/unemployme
 import { exchangeRateNote } from '../../lib/exchange-rates';
 import { labourInputNote } from '../../lib/labour-input';
 import { purchasingPowerNote } from '../../lib/purchasing-power';
+import { housingCreditNote } from '../../lib/housing-credit';
 export function getStaticPaths() { return registry.series.map(series => ({ params: { id: series.id }, props: { series } })); }
 const { series } = Astro.props;
 const sources = registry.sources.filter(s => series.source_ids.includes(s.id));
@@ -16,12 +17,14 @@ const labour = unemploymentMethod(series.id);
 const fxNote = exchangeRateNote(series.id);
 const inputNote = labourInputNote(series.id);
 const purchasingNote = purchasingPowerNote(series.id);
-const noBreaks = inputNote ? 'FSO harmonised pre-2010 hours to preserve continuity; see the source-adjustment notes. No artificial 2010 gap is introduced.' : 'Audit pending; an empty register does not establish continuity.';
+const housingNote = housingCreditNote(series.id);
+const noBreaks = inputNote ? 'FSO harmonised pre-2010 hours to preserve continuity; see the source-adjustment notes. No artificial 2010 gap is introduced.' : housingNote ? 'No additional breaks recorded within this chart’s published coverage; see the source-specific scope and timing notes.' : 'Audit pending; an empty register does not establish continuity.';
 ---
 <Layout title={series.title} description={series.definition}>
   <section class="page-heading"><a class="back-link" href={href(`series/${topic ? `#topic-${topic.id}` : ""}`)}>← Series catalogue</a><div class="eyebrow">SERIES / {series.id}</div><h1 class="detail-title">{series.title}</h1><p>{series.definition}</p></section>
   <aside class="notice"><span class="status-dot" aria-hidden="true"></span><div><strong>{series.data_class === 'synthetic' ? 'Synthetic demonstration — not Swiss historical observations' : series.verification === 'candidate' ? 'Awaiting source verification' : 'Definition verified'}</strong><p>{dataset ? `${dataset.observation_count} observations available.` : 'No public observations. Historical coverage has not been established for publication.'}</p></div></aside>
   {fxNote && <section class="details"><h2>How to read this exchange rate</h2><p>{fxNote}</p><a href={href('methodology/#exchange-rates')}>Exchange-rate sources and annual methods →</a></section>}
+  {housingNote && <section class="details"><h2>How to read this housing or credit measure</h2><p>{housingNote}</p><p>Available annual periods: {dataset?.coverage.first}–{dataset?.coverage.last}. Rates, real price indices, credit ratios and nominal mortgage stocks retain distinct definitions and units. None of these charts publishes an annual 2026 observation.</p><a href={href('methodology/#housing-credit')}>Housing and credit: definitions and sources →</a></section>}
   {inputNote && <section class="details"><h2>Productivity and compatible hours</h2><p>{inputNote}</p><p>The FSO adapted pre-2010 hours to preserve continuity. This is a documented source adjustment, not a new break or interpolation by the atlas. Available annual periods: 1991–2025.</p><a href={href('methodology/#productivity-hours')}>Productivity and hours: definitions and sources →</a></section>}
   {purchasingNote && <section class="details"><h2>How to read this purchasing-power measure</h2><p>{purchasingNote}</p><p>Available annual periods: {dataset?.coverage.first}–{dataset?.coverage.last}. Gross wage purchasing power and household disposable income measure different populations and resources. They do not share a unit or price reference.</p><a href={href('methodology/#wages-income')}>Wages and household income: definitions and sources →</a></section>}
   {labour && <section class="details"><h2>How this unemployment rate is measured</h2><p>{labour.definition}</p><dl><dt>Source</dt><dd>{labour.source}</dd><dt>Method</dt><dd>{labour.method}</dd><dt>Available periods</dt><dd>{dataset ? `${dataset.coverage.first}–${dataset.coverage.last}` : 'No public observations'}</dd><dt>Aggregation</dt><dd>{series.aggregation}</dd></dl><p class="muted">{unemploymentComparison}</p><a href={href('methodology/#unemployment')}>Definitions and annual methods →</a> · <a href={labour.reference.url}>{labour.reference.title} ↗</a></section>}

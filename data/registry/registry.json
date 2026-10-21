@@ -960,6 +960,106 @@
         "attribution": "Swiss National Bank, Historical time series, Interest rates and yields, table 3.1a_M, accessed 12 October 2026.",
         "conditions": "The retained CSV is a checked extraction of table 3.1a_M column C from the official workbook; preserve the original table identity, source reference and methodological notes."
       }
+    },
+    {
+      "id": "snb-mortgage-offers",
+      "publisher": "Swiss National Bank (SNB)",
+      "title": "Published five-year fixed mortgage offer rates",
+      "landing_url": "https://data.snb.ch/en/topics/snb/cube/zikrepro",
+      "data_url": "https://data.snb.ch/api/cube/zikrepro/data/csv/en?dimSel=D0(M),D1(50)&fromDate=2007-12&toDate=2025-12",
+      "source_identifier": "zikrepro/M/50",
+      "audit_status": "verified",
+      "definition": "Unweighted cross-bank mean of published five-year fixed mortgage interest rates for new business, at month-end. These are offered rates, not transaction-weighted negotiated contract rates.",
+      "coverage": "December 2007–December 2025 native monthly observations; 2008–2025 complete-year means.",
+      "revision_practice": "Vintage 1 October 2026, 14:30. The December 2007 survey expansion precedes the first complete annual observation. Future releases may revise history; re-audit coverage, missing values and methodology.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "SNB non-commercial statistical reuse with source attribution",
+        "evidence_url": "https://www.snb.ch/en/srv/disclaimer_copyright",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Swiss National Bank (SNB), data portal; annual calculations by Swiss Economic Atlas.",
+        "conditions": "Non-commercial use compatible with the statistical purpose, source reference, no implied endorsement. Selected data are SNB survey statistics, not third-party market quotes. Commercial use is not licensed by these terms. Preserve definitions, source breaks and annual calculation."
+      }
+    },
+    {
+      "id": "snb-domestic-mortgages",
+      "publisher": "Swiss National Bank (SNB)",
+      "title": "Domestic mortgage loans outstanding: banks in Switzerland, utilisation",
+      "landing_url": "https://data.snb.ch/en/topics/banken/cube/bakredinausbm",
+      "data_url": "https://data.snb.ch/api/cube/bakredinausbm/data/csv/en?dimSel=D0(AV1),D1(I),D2(H),D3(F)&fromDate=1985-06&toDate=2025-12",
+      "source_identifier": "bakredinausbm/AV1/I/H/F",
+      "audit_status": "verified",
+      "definition": "Gross utilisation of domestic mortgage credit to non-banks by banks in Switzerland, all maturities, in CHF millions. Includes mortgage loans and mortgage claims reported at fair value. This is outstanding credit, not newly originated loans or credit limits.",
+      "coverage": "June 1985–December 2025 monthly; December stocks 1985–2025.",
+      "revision_practice": "Vintage 21 October 2026, 09:00. Reporting-population changes and pre-1997 extrapolation, November 2001 balance-sheet-to-gross-claim change, September 2006 Raiffeisen coverage, June 2013 PostFinance and May 2017 intragroup-financing change remain explicit.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "SNB non-commercial statistical reuse with source attribution",
+        "evidence_url": "https://www.snb.ch/en/srv/disclaimer_copyright",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Swiss National Bank (SNB), data portal; annual calculations by Swiss Economic Atlas.",
+        "conditions": "Non-commercial use compatible with the statistical purpose, source reference, no implied endorsement. Selected data are SNB survey statistics, not third-party market quotes. Commercial use is not licensed by these terms. Preserve definitions, source breaks and annual calculation."
+      }
+    },
+    {
+      "id": "bwo-mortgage-reference",
+      "publisher": "Federal Office for Housing (BWO / FOH)",
+      "title": "Mortgage reference and underlying average interest-rate history",
+      "landing_url": "https://www.bwo.admin.ch/de/referenzzinssatz",
+      "data_url": "https://www.bwo.admin.ch/de/entwicklung-referenzzinssatz-und-durchschnittszinssatz",
+      "source_identifier": "BWO mortgage history / survey-date average",
+      "audit_status": "verified",
+      "definition": "Official numeric history of the mortgage-based rental reference rate, effective dates, volume-weighted average rate on outstanding domestic CHF mortgage claims and survey dates. Average survey dates must not be confused with later effective dates.",
+      "coverage": "73 official quarterly announcements, effective 10 September 2008–2 September 2026, survey dates 30 June 2008–30 June 2026. Annual charts 2009–2025.",
+      "revision_practice": "History page dated 1 September 2026. Quarter-point rounding rule changed in December 2011; import the published reference values unchanged. December 2025 average (1.32%) was published in March 2026, not in December 2025.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "Federal published statistical results: free reuse with attribution (effective 15 July 2026)",
+        "evidence_url": "https://www.bwo.admin.ch/de/newnsb/f1zWSNpVPekdwKPMGT9dd",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Federal Office for Housing (BWO), mortgage reference and average interest-rate table, retrieved 21 October 2026; annual calculations by Swiss Economic Atlas.",
+        "conditions": "The federal notice expressly permits reuse and redistribution of published federal statistical data with source attribution from 15 July 2026. This audit covers only the numeric statistical results, dates and necessary rounding note, not the website design, prose, images or third-party material. Do not present an annual statistical mean as a legally applicable rental rate; consult the official effective-date history for legal use. The general federal website copyright notice is not itself a reuse licence."
+      }
+    },
+    {
+      "id": "bis-swiss-real-property",
+      "publisher": "Bank for International Settlements (BIS); FSO; SNB based on Wüest und Partner",
+      "title": "Selected Swiss real residential property prices, CPI-deflated, 2010=100",
+      "landing_url": "https://data.bis.org/topics/RPP",
+      "data_url": "https://stats.bis.org/api/v1/data/WS_SPP/Q.CH.R.628?format=csv",
+      "source_identifier": "WS_SPP/Q.CH.R.628",
+      "audit_status": "verified",
+      "definition": "BIS selected national real residential property price index, quarterly, 2010 average=100, deflated by the Swiss consumer price index. BIS compilation: 1970–1984 unweighted flat/house offer-price indices; 1985–2016 unweighted flat/house transaction-price indices; from 2017 FSO all-dwellings prices.",
+      "coverage": "1970-Q1–2026-Q2 retained; 1970–2025 annual means of four quarters.",
+      "revision_practice": "Selected-series release 24 September 2026; source documentation updated 31 July 2026. Historical back-calculation is best-effort and combines sources. Preserve 1985 and 2017 source/method changes; do not deflate again or claim a homogeneous 1970 transaction-price index.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "BIS terms of permitted use of statistics",
+        "evidence_url": "https://www.bis.org/about/legal/permitted-use-statistics",
+        "reviewed_on": "2026-10-21",
+        "attribution": "BIS selected residential property price statistics, WS_SPP Q.CH.R.628; BIS calculations, Federal Statistical Office and Swiss National Bank data based on Wüest und Partner. Annual means: Swiss Economic Atlas.",
+        "conditions": "Cite BIS and the national sources; preserve identity and identify annual calculations. Do not imply endorsement or affiliation, mislead, or impose an additional charge for inclusion in a commercial product. No warranty or investment recommendation. Any translation must be identified as unofficial. Dataset documentation explicitly permits reproduction under these terms."
+      }
+    },
+    {
+      "id": "bis-swiss-private-credit",
+      "publisher": "Bank for International Settlements (BIS); Swiss National Bank (SNB)",
+      "title": "Total credit to the Swiss private non-financial sector, break-adjusted, % GDP",
+      "landing_url": "https://data.bis.org/topics/TOTAL_CREDIT/BIS%2CWS_TC%2C2.0/Q.CH.P.A.M.770.A",
+      "data_url": "https://stats.bis.org/api/v1/data/WS_TC/Q.CH.P.A.M.770.A?format=csv",
+      "source_identifier": "WS_TC/Q.CH.P.A.M.770.A",
+      "audit_status": "verified",
+      "definition": "BIS break-adjusted private non-financial sector core debt, all lenders, market-value convention, as a percentage of the sum of the last four quarters of nominal GDP. Households including NPISH and non-financial corporations (including public corporations); excludes general government and financial-sector borrowers. Unconsolidated, gross of assets. Before 1999-Q4 the history uses domestic bank credit as proxy; from 1999-Q4 quarterly financial accounts.",
+      "coverage": "1960-Q4–2026-Q1 retained; Q4 ratios for 1960–2025. GDP availability limits this ratio even though the underlying credit history extends earlier.",
+      "revision_practice": "Release 14 September 2026. BIS level adjustments address statistical breaks, not historical scope differences. Source changes before 1975-Q2, 1981-Q4, 1987-Q4 and 1999-Q4; 2014 cross-border/security survey revision. Both credit and BIS GDP vintage can be revised. No replacement GDP denominator is inserted.",
+      "rights": {
+        "redistribution": "permitted",
+        "licence": "BIS terms of permitted use of statistics",
+        "evidence_url": "https://www.bis.org/about/legal/permitted-use-statistics",
+        "reviewed_on": "2026-10-21",
+        "attribution": "Source: BIS total credit statistics, WS_TC Q.CH.P.A.M.770.A; national source Swiss National Bank, Financial Accounts / Banks in Switzerland; historical IMF IFS inputs. Q4 selection: Swiss Economic Atlas.",
+        "conditions": "Cite BIS and the national sources; preserve identity and identify annual calculations. Do not imply endorsement or affiliation, mislead, or impose an additional charge for inclusion in a commercial product. No warranty or investment recommendation. Any translation must be identified as unofficial. Dataset documentation explicitly permits reproduction under these terms."
+      }
     }
   ],
   "series": [
@@ -2233,6 +2333,224 @@
         }
       ],
       "usage_notes": "99 year-end values, 1907–2005. The blank 2006 Lombard entry remains absent. These are published year-end readings, not annual averages or an uninterrupted homogeneous policy-rate instrument. The CSV is a checked transcription of the source PDF. Table footnote and narrative disagree on the post-May-1989 margin; preserve the figures without inferring a margin."
+    },
+    {
+      "id": "mortgage-offer-rate-annual",
+      "title": "Five-year fixed mortgage offer rate — annual mean",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "Annual mean of the SNB unweighted cross-bank averages of published five-year fixed mortgage rates at twelve month-ends. An offered new-business rate, not a negotiated transaction rate or the average cost of existing mortgages.",
+      "unit": {
+        "code": "percent",
+        "label": "% · mortgage offers",
+        "dimension": "interest rate",
+        "scale": 1
+      },
+      "measurement": "rate",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "Banks in the SNB published-rate survey, Switzerland",
+      "instrument": "Published fixed-rate mortgage offers",
+      "maturity": "5 years",
+      "aggregation": "Arithmetic mean of twelve complete calendar-year month-end published-rate means. December 2007 is retained in the source but excluded as a partial first year.",
+      "source_ids": [
+        "snb-mortgage-offers"
+      ],
+      "source_identifier": "zikrepro/M/50",
+      "breaks": [],
+      "usage_notes": "2008–2025 only. No full-year 2026. Unweighted across banks and months; not weighted by mortgage amounts or loan originations. Do not splice with historical cantonal variable first-mortgage rates or actual new-loan agreements."
+    },
+    {
+      "id": "mortgage-outstanding-rate-annual",
+      "title": "Outstanding mortgage average rate — annual mean",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "Arithmetic mean of the four BWO survey-date volume-weighted average interest rates on existing domestic CHF mortgages. Measures the stock of outstanding contracts, including old fixed-rate loans, not current offers.",
+      "unit": {
+        "code": "percent",
+        "label": "% · outstanding mortgages",
+        "dimension": "interest rate",
+        "scale": 1
+      },
+      "measurement": "rate",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "Domestic CHF mortgage claims of reporting banks in Switzerland; property collateral in Switzerland",
+      "instrument": "Volume-weighted average interest rate on outstanding mortgages",
+      "maturity": "All contractual maturities",
+      "aggregation": "Mean of the March, June, September and December survey-date averages. December readings published the next March belong to the survey year. Each quarter has equal weight; no annual mortgage-volume weights are available.",
+      "source_ids": [
+        "bwo-mortgage-reference"
+      ],
+      "source_identifier": "BWO mortgage history / survey-date average",
+      "breaks": [],
+      "usage_notes": "2009–2025. Do not align underlying averages to the reference rate effective dates, round them to quarter-points or infer a new-mortgage offer rate. The first source year 2008 lacks Q1 and is omitted. December 2025 uses the observation released in March 2026."
+    },
+    {
+      "id": "rental-reference-rate-annual",
+      "title": "Rental reference interest rate — annual mean",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "Calendar-day-weighted annual mean of the official BWO mortgage reference rate legally in force. This descriptive annual statistic is not itself a legally applicable reference rate or a measure of market rents.",
+      "unit": {
+        "code": "percent",
+        "label": "% · rental reference rate",
+        "dimension": "interest rate",
+        "scale": 1
+      },
+      "measurement": "rate",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss national mortgage-based rental reference rate",
+      "instrument": "BWO rental reference interest rate",
+      "maturity": null,
+      "aggregation": "For every calendar day, use the published reference rate from its effective date until the next effective date; sum and divide by 365 or 366 days. Announcements beyond year-end bound carry-forward, not a forecast.",
+      "source_ids": [
+        "bwo-mortgage-reference"
+      ],
+      "source_identifier": "BWO mortgage history / effective-date reference",
+      "breaks": [
+        {
+          "period": "2011",
+          "description": "From 2 December 2011, commercial rounding of the underlying average to the nearest quarter-point replaces the original threshold rule. The annual mean includes both rules."
+        }
+      ],
+      "usage_notes": "2009–2025; 2008 began on 10 September and is not a full year. Preserve historical published values rather than applying current rounding retrospectively. For legal rental adjustments use the official effective-date rate and applicable law, never this statistical annual mean."
+    },
+    {
+      "id": "real-residential-property-prices",
+      "title": "Real residential property prices — annual mean",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "Annual mean of four quarterly BIS CPI-deflated Swiss residential property price index values, 2010=100. A long-run national composite with distinct offer-price, transaction-price and FSO statistical segments.",
+      "unit": {
+        "code": "index",
+        "label": "Index, 2010 = 100",
+        "dimension": "real residential property price index 2010=100",
+        "scale": 1
+      },
+      "measurement": "level",
+      "price_basis": "real",
+      "aggregation_kind": "annual_average",
+      "frequency": "annual",
+      "institutional_coverage": "Swiss residential property, owner-occupied flats/houses historically; all dwellings from 2017",
+      "instrument": null,
+      "maturity": null,
+      "aggregation": "Arithmetic mean of four complete quarterly real index observations. BIS has already divided nominal property prices by the Swiss CPI and set the 2010 mean to 100. No second deflation or rebasing.",
+      "source_ids": [
+        "bis-swiss-real-property"
+      ],
+      "source_identifier": "WS_SPP/Q.CH.R.628",
+      "breaks": [
+        {
+          "period": "1985",
+          "description": "BIS historical input changes from offer prices to transaction prices for the unweighted average of flats and houses."
+        },
+        {
+          "period": "2017",
+          "description": "BIS input changes to FSO all-dwellings residential property prices from 2017-Q1; earlier flat/house composites remain historical reconstructions."
+        }
+      ],
+      "usage_notes": "1970–2025. Historical composite years through 2016 are identified as reconstructed; documentation describes a best-effort long history, not homogeneous directly observed transactions. Source 2026-Q1/Q2 are retained for audit but no annual 2026 is published. Not a CHF price, rental index, affordability measure or property total return."
+    },
+    {
+      "id": "private-credit-gdp",
+      "title": "Private non-financial credit / GDP — year-end",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "BIS break-adjusted credit to Swiss households and non-financial corporations from all lenders, divided by its compatible four-quarter nominal GDP, selected at Q4. Before 1999-Q4 the source uses domestic bank credit as a historical proxy.",
+      "unit": {
+        "code": "percent",
+        "label": "% of GDP",
+        "dimension": "share of GDP",
+        "scale": 1
+      },
+      "measurement": "rate",
+      "price_basis": "not_applicable",
+      "aggregation_kind": "end_of_period",
+      "frequency": "annual",
+      "institutional_coverage": "Resident households including NPISH and non-financial corporations, including public corporations; all lenders from 1999-Q4",
+      "instrument": "Core debt: loans, debt securities and currency/deposits where applicable; gross and unconsolidated",
+      "maturity": "All maturities",
+      "aggregation": "Use the published Q4 credit-to-GDP ratio. Numerator is the end-quarter credit stock; denominator is the sum of the last four quarters of nominal GDP in the same BIS vintage. Neither an annual average of ratios nor a ratio using atlas GDP.",
+      "source_ids": [
+        "bis-swiss-private-credit"
+      ],
+      "source_identifier": "WS_TC/Q.CH.P.A.M.770.A",
+      "breaks": [
+        {
+          "period": "1975",
+          "description": "Historical domestic-bank-credit proxy changes from IMF IFS inputs from 1975-Q2."
+        },
+        {
+          "period": "1981",
+          "description": "1981-Q4 change in historical bank-claims compilation; earlier claims exclude precious-metal accounts."
+        },
+        {
+          "period": "1987",
+          "description": "1987-Q4 change in estimation of private domestic bank credit from bank claims and government/bank exclusions."
+        },
+        {
+          "period": "1999",
+          "description": "From 1999-Q4 quarterly financial accounts replace the narrower domestic-bank-credit proxy. Earlier years are reconstructed/proxy history despite BIS break adjustments."
+        },
+        {
+          "period": "2014",
+          "description": "Cross-border capital-linkage survey revised and securities survey reporting population expanded; BIS series is break-adjusted."
+        }
+      ],
+      "usage_notes": "1960–2025. Market-value convention applies to debt securities; loans are valued nominally. Gross, unconsolidated debt is not net household debt, bank-only credit, the credit-to-GDP gap or a debt-service burden. BIS break adjustment cannot remove all coverage changes. No 2026 year-end ratio is inferred."
+    },
+    {
+      "id": "domestic-mortgage-volume",
+      "title": "Domestic mortgage loans outstanding — year-end",
+      "verification": "verified",
+      "data_class": "real",
+      "definition": "December stock of domestic mortgage loans utilised by non-banks at banks in Switzerland, in nominal CHF millions. Includes mortgage claims in mortgage-loan and fair-value balance-sheet positions. Not new mortgage originations or unused credit limits.",
+      "unit": {
+        "code": "currency",
+        "label": "CHF million",
+        "dimension": "CHF",
+        "scale": 1000000
+      },
+      "measurement": "level",
+      "price_basis": "nominal",
+      "aggregation_kind": "end_of_period",
+      "frequency": "annual",
+      "institutional_coverage": "Banks in Switzerland; domestic non-bank mortgage borrowers, all maturities",
+      "instrument": "Mortgage loans, gross utilisation",
+      "maturity": "All maturities",
+      "aggregation": "Select each December month-end stock unchanged. Do not sum or average monthly balances. December 1985 is available despite the source starting in June that year.",
+      "source_ids": [
+        "snb-domestic-mortgages"
+      ],
+      "source_identifier": "bakredinausbm/AV1/I/H/F",
+      "breaks": [
+        {
+          "period": "1997",
+          "description": "June 1997 reporting-population expansion. Earlier all-bank aggregates were extrapolated where possible; atlas identifies pre-1997 annual stocks as reconstructed."
+        },
+        {
+          "period": "2001",
+          "description": "From November 2001 utilisation is the gross claim rather than the earlier balance-sheet figure."
+        },
+        {
+          "period": "2006",
+          "description": "September 2006 includes all Raiffeisen banks, rather than only the 34 larger banks."
+        },
+        {
+          "period": "2013",
+          "description": "PostFinance included from June 2013."
+        },
+        {
+          "period": "2017",
+          "description": "May 2017 intragroup-financing arrangements changed; retain source warning."
+        }
+      ],
+      "usage_notes": "1985–2025. Nominal year-end stock, not inflation-adjusted or scaled to GDP. Not restricted to households or owner-occupied dwellings; mortgage loans can finance other domestic collateral. Source revisions and reporting changes limit comparisons. The credit-lines-only clarification and suppression of bank subgroups do not create artificial gaps in this selected utilisation total."
     }
   ],
   "snapshots": [
@@ -2483,6 +2801,46 @@
       "sha256": "bdfa549b328ac6bd434730f2abac1cfb9357916e81d9cca05f300a12c21f9518",
       "file": "data/raw/fso-hbs-real-median-income-2026-10-21-bdfa549b328ac6bd.csv",
       "source_url": "https://datawrapper.dwcdn.net/4bd288526038674e71356216f4ffb48b/4/dataset.csv"
+    },
+    {
+      "id": "snb-mortgage-offers-2026-10-21-5f41aa15857cc17d",
+      "source_id": "snb-mortgage-offers",
+      "retrieved_on": "2026-10-21",
+      "sha256": "5f41aa15857cc17d463ebdcafc1cc715f89ed91010003f7c312a4e62eb90a11b",
+      "file": "data/raw/snb-mortgage-offers-2026-10-21-5f41aa15857cc17d.csv",
+      "source_url": "https://data.snb.ch/api/cube/zikrepro/data/csv/en?dimSel=D0(M),D1(50)&fromDate=2007-12&toDate=2025-12"
+    },
+    {
+      "id": "snb-domestic-mortgages-2026-10-21-edd83a0dd307d10b",
+      "source_id": "snb-domestic-mortgages",
+      "retrieved_on": "2026-10-21",
+      "sha256": "edd83a0dd307d10bce419f4e12a5419b900eec0b9111c6ac618b139f75abb149",
+      "file": "data/raw/snb-domestic-mortgages-2026-10-21-edd83a0dd307d10b.csv",
+      "source_url": "https://data.snb.ch/api/cube/bakredinausbm/data/csv/en?dimSel=D0(AV1),D1(I),D2(H),D3(F)&fromDate=1985-06&toDate=2025-12"
+    },
+    {
+      "id": "bis-swiss-real-property-2026-10-21-c8ab31d8c0193d81",
+      "source_id": "bis-swiss-real-property",
+      "retrieved_on": "2026-10-21",
+      "sha256": "c8ab31d8c0193d815c7f949befd6626cbcc9da89d645b4fe2b0085906e0a3016",
+      "file": "data/raw/bis-swiss-real-property-2026-10-21-c8ab31d8c0193d81.csv",
+      "source_url": "https://stats.bis.org/api/v1/data/WS_SPP/Q.CH.R.628?format=csv"
+    },
+    {
+      "id": "bis-swiss-private-credit-2026-10-21-0f0d617fb9ee19c0",
+      "source_id": "bis-swiss-private-credit",
+      "retrieved_on": "2026-10-21",
+      "sha256": "0f0d617fb9ee19c002f2e059eddc1f65bb99262c2725ffb2f9b48f897c59e7f3",
+      "file": "data/raw/bis-swiss-private-credit-2026-10-21-0f0d617fb9ee19c0.csv",
+      "source_url": "https://stats.bis.org/api/v1/data/WS_TC/Q.CH.P.A.M.770.A?format=csv"
+    },
+    {
+      "id": "bwo-mortgage-reference-2026-10-21-c2848c9295d0e1b0",
+      "source_id": "bwo-mortgage-reference",
+      "retrieved_on": "2026-10-21",
+      "sha256": "c2848c9295d0e1b005a99dc63d7996f160ea4b3dd718d849ab86b30a4346973f",
+      "file": "data/raw/bwo-mortgage-reference-2026-10-21-c2848c9295d0e1b0.csv",
+      "source_url": "https://www.bwo.admin.ch/de/entwicklung-referenzzinssatz-und-durchschnittszinssatz"
     }
   ]
 }

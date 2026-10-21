@@ -303,6 +303,12 @@
     "smi-annual-return": "#0f766e",
     "smic-annual-return": "#6b21a8",
     "confederation-10y-minus-gmbf-3m": "#6b21a8",
-    "nominal-gdp": "#111111"
+    "nominal-gdp": "#111111",
+    "mortgage-offer-rate-annual": "#a16207",
+    "mortgage-outstanding-rate-annual": "#047857",
+    "rental-reference-rate-annual": "#be185d",
+    "real-residential-property-prices": "#6d28d9",
+    "private-credit-gdp": "#0e7490",
+    "domestic-mortgage-volume": "#b45309"
   }
 }

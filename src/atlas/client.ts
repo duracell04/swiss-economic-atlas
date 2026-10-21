@@ -6,6 +6,7 @@ import { unemploymentMethod, unemploymentComparison } from '../lib/unemployment.
 import { exchangeRateNote } from '../lib/exchange-rates.ts';
 import { labourInputNote } from '../lib/labour-input.ts';
 import { purchasingPowerNote } from '../lib/purchasing-power.ts';
+import { housingCreditNote } from '../lib/housing-credit.ts';
 
 const element = <T extends HTMLElement = HTMLElement>(id: string): T => document.getElementById(id) as T;
 const make = <K extends keyof HTMLElementTagNameMap>(tag: K, className = '', text = ''): HTMLElementTagNameMap[K] => {
@@ -93,13 +94,16 @@ async function boot(): Promise<void> {
     if(labourInput)content.append(make('p','',labourInput));
     const purchasingPower=purchasingPowerNote(id);
     if(purchasingPower)content.append(make('p','',purchasingPower));
+    const housing=housingCreditNote(id);
+    if(housing)content.append(make('p','',housing));
     const dl = make('dl');
-    const noBreaks=labourInput ? 'FSO harmonised pre-2010 hours to preserve continuity. No artificial 2010 gap is introduced.' : 'No breaks recorded; candidate definitions remain subject to audit.';
+    const noBreaks=labourInput ? 'FSO harmonised pre-2010 hours to preserve continuity. No artificial 2010 gap is introduced.' : housing ? 'No additional breaks recorded within this chart’s published coverage; see the source-specific scope and timing notes.' : 'No breaks recorded; candidate definitions remain subject to audit.';
     const fields = [['Unit', s.unit.label], ['Measurement', s.measurement], ['Price basis', s.price_basis.replaceAll('_', ' ')], ['Frequency', s.frequency], ['Coverage', s.institutional_coverage], ['Aggregation', s.aggregation], ['Historical breaks', s.breaks.map(b => `${b.period}: ${b.description}`).join('; ') || noBreaks], ['Usage', s.usage_notes]];
     if (labour) fields.unshift(['Source', labour.source], ['Method', labour.method], ['Available periods', coverage(id)]);
     if (fx) fields.unshift(['Available periods', coverage(id)]);
     if (labourInput) fields.unshift(['Available periods', coverage(id)]);
     if (purchasingPower) fields.unshift(['Available periods', coverage(id)]);
+    if (housing) fields.unshift(['Available periods', coverage(id)]);
     for (const [label, value] of fields) dl.append(make('dt', '', label), make('dd', '', value));
     content.append(dl);
     for (const source of data.registry.sources.filter(source => s.source_ids.includes(source.id))) {
@@ -243,6 +247,14 @@ async function boot(): Promise<void> {
       section.append(legend);
       const unit=make('p','axis-note',`${[...new Set(panel.series_ids.map(id=>definition(data,id).unit.label))].join(' / ')} · annual observations`);
       section.append(unit);
+      const housingNotes=panel.series_ids.map(housingCreditNote).filter((note):note is string=>Boolean(note));
+      if(housingNotes.length){
+        const notes=make('div','housing-credit-methods');
+        for(const note of housingNotes)notes.append(make('p','',note));
+        const link=make('a','','Housing and credit: definitions and sources →');
+        link.href=`${import.meta.env.BASE_URL.replace(/\/$/,'')}/methodology/#housing-credit`;
+        notes.append(link);section.append(notes);
+      }
       const purchasingNotes=panel.series_ids.map(purchasingPowerNote).filter((note):note is string=>Boolean(note));
       if(purchasingNotes.length){
         const notes=make('div','purchasing-power-methods');

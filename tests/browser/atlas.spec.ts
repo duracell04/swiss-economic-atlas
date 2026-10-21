@@ -11,8 +11,8 @@ test('scope roadmap links priorities to planned families and preserves catalogue
   await page.getByRole('link',{name:'Our scope: the history of Swiss prosperity →',exact:true}).click();
   await expect(page).toHaveURL(productionURL+'scope/');
   await expect(page.locator('.scope-module')).toHaveCount(10);
-  await expect(page.locator('.scope-summary')).toContainText('35');
-  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(3);
+  await expect(page.locator('.scope-summary')).toContainText('41');
+  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(2);
   await page.getByRole('link',{name:'CHF bilateral exchange rates',exact:true}).click();
   await expect(page.locator('#module-external')).toHaveAttribute('open','');
   const family=page.locator('#family-bilateral-fx');await expect(family).toBeVisible();
@@ -131,7 +131,7 @@ test('annual productivity and total hours preserve matched definitions, distinct
   }
   await page.goto(`${productionURL}scope/#family-hourly-productivity`);await expect(page.locator('#family-hourly-productivity')).toContainText('Available');
   await page.goto(`${productionURL}scope/#family-hours-worked`);await expect(page.locator('#family-hours-worked')).toContainText('Available');
-  await expect(page.locator('#priorities .scope-priorities>li').first()).toContainText('Housing');
+  await expect(page.locator('#priorities .scope-priorities>li').first()).toContainText('Trade');
   expect(errors).toEqual([]);
 });
 test('annual real wages and median disposable income preserve price bases, missing years and source methodology breaks',async({page},testInfo)=>{
@@ -182,7 +182,52 @@ test('annual real wages and median disposable income preserve price bases, missi
   for(const id of ['real-wages','disposable-income']){
     await page.goto(`${productionURL}scope/#family-${id}`);await expect(page.locator(`#family-${id}`)).toContainText('Available');
   }
-  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(3);expect(errors).toEqual([]);
+  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(2);expect(errors).toEqual([]);
+});
+test('annual housing and credit charts keep three rate concepts, year-end stocks, source breaks and downloads distinct',async({page},testInfo)=>{
+  test.slow();const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
+  const offer='Five-year fixed mortgage offer rate — annual mean',outstanding='Outstanding mortgage average rate — annual mean',reference='Rental reference interest rate — annual mean';
+  const prices='Real residential property prices — annual mean',credit='Private non-financial credit / GDP — year-end',volume='Domestic mortgage loans outstanding — year-end';
+  await page.goto(productionURL);await expect(page.locator('#atlas')).toHaveAttribute('data-ready','true');
+  await page.getByRole('button',{name:'Reset',exact:true}).click();
+  await add(page,offer);await expect(panel(page,0).getByRole('button',{name:/Change years for/})).toHaveText('2008–2025');
+  const ratePanel=(await panel(page,0).getAttribute('data-panel'))!;
+  await add(page,outstanding,ratePanel);await add(page,reference,ratePanel);await years(page,0,'2008','2025');
+  await expect(panel(page,0).locator('[data-unit-axis]')).toHaveCount(1);
+  await expect(panel(page,0).locator('.housing-credit-methods')).toContainText('not negotiated contract rates');
+  await expect(panel(page,0).locator('.housing-credit-methods')).toContainText('not a legally applicable reference rate');
+  await expect(panel(page,0).locator('[data-statistical-break="rental-reference-rate-annual"]')).toHaveCount(1);
+  await panel(page,0).locator('svg').focus();await panel(page,0).locator('svg').press('Home');
+  await expect(page.locator('#readout .readout-row').filter({hasText:reference})).toContainText('No observation');
+  await panel(page,0).locator('svg').press('End');await expect(page.locator('#readout .readout-row').filter({hasText:reference})).toContainText('1.46');
+  await panel(page,0).locator('svg').press('Escape');
+  await add(page,prices);await expect(panel(page,1).getByRole('button',{name:/Change years for/})).toHaveText('1970–2025');
+  await expect(panel(page,1).locator('[data-statistical-break]')).toHaveCount(2);
+  await expect(panel(page,1).locator('.housing-credit-methods')).toContainText('2010 = 100');
+  await add(page,credit);await expect(panel(page,2).getByRole('button',{name:/Change years for/})).toHaveText('1960–2025');
+  await expect(panel(page,2).locator('[data-statistical-break]')).toHaveCount(5);
+  await expect(panel(page,2).locator('.housing-credit-methods')).toContainText('narrower bank-credit proxy');
+  await add(page,volume);await expect(panel(page,3).getByRole('button',{name:/Change years for/})).toHaveText('1985–2025');
+  await expect(panel(page,3).locator('[data-statistical-break]')).toHaveCount(5);
+  await expect(panel(page,3).locator('.axis-note')).toContainText('CHF million');
+  await page.getByRole('button',{name:`Information about ${outstanding}`,exact:true}).click();
+  await expect(page.locator('#info-content')).toContainText('Federal Office for Housing');
+  await expect(page.locator('#info-content')).toContainText('2009–2025');
+  await expect(page.locator('#info-content')).toContainText('next March');
+  await page.getByRole('button',{name:'Close indicator information'}).click();
+  await page.reload();await expect(page.locator('.chart-panel')).toHaveCount(4);
+  await expect(panel(page,0).locator('path[data-series-id]')).not.toHaveCount(0);
+  const dimensions=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,width:innerWidth}));expect(dimensions.scroll).toBeLessThanOrEqual(dimensions.width);
+  await page.screenshot({path:`.cache/evidence-housing-credit-${testInfo.project.name}.png`,fullPage:true});
+  await panel(page,0).getByRole('link',{name:'Housing and credit: definitions and sources →',exact:true}).click();
+  await expect(page).toHaveURL(/methodology\/#housing-credit$/);await expect(page.locator('#housing-credit')).toContainText('15 July 2026');
+  for(const id of ['mortgage-offer-rate-annual','mortgage-outstanding-rate-annual','rental-reference-rate-annual','real-residential-property-prices','private-credit-gdp','domestic-mortgage-volume']){
+    await page.goto(`${productionURL}series/${id}/`);await expect(page.getByRole('link',{name:'CSV ↓',exact:true})).toHaveAttribute('href',new RegExp(`${id}.csv$`));
+    await expect(page.locator('main')).toContainText('How to read this housing or credit measure');
+  }
+  await page.goto(`${productionURL}scope/#family-mortgage-rates`);await expect(page.locator('#family-mortgage-rates')).toContainText('Available');
+  await expect(page.locator('#priorities .scope-priorities>li')).toHaveCount(2);
+  await expect(page.locator('#priorities .scope-priorities>li').first()).toContainText('Trade');expect(errors).toEqual([]);
 });
 test('empty workspace keeps a next-indicator card and independent chart years',async({page},testInfo)=>{
   const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});

@@ -1,5 +1,9 @@
 # Contributing sources and observations
 
+### Housing, mortgage rates and private credit
+
+Use `snb-housing-annual` with the exact original SNB semicolon CSV selections for five-year fixed mortgage offers and domestic mortgage utilisation; `bis-housing-credit-annual` with the BIS selected real index `Q.CH.R.628` and private credit/GDP `Q.CH.P.A.M.770.A`. For BWO, extract the numeric effective-date/survey-date table with `scripts/prepare-housing.ts`, retain its checked table JSON, and import the resulting CSV with `bwo-housing-annual` for each rate. Never round averages into historical reference rates, shift December survey data to March, average stocks, substitute GDP vintages, deflate an already-real index, or publish incomplete 2026 as annual data. See [definitions, exact requests, reuse evidence and reproduction](source-audit/housing-credit.md). New releases require an explicit coverage/vintage/terms review and refreshed checks; the website builds offline.
+
 ### Real wages and median household income
 
 Use `--importer fso-real-wages --series real-wage-index --source fso-real-wages-long` with the original double-wrapped FSO CSV. The importer explicitly unwraps its outer CSV layer, selects total/real/index, and preserves the 1942 E estimate. Do not import the 1942 multi-year average growth as an annual rate. Use `--importer fso-real-median-income --series real-median-disposable-income --source fso-hbs-real-median-income` with the FSO chart's original tab-delimited, decimal-comma dataset. Its native constant-price medians are not nominal workbook medians. Preserve the 2015 break and retain the source's 95% intervals; blank/dummy drawing rows are not observations. New releases require checking the chart version, constant-price base, source flags and reuse evidence. See the [source audit](source-audit/wages-income.md).

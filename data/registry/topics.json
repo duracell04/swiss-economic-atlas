@@ -64,7 +64,14 @@
       "id": "credit-housing",
       "title": "Credit, housing and banking",
       "description": "Private credit, mortgage finance, housing costs and banking exposures.",
-      "series_ids": []
+      "series_ids": [
+        "mortgage-offer-rate-annual",
+        "mortgage-outstanding-rate-annual",
+        "rental-reference-rate-annual",
+        "real-residential-property-prices",
+        "private-credit-gdp",
+        "domestic-mortgage-volume"
+      ]
     },
     {
       "id": "public-finances",

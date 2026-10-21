@@ -31,13 +31,14 @@ Completed on 21 October 2026: the first exchange-rate priority now has five annu
 
 **P1 — next additions, in this order:**
 
-1. Mortgage borrowing costs and the distinct rental reference rate, real residential property prices, private credit / GDP, and mortgage volumes.
-2. Exports, imports, trade balance and current-account balance.
-3. Government revenue, expenditure and fiscal balance, with consistent GDP denominators.
+1. Exports, imports, trade balance and current-account balance.
+2. Government revenue, expenditure and fiscal balance, with consistent GDP denominators.
 
 Hourly productivity and compatible total actual hours were completed on 21 October 2026 for 1991–2025. They use the FSO's matched WPS vintage, not unadjusted pre-2010 Work Volume Statistics or nominal productivity. Source flags identify 2023–2025 as revised. See the [source audit](https://github.com/duracell04/swiss-economic-atlas/blob/main/docs/source-audit/productivity-hours.md).
 
 The real wage/median-income priority was completed on 21 October 2026. FSO real gross wages cover 1942–2025 as a 1939=100 index, retaining the 1994 source/CPI-timing change. HBS real median disposable equivalised income covers 2000–2023 in monthly CHF at 2023 prices, with one estimate per year and a 2015 weighting break. These are different concepts, not interchangeable measures of pay. Nominal wage inputs and income confidence intervals remain in the original sources; this release publishes the two real level charts. See the [source audit](https://github.com/duracell04/swiss-economic-atlas/blob/main/docs/source-audit/wages-income.md).
+
+The housing/credit priority was completed on 21 October 2026 with six annual charts: five-year fixed mortgage offers (2008–2025), average rates on existing CHF mortgages and the distinct rental reference rate (2009–2025), real house prices (1970–2025), private non-financial credit/GDP (1960–2025) and domestic mortgage volumes (1985–2025). They preserve effective versus survey dates, day-weighted versus quarter/monthly means, Q4/December stocks, CPI-deflated prices and historical source changes. The pre-1999 private-credit history is a narrower bank-credit proxy, not homogeneous all-lender coverage. See the [source audit](https://github.com/duracell04/swiss-economic-atlas/blob/main/docs/source-audit/housing-credit.md). These four families join the maintained foundation; rents, vacancies and deeper banking data remain planned.
 
 The remaining priorities close missing connections between production, households, finance and the external economy. Audit inputs together when they share a denominator or deflator. This order is an editorial priority, not a deadline or a reason to hold back a fully verified, relevant series.
 

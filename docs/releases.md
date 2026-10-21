@@ -1,5 +1,12 @@
 # Release notes
 
+## 2026-10-21 — Housing costs, real property prices and private credit
+
+- Added six annual charts and 215 observations: five-year mortgage offers (2008–2025), existing-mortgage average and rental reference rate (2009–2025), real house prices (1970–2025), private non-financial credit/GDP (1960–2025) and mortgage volumes (1985–2025).
+- Verified SNB, BWO and BIS source selections, definitions and reuse evidence. Preserved immutable original CSVs, a reproducible BWO numeric-table extraction, unit/dimension evidence, source breaks and reconstructed historical segments.
+- Kept survey/effective dates, legally applicable rates versus statistical means, offered versus outstanding mortgage rates, complete-year means versus Q4/December stocks, the compatible BIS GDP denominator and the pre-1999 narrower credit proxy explicit. No annual 2026 is manufactured.
+- Added source notes beside charts, detailed methodology, downloads, regression tests and updated scope ownership. The atlas now publishes 41 datasets and 11,587 observations; trade/current-account flows and fiscal flows are the two remaining P1 groups. Rents, vacancies and other banking measures remain planned; existing licensing placeholders are unchanged.
+
 ## 2026-10-21 — Real wages and median disposable household income
 
 - Added the FSO real gross wage index (1939=100), 84 annual values for 1942–2025. Retained the 1942 source estimate, the 1994 wage-source/CPI-timing change and published precision; no second deflation or growth derived from rounded levels.
