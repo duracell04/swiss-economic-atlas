@@ -2,13 +2,19 @@
 
 All updates are prepared manually and reviewed through pull requests. No scheduled data acquisition is enabled.
 
+## Apply the governing scope
+
+Start with [the scope policy](scope.md). A proposed indicator must answer a historical question and belong to a family in `data/registry/scope.json` and its corresponding catalogue topic. Use `foundation` for maintaining the existing baseline, `next` for P1 gaps, `following` for P2 and `later` for P3. P1 families must appear exactly once in the ordered acquisition plan. Families can contain several frequencies or derived views without inflating the family count.
+
+When adding a verified series, add its ID to the family's `series_ids` and the matching `topics.json` module. Set `planned` to true while additional intended views in that family remain unacquired. Publication status is derived from the public manifest, not from this flag or the priority. Unresolved existing definitions retain their blocker notes; historical-SNB structural metadata is explicitly reference-only. The validator rejects unknown memberships, duplicate owning families, mismatched topics and published real series without a family.
+
 ## Register an exact source
 
 Start with the appropriate publisher checklist in `docs/source-audit/`. Broad starting-point records must be split into exact dataset records when definitions or usage terms differ. Use stable lowercase hyphenated IDs and the contract in `scripts/lib/schema.ts`.
 
 Complete the source URL and identifier, statistical definition, coverage, revision practice, and rights evidence. Mark a source verified only after review. Permitted redistribution requires a licence, evidence URL, review date, attribution and conditions. If rights are unknown or restricted, leave the observations outside the repository.
 
-Register a primary series with native frequency, explicit unit code/dimension/scale, measurement kind, price basis, coverage, structured aggregation kind and written convention, historical breaks, source IDs and source identifier. Mark it verified only after those definitions are evidenced. The six initial topics and presets are starting points; they do not establish continuous historical coverage.
+Register a primary series with native frequency, explicit unit code/dimension/scale, measurement kind, price basis, coverage, structured aggregation kind and written convention, historical breaks, source IDs and source identifier. Mark it verified only after those definitions are evidenced. The ten scope modules and existing presets do not establish continuous historical coverage.
 
 ## Import a supplied local file
 

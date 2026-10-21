@@ -2,6 +2,22 @@
 
 A lightweight interactive atlas for exploring Swiss economic history with independent chart ranges and synchronized year inspection. Indicators, topics, calculations and chart arrangements are independent, versioned records. Astro, TypeScript and npm; static GitHub Pages hosting; no backend or database.
 
+## Governing scope
+
+**The history of Swiss prosperity: how it is produced, shared, financed and sustained, and how institutions, international developments and crises change it.**
+
+The adopted [scope policy](docs/scope.md) covers ten thematic modules and an initial inventory of 47 indicator families: output and productivity; population and labour; purchasing power and household income; money and monetary policy; the franc and international integration; credit, housing and banking; government and public finances; distribution and social protection; structural transformation and resources; saving, wealth and investment returns. Roughly 40–50 families is a design guideline, not a dataset count or a requirement for identical historical coverage.
+
+The main view is annual and centred on 1946–2026. A curated six-panel overview, selected nineteenth-century histories and focused international/cantonal comparisons are development targets. Historical events and institutional regimes form a separately sourced context layer. The current workspace starts empty and retains saved/shared layouts.
+
+The [scope registry](data/registry/scope.json) defines family memberships, priorities and acquisition order. The public [Scope & roadmap](https://duracell04.github.io/swiss-economic-atlas/scope/) derives availability from published datasets and distinguishes unresolved candidates from unacquired families.
+
+- **P1 — next:** exchange rates; productivity and hours; real wages and disposable income; housing costs/prices and private/mortgage credit; trade and current account; government revenue, expenditure and fiscal balance.
+- **P2 — following:** employment, migration and demographics; consumption/investment; SARON, money and SNB balance sheet; housing supply/bank measures; distribution, social protection, sectors, skills and energy.
+- **P3 — later:** deeper external and household balance sheets, wealth concentration, selected infrastructure, broad equity and bond returns, pension assets and focused comparisons. Individual GMBF auctions and the four SMI/SMIC candidates remain unresolved source/licensing work; annual GMBF is already available.
+
+An addition must enable a meaningful historical question and satisfy the [publication rules](docs/methodology.md). A planned family never grants permission to publish unverified observations.
+
 **Production publishes verified nominal GDP, Confederation yields, the 10Y − 3M spread and general government gross debt / GDP.** The long yield includes a labeled historical proxy for 1946–1954; 2026 yields are partial-year observations with different month coverage and no derived spread. Broad gross debt covers 1946–2026, with explicit source breaks and a 2026 IMF forecast; it is not the Maastricht ratio. See the [yield audit](docs/source-audit/yields.md) and [debt audit](docs/source-audit/debt.md). Nominal GDP covers 1948–2025 in current CHF millions, with pre-1995 reconstructions identified; see the [GDP audit](docs/source-audit/gdp.md). The local demonstration remains synthetic. The original `switzerland_macro_1946_2026.html` informed the warm colours, compact controls and synchronized inspection; its compiled observations and recession dates were not imported.
 
 ## Start the interactive demonstration
@@ -46,6 +62,7 @@ Production starts with government financing yields, their spread and broad publi
 | --- | --- |
 | `data/registry/registry.json` | Series statistical identities, sources, rights and immutable snapshot references |
 | `data/registry/topics.json` | Many-to-many topic memberships |
+| `data/registry/scope.json` / `docs/scope.md` | Ten-module governing inventory, remaining-data priorities and admission policy |
 | `data/registry/transformations.json` | Calculation inputs, output, method and convention |
 | `data/registry/presets.json` | Reusable panel arrangements, annual ranges, annotations and presentation colours |
 | `data/registry/annotations.json` | Sourced events and intervals, with verification and real/synthetic identity |
@@ -55,11 +72,11 @@ Production starts with government financing yields, their spread and broad publi
 | `src/pages/series/` | Catalogue and detail routes generated from metadata |
 | `tests/` / `tests/browser/` | Synthetic meaningful checks / automated atlas interaction tests |
 
-All registries and the public manifest use **schema 2.0.0**. Existing source records, series IDs and canonical CSV columns are preserved. A new sector requires a topic record, a series definition and validated observations. A new chart requires a preset record; the renderer and routing remain unchanged. See [composition contracts](docs/composition.md).
+Statistical registries and the public manifest use **schema 2.0.0**; the independent editorial scope registry uses **1.0.0**. Existing source records, series IDs and canonical CSV columns are preserved. A new indicator requires a scope family, topic membership, a series definition and validated observations. A new chart requires a preset record. See [composition contracts](docs/composition.md).
 
 ## Contributor workflow
 
-1. Audit the exact source, definition, coverage, revision practice and redistribution evidence using [publisher templates](docs/source-audit/README.md).
+1. Place the proposed indicator in a [scope family and priority](docs/scope.md), then audit its exact source, definition, coverage, revision practice and redistribution evidence using [publisher templates](docs/source-audit/README.md).
 2. Register the series and its topic memberships; retain native frequency.
 3. Import a supplied permitted CSV; register any derived calculations separately.
 4. Validate and review observation changes, breaks, terms and methodology.
@@ -76,11 +93,11 @@ npm run demo
 
 The final `demo` command demonstrates the local importer in a separate ignored fixture directory. The [contributor guide](docs/contributing.md) explains revisions and [methodology](docs/methodology.md) defines the statistical contract. Restricted files stay outside tracked/published directories.
 
-## Initial presets and later milestones
+## Chart arrangements and later milestones
 
-The production default arrangement shows government yields, their spread and broad government gross debt / GDP in three separate panels. Add nominal GDP through **Add indicator**; its native display uses CHF millions, and its verified positive 1960 value supports explicit indexing. Reset returns to this arrangement. The local synthetic demonstration uses separate original-unit panels for GDP, GDP per capita and population, followed by macro stability and monetary policy. The previous financing arrangement, original reference and six-panel overview remain in the registry for saved layouts and later data additions. The toolbar has no preset selector; visitors compose their own arrangement directly.
+New production workspaces start empty; Reset clears the workspace. The registry retains financing, reference and overview presets for saved/shared layouts and future curated arrangements. The six-panel scope target balances output/productivity, work/purchasing power, monetary conditions/the franc, trade/foreign conditions, credit/housing/wealth and public finances. It will be populated when the necessary verified data exists. Charts currently use original units; no rebasing control or preset selector is exposed.
 
-Further verified Swiss-data acquisition, native-frequency charts, additional chart types and Relationships/correlation analysis remain later milestones.
+Further acquisition follows the scope priorities. Native-frequency episode views, appropriate explicit transformations and exploratory Relationships/correlation analysis remain later milestones with their own methodological requirements.
 
 ## GitHub Pages
 

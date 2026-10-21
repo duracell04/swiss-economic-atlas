@@ -4,6 +4,7 @@ import { load, validateMetadata, validate, checksum, json } from './store.ts';
 import { writeObservations } from './csv.ts';
 import { topicRegistrySchema, presetRegistrySchema, annotationRegistrySchema, type AtlasData } from '../../src/atlas/contracts.ts';
 import { validateState } from '../../src/atlas/composition.ts';
+import { loadScope, validateScope } from '../../src/lib/scope.ts';
 
 export async function readAtlas(root: string): Promise<AtlasData> {
   const { registry, observations } = await load(root);
@@ -44,6 +45,7 @@ export async function productionAtlas(root: string): Promise<AtlasData> {
   await validate(root, true);
   const data = await readAtlas(root);
   validateAtlas(data, true);
+  validateScope(await loadScope(root), data);
   return data;
 }
 

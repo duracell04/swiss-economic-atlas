@@ -4,7 +4,7 @@ import { href } from '../lib/catalogue';
 import { unemploymentComparison } from '../lib/unemployment';
 ---
 <Layout title="Economic atlas" atlas>
-  <header class="atlas-heading"><div><h1>Swiss Economic Atlas</h1><p>Explore Swiss economic history. Add indicators, compare charts and arrange your workspace.</p></div><span class="atlas-badge">Economic atlas<br />Annual view</span></header>
+  <header class="atlas-heading"><div><h1>Swiss Economic Atlas</h1><p>Explore Swiss economic history. Add indicators, compare charts and arrange your workspace.</p><a class="scope-entry" href={href('scope/')}>Our scope: the history of Swiss prosperity →</a></div><span class="atlas-badge">Economic atlas<br />Annual view</span></header>
   <div id="atlas" data-url={href('data/atlas.json')}>
     <aside id="demo-banner" class="demo-banner" hidden>Synthetic demonstration — not Swiss historical observations</aside>
     <div id="atlas-toolbar" class="atlas-toolbar" aria-label="Chart composition controls" hidden>

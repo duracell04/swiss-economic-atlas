@@ -1,5 +1,13 @@
 # Release notes
 
+## 2026-10-21 — Governing scope and remaining-data roadmap
+
+- Adopted the history of Swiss prosperity as the governing scope, documented in `docs/scope.md`, with a validated editorial registry of ten modules and 47 indicator families.
+- Added the public Scope & roadmap page with ordered P1 acquisitions, P2/P3 priorities, manifest-derived availability and the five unresolved GMBF/SIX definitions.
+- Aligned catalogue topics with the ten modules; preserved the legacy government-financing anchor and existing series IDs, observations, annual charts and saved layouts.
+- Added scope links from the homepage, navigation, catalogue and methodology. The full policy covers historical events/institutions, annual and incomplete-year rules, long-run/geographical extensions, admission criteria and exclusions.
+- Documented the six-panel overview as a development target, with the current empty-workspace experience retained. This release adds governance and discovery, not new economic observations.
+
 ## 2026-10-21 — Distinguish SECO registered unemployment and ILO / BFS unemployment
 
 - Clarified the four monthly, quarterly and annual display titles with the responsible institution, retaining all series IDs and observations.

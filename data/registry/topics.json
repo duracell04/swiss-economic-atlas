@@ -3,21 +3,21 @@
   "topics": [
     {
       "id": "output",
-      "title": "Output & population",
-      "description": "Output & population indicators, with definitions preserved.",
+      "title": "Output and productivity",
+      "description": "Production, output per person, productivity and capital accumulation.",
       "series_ids": [
         "real-gdp-per-capita",
-        "population",
         "real-gdp",
+        "real-gdp-growth",
         "nominal-gdp"
       ]
     },
     {
       "id": "labour",
-      "title": "Business cycle & labour",
-      "description": "Business cycle & labour indicators, with definitions preserved.",
+      "title": "Population and labour",
+      "description": "Population, migration, work, participation and distinct unemployment measures.",
       "series_ids": [
-        "real-gdp-growth",
+        "population",
         "registered-unemployment",
         "ilo-unemployment",
         "ilo-unemployment-annual",
@@ -25,11 +25,16 @@
       ]
     },
     {
+      "id": "households",
+      "title": "Purchasing power and household income",
+      "description": "Consumer prices, wages, income and household consumption.",
+      "series_ids": ["cpi", "cpi-inflation"]
+    },
+    {
       "id": "monetary",
-      "title": "Inflation & monetary policy",
-      "description": "Inflation & monetary policy indicators, with definitions preserved.",
+      "title": "Money and monetary policy",
+      "description": "Monetary regimes, policy instruments, market rates, yields and liquidity.",
       "series_ids": [
-        "cpi",
         "cpi-inflation",
         "snb-policy-rate",
         "snb-historical-instruments",
@@ -37,14 +42,7 @@
         "snb-libor-target-lower",
         "snb-libor-target-upper",
         "snb-discount-rate",
-        "snb-lombard-rate"
-      ]
-    },
-    {
-      "id": "financing",
-      "title": "Government financing",
-      "description": "Government financing indicators, with definitions preserved.",
-      "series_ids": [
+        "snb-lombard-rate",
         "confederation-long-yield",
         "confederation-10y",
         "gmbf-3m",
@@ -54,9 +52,21 @@
       ]
     },
     {
+      "id": "external",
+      "title": "The franc and international integration",
+      "description": "Exchange rates, foreign trade, current-account flows and external positions.",
+      "series_ids": []
+    },
+    {
+      "id": "credit-housing",
+      "title": "Credit, housing and banking",
+      "description": "Private credit, mortgage finance, housing costs and banking exposures.",
+      "series_ids": []
+    },
+    {
       "id": "public-finances",
-      "title": "Public finances",
-      "description": "Public finances indicators, with definitions preserved.",
+      "title": "Government and public finances",
+      "description": "Fiscal capacity, revenue, expenditure, balance and sector-specific public debt.",
       "series_ids": [
         "general-government-debt",
         "confederation-debt",
@@ -66,9 +76,21 @@
       ]
     },
     {
+      "id": "distribution",
+      "title": "Distribution and social protection",
+      "description": "Income distribution, poverty, concentration and economic security.",
+      "series_ids": []
+    },
+    {
+      "id": "structure",
+      "title": "Structural transformation and resources",
+      "description": "Sectoral change, skills, infrastructure and resource constraints.",
+      "series_ids": []
+    },
+    {
       "id": "equities",
-      "title": "Equity markets",
-      "description": "Equity markets indicators, with definitions preserved.",
+      "title": "Saving, wealth and investment returns",
+      "description": "Saving, household wealth, equity and bond returns, and pension assets.",
       "series_ids": [
         "smi",
         "smic",

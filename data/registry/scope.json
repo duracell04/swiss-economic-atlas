@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0.0",
+  "statement": "A source-transparent history of Swiss prosperity: how it is produced, shared, financed and sustained, and how institutions, international developments and crises change it.",
+  "reference_only_series_ids": ["snb-historical-instruments"],
+  "modules": [
+    {
+      "id": "output",
+      "title": "Output and productivity",
+      "question": "How much prosperity comes from productivity, labour and capital accumulation?",
+      "families": [
+        {"id":"output-levels","title":"GDP levels and growth","priority":"foundation","series_ids":["nominal-gdp","real-gdp","real-gdp-growth"],"planned":false,"annual_view":"Annual nominal and real output, with published growth and reconstruction breaks.","next_step":"Maintain the verified GDP foundation; quarterly episode analysis is a later extension."},
+        {"id":"output-per-capita","title":"Real GDP per capita","priority":"foundation","series_ids":["real-gdp-per-capita"],"planned":false,"annual_view":"Real GDP divided by the documented population denominator.","next_step":"Retain the explicit year-end population convention and inherited national-accounts breaks."},
+        {"id":"hourly-productivity","title":"Output per hour worked","priority":"next","series_ids":[],"planned":true,"annual_view":"Published annual real output per hour, with a compatible hours denominator.","next_step":"Audit FSO productivity and total-hours inputs; publish their actual start dates."},
+        {"id":"investment-share","title":"Investment relative to GDP","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual investment flows divided by compatible nominal GDP.","next_step":"Select business and construction investment with matching accounting coverage."}
+      ]
+    },
+    {
+      "id": "labour",
+      "title": "Population and labour",
+      "question": "How do population change, migration, participation and employment affect prosperity?",
+      "families": [
+        {"id":"population","title":"Population","priority":"foundation","series_ids":["population"],"planned":false,"annual_view":"Published year-end permanent resident population.","next_step":"Maintain population definitions and census/register transitions."},
+        {"id":"migration","title":"Net migration and cross-border workers","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual migration flows; separately defined annual worker stocks or means.","next_step":"Audit migration balance and cross-border employment without merging residence concepts."},
+        {"id":"employment-participation","title":"Employment and labour-force participation","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual employment, employment rates and participation with explicit age bases.","next_step":"Distinguish people, jobs and full-time equivalents; preserve survey breaks."},
+        {"id":"hours-worked","title":"Total hours worked","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual total actual hours worked, compatible with productivity.","next_step":"Acquire alongside hourly productivity so output can be decomposed into hours and productivity."},
+        {"id":"unemployment","title":"Registered and ILO unemployment","priority":"foundation","series_ids":["registered-unemployment","registered-unemployment-annual","ilo-unemployment","ilo-unemployment-annual"],"planned":false,"annual_view":"Complete-year SECO means and separately published BFS / ILO annual estimates.","next_step":"Maintain both definitions; extend historical coverage only with verified annual evidence."},
+        {"id":"demography","title":"Age structure and dependency ratios","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual population shares and dependency ratios with explicit age thresholds.","next_step":"Connect demographic change with labour supply and social-insurance financing."}
+      ]
+    },
+    {
+      "id": "households",
+      "title": "Purchasing power and household income",
+      "question": "How do gains in output translate into households' material circumstances?",
+      "families": [
+        {"id":"consumer-prices","title":"Consumer prices and inflation","priority":"foundation","series_ids":["cpi","cpi-inflation"],"planned":false,"annual_view":"Published annual inflation; the native monthly CPI remains separately available.","next_step":"Maintain the verified price and inflation definitions; extend history only after source review."},
+        {"id":"real-wages","title":"Nominal and real wages","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual wage indices and real wage growth using a named consumer-price basis.","next_step":"Prioritise the FSO wage index; keep wage growth distinct from median salary levels."},
+        {"id":"disposable-income","title":"Real median disposable household income","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual real equivalised median income, with the equivalence scale and deflator stated.","next_step":"Audit household survey coverage, income reference year and breaks; accept a shorter reliable history."},
+        {"id":"consumption-per-capita","title":"Real consumption per person","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual real household consumption divided by a compatible population denominator.","next_step":"Document national-accounts versus household-survey coverage before comparing with income."}
+      ]
+    },
+    {
+      "id": "monetary",
+      "title": "Money and monetary policy",
+      "question": "How do policy regimes, liquidity and borrowing costs change over time?",
+      "families": [
+        {"id":"policy-instruments","title":"Historically appropriate policy instruments","priority":"foundation","series_ids":["snb-policy-rate","snb-policy-rate-annual","snb-discount-rate","snb-lombard-rate","snb-libor-target-lower","snb-libor-target-upper"],"planned":false,"annual_view":"Instrument-specific year-end readings or documented annual means.","next_step":"Preserve separate discount, Lombard, Libor-target and modern policy-rate identities."},
+        {"id":"short-market-rates","title":"Short-term market rates, including SARON","priority":"following","series_ids":[],"planned":true,"annual_view":"A documented annual average of the chosen market rate.","next_step":"Audit SARON access and reuse terms; retain its own starting date rather than splice earlier instruments."},
+        {"id":"government-yields","title":"Government yields and the yield spread","priority":"foundation","series_ids":["confederation-long-yield","confederation-10y","confederation-10y-annual","gmbf-3m-annual","confederation-10y-minus-gmbf-3m","gmbf-3m"],"planned":false,"annual_view":"Documented annual yield averages and matched-year spreads; native sources stay separate.","next_step":"Annual GMBF is available. Individual three-month auction events are lower-priority work pending source verification."},
+        {"id":"broad-money","title":"Broad money, M2 / M3","priority":"following","series_ids":[],"planned":true,"annual_view":"Year-end money stocks and compatible GDP ratios, with aggregate definitions.","next_step":"Choose a broad-money baseline and document changes in monetary aggregates."},
+        {"id":"snb-balance-sheet","title":"SNB balance sheet and reserves","priority":"following","series_ids":[],"planned":true,"annual_view":"Year-end balance-sheet and foreign-reserve stocks, with valuation conventions.","next_step":"Connect interventions and liquidity with exchange-rate regimes; distinguish flows from valuation effects."}
+      ]
+    },
+    {
+      "id": "external",
+      "title": "The franc and international integration",
+      "question": "How do foreign demand, capital flows and monetary conditions shape Switzerland?",
+      "families": [
+        {"id":"bilateral-fx","title":"CHF bilateral exchange rates","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual means in CHF per unit of foreign currency; year-end views remain distinct.","next_step":"Start with CHF/EUR, CHF/USD and CHF/DEM before 1999; do not invent a pre-1999 euro history."},
+        {"id":"effective-fx","title":"Nominal and real effective exchange rates","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual mean indices with explicit weighting, deflator and base year.","next_step":"Audit the SNB index definitions and changes in trading-partner weights."},
+        {"id":"foreign-trade","title":"Exports, imports and trade balance","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual trade flows and balances; compatible GDP shares where appropriate.","next_step":"Specify customs goods coverage and gold/valuables treatment; keep national-accounts goods and services distinct."},
+        {"id":"current-account","title":"Current-account balance","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual balance-of-payments flows and a matching nominal-GDP ratio.","next_step":"Audit SNB balance-of-payments revisions and explain the difference from the goods trade balance."},
+        {"id":"international-position","title":"International investment position","priority":"later","series_ids":[],"planned":true,"annual_view":"Year-end foreign assets and liabilities, with valuation and coverage notes.","next_step":"Add after external flows; distinguish the net position from transaction-driven capital flows."}
+      ]
+    },
+    {
+      "id": "credit-housing",
+      "title": "Credit, housing and banking",
+      "question": "Where do financial exposures accumulate, and how do they affect housing and banking?",
+      "families": [
+        {"id":"private-credit","title":"Private credit relative to GDP","priority":"next","series_ids":[],"planned":true,"annual_view":"Year-end credit stocks divided by compatible annual nominal GDP.","next_step":"Audit bank versus total credit and household versus corporate coverage before assembling a history."},
+        {"id":"mortgage-lending","title":"Mortgage lending and mortgage debt","priority":"next","series_ids":[],"planned":true,"annual_view":"Year-end mortgage stocks and explicitly defined debt ratios.","next_step":"Connect financing volumes with property prices; document institutional and borrower coverage."},
+        {"id":"residential-prices","title":"Real residential property prices","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual mean price index deflated by a named CPI, with property coverage.","next_step":"Prefer an auditable national series; keep new statistical indices and historical reconstructions distinct."},
+        {"id":"mortgage-rates","title":"Mortgage borrowing costs and rental reference rate","priority":"next","series_ids":[],"planned":true,"annual_view":"Separate annual views for new lending, outstanding mortgages and the official rental reference rate.","next_step":"Audit SNB and BWO definitions and aggregation; the rounded rental reference rate is a distinct measure."},
+        {"id":"rents-vacancies","title":"Rents, housing supply and vacancies","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual rent indices, construction flows and vacancy readings with their survey dates.","next_step":"Relate housing costs to wages and income without treating a vacancy-date reading as an annual mean."},
+        {"id":"bank-balance-sheets","title":"Selected bank balance-sheet measures","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual bank capital and funding measures at a documented consolidation level.","next_step":"Select a small crisis-relevant set; preserve changes in bank populations and accounting standards."}
+      ]
+    },
+    {
+      "id": "public-finances",
+      "title": "Government and public finances",
+      "question": "How do fiscal capacity, the state's role and responses to shocks evolve?",
+      "families": [
+        {"id":"government-revenue","title":"Government revenue and tax burden","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual revenue and tax-to-GDP ratios with consistent government coverage.","next_step":"Audit FFA totals, social-insurance coverage and matching GDP denominators."},
+        {"id":"government-expenditure","title":"Government expenditure","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual expenditure flows and matching GDP shares.","next_step":"Keep consolidated general government separate from Confederation, cantonal and municipal totals."},
+        {"id":"fiscal-balance","title":"Fiscal balance","priority":"next","series_ids":[],"planned":true,"annual_view":"Annual surplus / deficit and GDP ratio under a named accounting framework.","next_step":"Distinguish financing balances from national-accounts net lending; connect to documented fiscal rules."},
+        {"id":"government-debt","title":"Public debt levels and debt / GDP","priority":"foundation","series_ids":["general-government-debt","confederation-debt","general-government-debt-ratio","confederation-debt-ratio"],"planned":false,"annual_view":"Year-end debt stocks and defined GDP ratios, preserving sector and source breaks.","next_step":"Maintain separate general-government and Confederation measures, and explicit forecasts."},
+        {"id":"spending-composition","title":"Composition of government expenditure","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual functional spending shares and selected interest costs.","next_step":"Add education, social protection and interest burdens once comparable fiscal totals are established."}
+      ]
+    },
+    {
+      "id": "distribution",
+      "title": "Distribution and social protection",
+      "question": "Who participates in prosperity, and how much economic security do households have?",
+      "families": [
+        {"id":"income-inequality","title":"Disposable-income inequality","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual inequality statistics for a documented income concept and population.","next_step":"Choose a disposable-income measure and preserve survey and equivalence-scale changes."},
+        {"id":"poverty","title":"Poverty and material deprivation","priority":"following","series_ids":[],"planned":true,"annual_view":"Published annual poverty rates with thresholds and income reference years.","next_step":"Distinguish absolute, relative and material-deprivation concepts rather than merge them."},
+        {"id":"income-wealth-concentration","title":"Income and wealth concentration","priority":"later","series_ids":[],"planned":true,"annual_view":"Annual top shares where survey or tax data support a defensible comparison.","next_step":"Document tax-unit, pension-wealth and valuation exclusions before interpreting changes."},
+        {"id":"social-protection","title":"Social-protection expenditure","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual benefit expenditure and compatible GDP shares.","next_step":"Distinguish programmes and financing systems; link reforms as separately sourced events."}
+      ]
+    },
+    {
+      "id": "structure",
+      "title": "Structural transformation and resources",
+      "question": "How do productive capabilities, sectors and resource requirements change?",
+      "families": [
+        {"id":"sectoral-change","title":"Sectoral employment and value-added shares","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual sector shares using documented industry classifications.","next_step":"Connect industrialisation and services with employment and productivity; mark classification breaks."},
+        {"id":"education-skills","title":"Education and skills","priority":"following","series_ids":[],"planned":true,"annual_view":"Selected annual attainment, training or research measures with population bases.","next_step":"Prioritise measures that explain productive capacity; preserve changes in qualification systems."},
+        {"id":"energy-dependence","title":"Energy use, import dependence and emissions intensity","priority":"following","series_ids":[],"planned":true,"annual_view":"Annual resource flows and compatible output or population intensities.","next_step":"State energy accounting and emissions boundaries; connect resource constraints to prosperity."},
+        {"id":"infrastructure","title":"Selected infrastructure measures","priority":"later","series_ids":[],"planned":true,"annual_view":"Annual transport or communications stocks and use, selected for a historical question.","next_step":"Add a small set only when comparable evidence explains productive or regional change."}
+      ]
+    },
+    {
+      "id": "equities",
+      "title": "Saving, wealth and investment returns",
+      "question": "How do saving, accumulated wealth and returns develop alongside wages and production?",
+      "families": [
+        {"id":"equity-returns","title":"Broad Swiss equity total returns","priority":"later","series_ids":["smi","smic","smi-annual-return","smic-annual-return"],"planned":true,"annual_view":"Calendar-year total return, distinguishing dividends from price return.","next_step":"Prioritise one representative broad series such as SPI total return after the core gaps. Exact SMI / SMIC candidates remain subject to SIX permission; verify SPI terms independently."},
+        {"id":"bond-returns","title":"Government bond total returns","priority":"later","series_ids":[],"planned":true,"annual_view":"Annual holding-period total return, including coupons and price changes.","next_step":"Select a documented maturity portfolio; a yield is not a bond total return."},
+        {"id":"household-balance-sheets","title":"Household saving, assets and debt","priority":"later","series_ids":[],"planned":true,"annual_view":"Annual saving flows and year-end asset / liability stocks with coverage notes.","next_step":"Distinguish saving from capital gains and state whether pension entitlements are included."},
+        {"id":"pension-assets","title":"Pension-system assets and returns","priority":"later","series_ids":[],"planned":true,"annual_view":"Year-end pension assets and separately defined annual investment returns.","next_step":"Add after wages, housing and core credit; preserve second-pillar institutional coverage."}
+      ]
+    }
+  ],
+  "acquisition_order": [
+    {"title":"The franc and foreign conditions","family_ids":["bilateral-fx","effective-fx"],"why":"Establish the missing exchange-rate context for monetary policy, foreign demand and safe-haven episodes."},
+    {"title":"Productivity and labour input","family_ids":["hourly-productivity","hours-worked"],"why":"Distinguish output gains from more hours worked and gains in output per hour."},
+    {"title":"Wages and household purchasing power","family_ids":["real-wages","disposable-income"],"why":"Connect national prosperity with the material circumstances of households."},
+    {"title":"Housing and its financing","family_ids":["mortgage-rates","residential-prices","private-credit","mortgage-lending"],"why":"Connect borrowing costs and credit exposures with property prices and household burdens."},
+    {"title":"Trade and the current account","family_ids":["foreign-trade","current-account"],"why":"Connect domestic activity and the franc with foreign demand and external balances."},
+    {"title":"Fiscal revenue, expenditure and balance","family_ids":["government-revenue","government-expenditure","fiscal-balance"],"why":"Give the existing debt history its fiscal-flow and institutional context."}
+  ],
+  "deferred_series": [
+    {"series_id":"gmbf-3m","blocker":"Source verification pending","next_step":"Establish reuse terms for the FFA auction workbook and verify three-month tranche selection, event dates and multiple auctions. The published annual GMBF average already supports annual comparisons."},
+    {"series_id":"smi","blocker":"SIX licensing pending","next_step":"Obtain an authorised historical SMI price-index export with permission for public display and downloads."},
+    {"series_id":"smic","blocker":"SIX licensing pending","next_step":"Obtain an authorised historical SMIC total-return export with permission for public display and downloads."},
+    {"series_id":"smi-annual-return","blocker":"SIX licensing pending","next_step":"Verify year-end trading closes and permission to publish derived annual price returns."},
+    {"series_id":"smic-annual-return","blocker":"SIX licensing pending","next_step":"Verify matching year-end trading closes and permission to publish derived annual total returns."}
+  ]
+}

@@ -2,9 +2,12 @@ import { readFileSync } from 'node:fs';
 import path from 'node:path';
 import { productionAtlas } from '../../scripts/lib/atlas-data';
 import type { AtlasData } from '../atlas/contracts';
+import { loadScope, validateScope } from './scope';
 export const atlas: AtlasData = process.env.HEI_DEMO === '1' ? JSON.parse(readFileSync('.cache/atlas-demo.json','utf8')) : await productionAtlas(process.cwd());
 export const registry = atlas.registry;
 export const topics = atlas.topics;
+export const scope = await loadScope(process.cwd());
+validateScope(scope, atlas);
 export function href(route = ''): string {
   const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   return `${base}/${route.replace(/^\//, '')}`;
